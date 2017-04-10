@@ -19,6 +19,9 @@ import { ContactComponent } from './contact/contact.component';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { NewProjectComponent } from './new-project/new-project.component';
+import { NewContactComponent } from './new-contact/new-contact.component';
+import { NewSocialmediaComponent } from './new-socialmedia/new-socialmedia.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -38,7 +41,10 @@ export const firebaseConfig = {
     LoginComponent,
     AboutComponent,
     ContactComponent,
-    SideBarComponent
+    SideBarComponent,
+    NewProjectComponent,
+    NewContactComponent,
+    NewSocialmediaComponent
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,7 @@ export class ProjectListComponent implements OnInit {
   }
 
   goToProjectDetail(clickedProject) {
-    this.router.navigate(["project", clickedProject.$key]);
+    this.router.navigate(["projects", clickedProject.$key]);
   }
 
 }
