@@ -10,11 +10,21 @@ import { AppComponent } from './app.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { ProjectListComponent } from './project-list/project-list.component';
+
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { masterFirebaseConfig } from './api-keys';
+import { AngularFireModule } from 'angularfire2';
+
+export const firebaseConfig = {
+  apiKey: masterFirebaseConfig.apiKey,
+  authDomain: masterFirebaseConfig.authDomain,
+  databaseURL: masterFirebaseConfig.databaseURL,
+  storageBucket: masterFirebaseConfig.storageBucket
+};
 
 @NgModule({
   declarations: [
@@ -32,7 +42,11 @@ import { ContactComponent } from './contact/contact.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+<<<<<<< HEAD
     routing
+=======
+    AngularFireModule.initializeApp(firebaseConfig)
+>>>>>>> ca270c8511bcaed1d45166707d959c88c3eb10ca
   ],
   providers: [],
   bootstrap: [AppComponent]
