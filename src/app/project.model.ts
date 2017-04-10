@@ -1,16 +1,18 @@
-import ( Need ) from './need.model';
-import ( User ) from './user.model';
+import { User } from './user.model';
+import { Need } from './need.model';
+import { SocialMedia } from './social-media.model';
+import { Contact } from './contact.model';
 
 export class Project {
   public owner: User;
-  public needs: Need[];
 
   constructor(
+    public needs: Need[],
     public title: string,
     public image: string,
     public description: string,
-    public socialMedia: string[],
-    public contactInformation: string[],
+    public socialMedia: SocialMedia[],
+    public contactInformation: Contact[],
     public website: string
-  );
+  ) {};
 }
