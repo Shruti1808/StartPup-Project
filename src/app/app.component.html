@@ -1,3 +1,21 @@
-<h1>
-  {{title}}
-</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="">StartPup</a>
+
+
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a routerLink="signup">Sign Up</a></li>
+      <li><a routerLink="login">Login</a></li>
+      <li><a routerLink="about">About</a></li>
+      <a class="navbar-brand" routerLink="contact">Contact Us</a>
+
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+
+</div>
