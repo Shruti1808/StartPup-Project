@@ -1,3 +1,5 @@
+import { Project } from './project.model';
+
 export class User {
   constructor(
     public name: string,
