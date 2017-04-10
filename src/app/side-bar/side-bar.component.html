@@ -1,9 +1,12 @@
-<div class="">
-  <img src="project.owner.userImage" alt="project.owner.name" />
-  <h5>{{project.owner.name}}</h5>
-</div>
-<div class="">
-  <div *ngFor="let sm of project.socialMedia" class="social-media">
-    <p><span>{{sm.mediaType}}</span>{{sm.mediaAddress}}</p>
+<div class="side-bar-box">
+  <div class="owner-box">
+  <img [src]="owner?.userImage" alt="owner?.name" />
+    <h3>{{owner?.name}}</h3>
+    <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{owner?.location}}</p>
+  </div>
+  <div class="social-media-box">
+    <div *ngFor="let sm of project.socialMedia" class="social-media">
+      <p><span>{{sm.mediaType}}</span>{{sm.mediaAddress}}</p>
+    </div>
   </div>
 </div>

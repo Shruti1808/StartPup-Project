@@ -1,0 +1,21 @@
+:host {
+  border: 1px solid orange;
+}
+
+.side-bar-box {
+  border: 1px solid green;
+  .owner-box {
+    img {
+      max-width: 40%;
+      outline: 10px solid black;
+      margin-top: 10px;
+      margin-left: 10px;
+      margin: 10px 20px 10px 10px;
+      float: left;
+    }
+    h3 {
+      display: inline-block;
+      margin-top: 10px;
+    }
+  }
+}

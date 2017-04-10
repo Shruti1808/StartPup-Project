@@ -1,6 +1,8 @@
 import { Project } from './project.model';
 
 export class User {
+  public id: string;
+  
   constructor(
     public name: string,
     public location: string,

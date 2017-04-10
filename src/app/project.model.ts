@@ -4,7 +4,7 @@ import { SocialMedia } from './social-media.model';
 import { Contact } from './contact.model';
 
 export class Project {
-  public owner: User;
+  public owner: string;
 
   constructor(
     public needs: Need[],
