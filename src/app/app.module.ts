@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 
 
+
 import { AppComponent } from './app.component';
 
 import { ProjectDetailComponent } from './project-detail/project-detail.component';

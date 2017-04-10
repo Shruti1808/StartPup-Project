@@ -1,8 +1,10 @@
-<div class="col-md-8">
-  <h2>{{projectToDisplay?.title}}</h2>
-  <img src="projectToDisplay?.image" alt="projectToDisplay?.title" />
-  <p>{{projectToDisplay?.description}}</p>
-</div>
-<div class="col-md-4">
-  <!-- <app-side-bar [projectToDisplay]="project"></app-side-bar> -->
+<div class="project-detail-box row">
+  <div class="main-project col-md-8">
+    <h2>{{projectToDisplay?.title}}</h2>
+    <img [src]="projectToDisplay?.image" alt="projectToDisplay?.title" />
+    <p [innerHTML]="projectToDisplay?.description"></p>
+  </div>
+  <div class="col-md-4">
+    <app-side-bar [project]="projectToDisplay" [owner]="user"></app-side-bar>
+  </div>
 </div>

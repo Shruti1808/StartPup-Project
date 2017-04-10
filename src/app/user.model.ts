@@ -4,6 +4,8 @@ import { SocialMedia } from './social-media.model';
 import { Contact } from './contact.model';
 
 export class User {
+  public id: string;
+  
   constructor(
     public name: string,
     public location: string,
