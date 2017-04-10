@@ -18,6 +18,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
+import { SideBarComponent } from './side-bar/side-bar.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -36,17 +37,15 @@ export const firebaseConfig = {
     SignupComponent,
     LoginComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-<<<<<<< HEAD
-    routing
-=======
+    routing,
     AngularFireModule.initializeApp(firebaseConfig)
->>>>>>> ca270c8511bcaed1d45166707d959c88c3eb10ca
   ],
   providers: [],
   bootstrap: [AppComponent]

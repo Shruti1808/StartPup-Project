@@ -1,0 +1,9 @@
+<div class="">
+  <img src="project.owner.userImage" alt="project.owner.name" />
+  <h5>{{project.owner.name}}</h5>
+</div>
+<div class="">
+  <div *ngFor="let sm of project.socialMedia" class="social-media">
+    <p><span>{{sm.mediaType}}</span>{{sm.mediaAddress}}</p>
+  </div>
+</div>
