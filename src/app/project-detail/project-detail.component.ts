@@ -18,6 +18,7 @@ import { Location } from '@angular/common';
 export class ProjectDetailComponent implements OnInit {
   public projectId: string;
   public projectToDisplay: any;
+  public user: User;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,7 +34,11 @@ export class ProjectDetailComponent implements OnInit {
     this.projectToDisplay = this.projectService.getProjectById(this.projectId).subscribe(dataLastEmittedFromObserver => {
       this.projectToDisplay = dataLastEmittedFromObserver;
 
+      this.user = new User(dataLastEmittedFromObserver.owner.name, dataLastEmittedFromObserver.owner.location, dataLastEmittedFromObserver.owner.userEmail, dataLastEmittedFromObserver.owner.userImage, dataLastEmittedFromObserver.owner.projectList);
+      this.user.id = dataLastEmittedFromObserver.owner.id;
+
       console.log(this.projectToDisplay);
+      console.log(this.user);
     })
   }
 

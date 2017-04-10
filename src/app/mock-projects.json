@@ -4,7 +4,7 @@
     "location": "Vancouver,Canada",
     "userEmail": "linda21@gmail.com",
     "userImage": "https://ksr-ugc.imgix.net/assets/009/526/989/285cd8992aeeb3efefcd5c6e30255f7d_original.jpg?w=220&h=220&fit=crop&v=1461601080&auto=format&q=92&s=00b64834259065034c274deac9377d39",
-    "projects": [{}]
+    "projects": [0, 1]
     }, {
       "name": "Mark Johnson",
       "location": "Santa Monica, CA",
@@ -34,7 +34,6 @@
             }],
   "projects": {
     "0" : {
-
       "needs": [{
         "title": "Webmaster",
         "description": "Please help my website not be so cheesy",
@@ -45,6 +44,13 @@
         "candidates": [{}]
       }],
       "title": "Palaeoplushies: Scientifically Accurate Dinosaur Soft Toys",
+      "owner": {
+        "name": "Mark Johnson",
+        "location": "Santa Monica, CA",
+        "userEmail": "mark.john30@gmail.com",
+        "userImage":"https://ksr-ugc.imgix.net/assets/015/665/532/e6ecaadfa1906c6cec80230e07e2d4bb_original.jpg?w=220&h=220&fit=crop&v=1488236452&auto=format&q=92&s=32616461312333052efb1bf22868e6a2",
+        "projects": [{}]
+      },
       "image": "https://ksr-ugc.imgix.net/assets/016/112/300/cad781be2f6809d470385c4efe0b40fa_original.png?w=680&fit=max&v=1491214813&auto=format&lossless=true&s=121c1d0d9b83c1e2b0ca3235e1b249c8",
       "description": "<p>Palaeoplushies are my range of scientifically accurate dinosaur soft toys.</p><p>I design them myself, reconstructing them based off of the latest palaeontological knowledge. My hand-made soft toys are designed and painted digitally, printed onto fabric and then cut out and sewn personally. I also sell a range of products designed by myself.</p><p>I've sold them mainly online, but I do occasionally frequent palaeontology conferences to sell my soft toys.</p><p>Recently, due to high demand and inability to keep up with orders, I was motivated to get one of my toy designs produced professionally. I ran a successful Kickstarter campaign to get a feathered Velociraptor mongoliensis manufactured! Thanks everyone for your support!</p>",
       "socialMedia": [{
