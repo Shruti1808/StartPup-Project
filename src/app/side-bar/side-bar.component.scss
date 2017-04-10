@@ -5,6 +5,7 @@
 .side-bar-box {
   border: 1px solid green;
   .owner-box {
+    outline: 5px solid red;
     img {
       max-width: 40%;
       outline: 10px solid black;
@@ -17,5 +18,14 @@
       display: inline-block;
       margin-top: 10px;
     }
+  }
+}
+
+.social-media-box {
+  border: 1px solid blue;
+  margin-top: 20px;
+  padding: 10px;
+  a {
+    font-size: 20px;
   }
 }

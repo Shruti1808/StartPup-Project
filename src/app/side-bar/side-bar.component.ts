@@ -17,4 +17,16 @@ export class SideBarComponent implements OnInit {
   ngOnInit() {
   }
 
+  getType(socialMedia){
+    if (socialMedia.mediaType === 'Facebook') {
+      return "fa fa-facebook-square  fa-2x";
+    } else if (socialMedia.mediaType === 'Twitter') {
+      return "fa fa-twitter-square fa-2x";
+    } else if (socialMedia.mediaType === 'Instagram') {
+      return "fa fa-instagram fa-2x";
+    } else if (socialMedia.mediaType === 'LinkedIn') {
+      return "fa fa-linkedin-square fa-2x";
+    }
+  }
+
 }
