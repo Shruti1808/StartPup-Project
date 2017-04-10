@@ -7,15 +7,16 @@ import { Need } from '../need.model';
 import { Contact } from '../contact.model';
 import { SocialMedia } from '../social-media.model';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-project-detail',
   templateUrl: './project-detail.component.html',
-  styleUrls: ['./project-detail.component.css'],
+  styleUrls: ['./project-detail.component.scss'],
   providers: [UserService, ProjectService]
 })
 export class ProjectDetailComponent implements OnInit {
-  public projectId: number;
+  public projectId: string;
   public projectToDisplay: any;
 
   constructor(
