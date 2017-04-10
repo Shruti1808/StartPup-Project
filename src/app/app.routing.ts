@@ -8,8 +8,9 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-
-
+import { NewProjectComponent } from './new-project/new-project.component';
+import { NewContactComponent } from './new-contact/new-contact.component';
+import { NewSocialmediaComponent } from './new-socialmedia/new-socialmedia.component';
 
 const appRoutes: Routes = [
   {
@@ -29,8 +30,16 @@ const appRoutes: Routes = [
     component: ProjectDetailComponent
   },
   {
-    path: 'signup',
-    component: SignupComponent
+    path: 'new-project',
+    component: NewProjectComponent
+  },
+  {
+    path: 'new-project',
+    component: NewContactComponent
+  },
+  {
+    path: 'new-project',
+    component: NewSocialmediaComponent
   },
   {
     path: 'login',
