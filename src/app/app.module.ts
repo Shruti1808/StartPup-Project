@@ -9,6 +9,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
+import { SideBarComponent } from './side-bar/side-bar.component';
 
 
 export const firebaseConfig = {
@@ -23,7 +24,8 @@ export const firebaseConfig = {
     AppComponent,
     ProjectDetailComponent,
     UserDetailComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
