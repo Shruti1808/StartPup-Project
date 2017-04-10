@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { ProjectListComponent } from './project-list/project-list.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ProjectListComponent } from './project-list/project-list.component';
     AppComponent,
     ProjectDetailComponent,
     UserDetailComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
