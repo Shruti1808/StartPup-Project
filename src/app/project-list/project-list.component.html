@@ -2,7 +2,7 @@
   project-list works!
 </p>
 <ul>
-  <!-- <li *ngFor = 'let project of projects | async'>
-    <project-detail [currentProject]='projrct'></project-detail>
-  </li> -->
+  <li *ngFor = 'let project of projects | async' (click)="goToProjectDetail(project)">
+    <h2>{{project.title}}</h2>
+  </li>
 </ul>
