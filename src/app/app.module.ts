@@ -7,7 +7,16 @@ import { AppComponent } from './app.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { ProjectListComponent } from './project-list/project-list.component';
+import { masterFirebaseConfig } from './api-keys';
+import { AngularFireModule } from 'angularfire2';
 
+
+export const firebaseConfig = {
+  apiKey: masterFirebaseConfig.apiKey,
+  authDomain: masterFirebaseConfig.authDomain,
+  databaseURL: masterFirebaseConfig.databaseURL,
+  storageBucket: masterFirebaseConfig.storageBucket
+};
 
 @NgModule({
   declarations: [
@@ -19,7 +28,8 @@ import { ProjectListComponent } from './project-list/project-list.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
