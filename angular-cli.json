@@ -43,7 +43,7 @@
       "files": "e2e/**/*.ts",
       "project": "e2e/tsconfig.json"
     }
-  ],s
+  ],
   "test": {
     "karma": {
       "config": "./karma.conf.js"
