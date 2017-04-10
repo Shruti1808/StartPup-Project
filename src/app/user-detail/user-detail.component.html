@@ -1,3 +1,23 @@
-<p>
-  user-detail works!
-</p>
+<div class="hero">
+
+</div>
+
+<div class="container">
+
+  <!-- user profile info section -->
+  <div class="pro-info">
+    <div class="pic">
+    </div>
+    <h1>jeojepojeopjpoejopejopejpoej</h1>
+      <h1 class="name">Name: {{(userToDisplay | async)?.name}}</h1>
+      <h2 class="location">{{(userToDisplay | async)?.location}}</h2>
+      <h3 class="email">{{(userToDisplay | async)?.email}}</h3>
+<ul class="project-list" *ngFor="let project of projects">
+  <li class="project">{{(getProjectById | async)?.title}}</li>
+</ul>
+
+  </div>
+
+
+  <!--ending container div -->
+</div>
