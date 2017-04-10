@@ -1,6 +1,5 @@
-import { User } from './user.model';
 
-export const USERS: User[]= [
+ export const USERS: User = [
   new User("Linda wood", "Vancouver,Canada", "linda21@gmail.com", "https://ksr-ugc.imgix.net/assets/009/526/989/285cd8992aeeb3efefcd5c6e30255f7d_original.jpg?w=220&h=220&fit=crop&v=1461601080&auto=format&q=92&s=00b64834259065034c274deac9377d39", ["Report on the State of the Animal ","Reports from the race against climate change"]),
 
   new User("Mark Johnson","Santa Monica, CA", "mark.john30@gmail.com","https://ksr-ugc.imgix.net/assets/015/665/532/e6ecaadfa1906c6cec80230e07e2d4bb_original.jpg?w=220&h=220&fit=crop&v=1488236452&auto=format&q=92&s=32616461312333052efb1bf22868e6a2", ["Superscreen"]),

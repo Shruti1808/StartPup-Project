@@ -1,5 +1,3 @@
-import ( Need ) from './need.model';
-import ( User ) from './user.model';
 
 export class Project {
   public owner: User;
@@ -12,5 +10,5 @@ export class Project {
     public socialMedia: string[],
     public contactInformation: string[],
     public website: string
-  );
+  ){}
 }
