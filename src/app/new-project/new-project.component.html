@@ -1,6 +1,32 @@
  <h1>Create New Project Proposal</h1>
-<input class="form-control" type="text" name="title" placeholder="Title" #newTitle><br>
-<input class="form-control" type="text" name="image" placeholder="Featured Image" #newImage><br>
+ <div class="form-group">
+<input class="form-control" type="text" name="title" placeholder="Title" #newTitle>
+</div>
+<div class="form-group">
+<input class="form-control" type="text" name="image" placeholder="Featured Image" #newImage>
+</div>
+<div class="form-group">
 <div [froalaEditor] placeholder="Description" [(froalaModel)]="newDescription"></div>
-<input class="form-control" type="text" name="website" placeholder="Website URL" #newWebsite><br>
+</div>
+<div class="form-group">
+<input class="form-control" type="text" name="website" placeholder="Website URL" #newWebsite>
+</div>
+<div class="form-group">
+  <h3>Social Media</h3>
+  <label>Choose social media</label>
+  <select (change)="onChange($event.target.value)">
+    <option value="">Select social media</option>
+    <option value="Facebook">Facebook</option>
+    <option value="LinkedIn">LinkedIn</option>
+    <option value="Twitter">Twitter</option>
+    <option value="Instagram">Instagram</option>
+  </select>
+  <label *ngIf="socialMediaString=='Facebook' || socialMediaString=='Twitter' || socialMediaString=='Instagram'">Input username</label>
+
+  <label *ngIf="socialMediaString=='LinkedIn' ">Input url</label>
+  <input *ngIf="socialMediaString != ''" type="text" name="name" [(ngModel)]="newAccount">
+  <span *ngIf="newAccount" >
+    <i class="fa fa-plus-square fa-lg" aria-hidden="true"></i>
+  </span>
+</div>
 <button class="btn btn-info" (click)="createNewProject(newTitle.value, newImage.value, newDescription, newWebsite.value); newTitle.value=''; newImage.value='';newDescription='';newWebsite.value='';">Propose</button>

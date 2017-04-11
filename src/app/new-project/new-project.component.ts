@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class NewProjectComponent implements OnInit {
   newDescription: string = "";
+  socialMediaString: string = "";
+  newAccount: string="";
 
   constructor(private projectService: ProjectService, private router: Router) { }
 
@@ -21,6 +23,10 @@ export class NewProjectComponent implements OnInit {
     var newProject = new Project([], newTitle, newImage, newDescription, [], [], newWebsite);
     this.projectService.addNewProject(newProject);
     this.router.navigate([""]);
+  }
+
+  onChange(socialMediaOption) {
+    this.socialMediaString = socialMediaOption;
   }
 
 }
