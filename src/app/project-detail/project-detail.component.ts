@@ -8,6 +8,7 @@ import { Contact } from '../contact.model';
 import { SocialMedia } from '../social-media.model';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-detail',
@@ -24,7 +25,8 @@ export class ProjectDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private userService: UserService,
-    private projectService: ProjectService
+    private projectService: ProjectService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -48,6 +50,13 @@ export class ProjectDetailComponent implements OnInit {
 
 
     });
+  }
+
+  deleteProject(projectToDelete){
+    if (confirm ("Are you sure you want to delete this project?")){
+      this.projectService.deleteProject(projectToDelete);
+      this.router.navigate([""]);
+    }
   }
 
 }

@@ -47,4 +47,25 @@ export class ProjectService {
   //    this.addingNeed;
   // }
 }
+  getProjectById(projectId: string){
+    return this.angularFire.database.object('projects/'+ projectId);
+  }
+
+  editProject(localUpdatedProject, socialMediaArray) {
+    var projectEntryInFirebase = this.getProjectById(localUpdatedProject.$key);
+    projectEntryInFirebase.update({
+      // needs: localUpdatedProject.needs,
+      title: localUpdatedProject.title,
+      image: localUpdatedProject.image,
+      description: localUpdatedProject.description,
+      socialMedia: socialMediaArray,
+      // contactInformation: localUpdatedProject.contactInformation,
+      website: localUpdatedProject.website
+    })
+  }
+
+  deleteProject(localProjectToDelete) {
+    var projectEntryInFirebase = this.getProjectById(localProjectToDelete.$key);
+    projectEntryInFirebase.remove();
+  }
 }
