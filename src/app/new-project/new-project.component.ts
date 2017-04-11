@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../project.model';
 import { ProjectService } from '../project.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-project',
@@ -10,7 +11,7 @@ import { ProjectService } from '../project.service';
 })
 export class NewProjectComponent implements OnInit {
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -18,6 +19,7 @@ export class NewProjectComponent implements OnInit {
   createNewProject(newTitle, newImage, newDescription, newWebsite){
     var newProject = new Project([], newTitle, newImage, newDescription, [], [], newWebsite);
     this.projectService.addNewProject(newProject);
+    this.router.navigate([""]);
   }
 
 }

@@ -21,4 +21,8 @@ export class EditProjectComponent implements OnInit {
     this.projectService.editProject(projectToEdit);
   }
 
+  reload(){
+    window.location.reload();
+  }
+
 }

@@ -1,5 +1,5 @@
 <button class="btn btn-sm btn-info" (click)="showProjectEditForm = true">Edit</button>
-<div *ngIf='showProjectEditForm'>
+<div *ngIf='showProjectEditForm' class="edit-project">
   <div class="form-group">
     <label >Title</label>
     <input class="form-control" [(ngModel)]="projectToEdit.title" placeholder={{projectToEdit.title}}>
@@ -17,4 +17,5 @@
     <input class="form-control" [(ngModel)]="projectToEdit.website" placeholder={{projectToEdit.website}}>
   </div>
   <button type="button" class="btn btn-success" (click)="showProjectEditForm = false; submitEdit(projectToEdit)">Submit</button>
+  <button type="button" name="button" class="btn btn-warning" (click)="reload()">Cancel</button>
 </div>
