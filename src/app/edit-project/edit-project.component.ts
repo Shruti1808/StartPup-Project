@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProjectService } from '../project.service';
+import { SocialMedia } from '../social-media.model';
 
 @Component({
   selector: 'app-edit-project',
@@ -9,9 +10,11 @@ import { ProjectService } from '../project.service';
 })
 export class EditProjectComponent implements OnInit {
   @Input() projectToEdit;
-  test: string="Idk";
+  currentEditMedia: SocialMedia;
+  projectSocialMedia: SocialMedia[] = [];
 
   showProjectEditForm: boolean = false;
+  editSocialMediaForm: boolean = false;
 
   constructor(private projectService: ProjectService) { }
 
@@ -19,11 +22,33 @@ export class EditProjectComponent implements OnInit {
   }
 
   submitEdit(projectToEdit) {
-    this.projectService.editProject(projectToEdit);
+    this.projectService.editProject(projectToEdit, this.projectSocialMedia);
   }
 
   reload(){
     window.location.reload();
+  }
+
+  editSocialMedia(mediaToEdit){
+    this.editSocialMediaForm = true;
+    this.currentEditMedia = mediaToEdit;
+  }
+
+  confirmEditSocialMedia(){
+    for (let socialAccount of this.projectSocialMedia){
+      if (socialAccount.mediaType == this.currentEditMedia.mediaType){
+        socialAccount.mediaAccount = this.currentEditMedia.mediaAccount;
+      }
+    }
+    this.editSocialMediaForm = !this.editSocialMediaForm;
+    console.log(this.projectSocialMedia)
+  }
+
+  getSocialMedia(){
+    for (let socialAccount of this.projectToEdit.socialMedia){
+      var newSocialMediaLocal = new SocialMedia(socialAccount.mediaType, socialAccount.mediaAccount)
+      this.projectSocialMedia.push(newSocialMediaLocal);
+    }
   }
 
 }

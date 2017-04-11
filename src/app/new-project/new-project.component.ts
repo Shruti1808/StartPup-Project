@@ -15,6 +15,9 @@ export class NewProjectComponent implements OnInit {
   socialMediaString: string = "";
   newAccount: string="";
   socialMedia : SocialMedia[] = [];
+  public options: Object = {
+    height:400
+  }
 
   constructor(private projectService: ProjectService, private router: Router) { }
 
