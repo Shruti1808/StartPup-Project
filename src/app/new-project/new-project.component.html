@@ -1,0 +1,6 @@
+ <h1>Create New Project Proposal</h1>
+<input class="form-control" type="text" name="title" placeholder="Title" #newTitle><br>
+<input class="form-control" type="text" name="image" placeholder="Featured Image" #newImage><br>
+<textarea rows="4" col="5" class="form-control" type="text" name="description" placeholder="Description" #newDescription></textarea><br>
+<input class="form-control" type="text" name="website" placeholder="Website URL" #newWebsite><br>
+<button class="btn btn-info" (click)="createNewProject(newTitle.value, newImage.value, newDescription.value, newWebsite.value); newTitle.value=''; newImage.value='';newDescription.value='';newWebsite.value='';">Propose</button>

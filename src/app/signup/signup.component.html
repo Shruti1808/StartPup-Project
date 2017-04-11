@@ -1,3 +1,7 @@
-<p>
-  signup works!
-</p>
+<h1>Signup</h1><br>
+<input class="form-control" type="text" name="user" placeholder="Username" #newName><br>
+<input class="form-control" type="text" name="location" placeholder="Location" #newLocation><br>
+<input class="form-control" type="text" name="email" placeholder="Email" #newEmail><br>
+<input class="form-control" type="text" name="Image" placeholder="Image URL" #newImage><br>
+<button class="btn btn-info" (click)="createNewUser(newName.value, newLocation.value, newEmail.value, newImage.value); newName.value=''; newLocation.value='';newEmail.value='';newImage.value='';">Register</button>
+<button class="btn btn-warning" (click)="cancelAddNewUser()">Cancel</button>

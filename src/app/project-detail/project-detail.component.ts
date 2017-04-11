@@ -39,7 +39,7 @@ export class ProjectDetailComponent implements OnInit {
 
       console.log(this.projectToDisplay);
       console.log(this.user);
-    })
+    });
   }
 
 }

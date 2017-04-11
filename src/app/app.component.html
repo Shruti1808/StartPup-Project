@@ -7,8 +7,9 @@
 
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li><a routerLink="signup">Sign Up</a></li>
+      <li><a href="#" (click)= "showSignup=true">Signup</a></li>
       <li><a routerLink="login">Login</a></li>
+      <li><a routerLink="new-project">New Project</a></li>
       <li><a routerLink="about">About</a></li>
       <a class="navbar-brand" routerLink="contact">Contact Us</a>
 
@@ -18,6 +19,9 @@
 
 <div class="container">
   <router-outlet></router-outlet>
+  <div *ngIf="showSignup" id="signup">
+    <app-signup (clickSender)="showSignup = false;"></app-signup>
+  </div>
 </div>
 
 <footer class="footer">

@@ -5,4 +5,4 @@ export const masterFirebaseConfig = {
   projectId: "startpup-9068d",
   storageBucket: "startpup-9068d.appspot.com",
   messagingSenderId: "807530857690"
-}
+};
