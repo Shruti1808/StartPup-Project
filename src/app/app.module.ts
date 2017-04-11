@@ -3,11 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
-
-
-
 import { AppComponent } from './app.component';
-
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { ProjectListComponent } from './project-list/project-list.component';
@@ -19,6 +15,8 @@ import { ContactComponent } from './contact/contact.component';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { AdminComponent } from './admin/admin.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 import { NewProjectComponent } from './new-project/new-project.component';
 import { NewContactComponent } from './new-contact/new-contact.component';
 import { NewSocialmediaComponent } from './new-socialmedia/new-socialmedia.component';
@@ -44,6 +42,8 @@ export const firebaseConfig = {
     AboutComponent,
     ContactComponent,
     SideBarComponent,
+    AdminComponent,
+    EditUserComponent,
     NewProjectComponent,
     NewContactComponent,
     NewSocialmediaComponent,
