@@ -58,7 +58,12 @@ const appRoutes: Routes = [
   {
     path: 'admin',
     component: AdminComponent
+  },
+  {
+    path: 'users/:id',
+    component: EditUserComponent
   }
+
 
  ];
 

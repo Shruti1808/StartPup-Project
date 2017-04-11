@@ -5,22 +5,27 @@
 <div class="container">
 
   <!-- user profile info section -->
-  <div class="pro-info">
-    <div class="pic">
+  <div class="row">
+    <div class="col-sm-3 pro-info">
+
+      <img src="{{userToDisplay?.userImage}}" alt="{{userToDisplay?.name}}" />
+
+      <h1 class="name">{{userToDisplay?.name}}</h1>
+      <h4 class="location">{{userToDisplay?.location}}</h4>
+      <h4 class="email"><em>{{userToDisplay?.userEmail}}</em></h4>
     </div>
-
-    <h1>jeojepojeopjpoejopejopejpoej</h1>
-
-    <h1 class="name">Name: {{userToDisplay?.name}}</h1>
-    <h2 class="location">{{userToDisplay?.location}}</h2>
-    <h3 class="email">{{userToDisplay?.userEmail}}</h3>
-    <!-- <ul class="project-list" *ngFor="let project of projectsToDisplay">
-      <li class="project">{{project?.title}}</li>
-    </ul> -->
-    <ul class="project-list" *ngFor="let projectKey of userToDisplay?.projects">
-      <app-user-project [projectKey]="projectKey"></app-user-project>
-    </ul>
-
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-8">
+      <ul class="project-list" *ngFor="let projectKey of userToDisplay?.projects">
+        <app-user-project [projectKey]="projectKey"></app-user-project>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-5">
+      <app-edit-user [selectedUser]="userToDisplay"></app-edit-user>
+    </div>
   </div>
 
 <!--ending container div -->

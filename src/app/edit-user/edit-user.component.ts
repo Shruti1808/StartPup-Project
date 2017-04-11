@@ -1,25 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from '../user.model';
-
+import { Component, OnInit, Input } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',
-  styleUrls: ['./edit-user.component.scss']
+  styleUrls: ['./edit-user.component.scss'],
+  providers: [UserService]
 })
 export class EditUserComponent implements OnInit {
+  @Input() selectedUser;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
 
-  submitForm(name:string, location:string, email:string, image: string, projectList:string[] ){
-    var newUser: User = new User(name, location, email, image, projectList);
-    console.log(newUser);
-    alert("user updated");
+  beginUpdatingUser(userToUpdate){
+    this.userService.updateUser(userToUpdate);
   }
-
-
 
 }

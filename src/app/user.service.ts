@@ -19,6 +19,18 @@ export class UserService {
   }
 
   getUserById(userId: string){
-    return this.angularFire.database.object('users/'+ userId);
+    return this.angularFire.database.object('/users/'+ userId);
+  }
+
+
+  updateUser(localUpdatedUser){
+    var userEntryInFirebase = this.getUserById(localUpdatedUser.$key);
+    userEntryInFirebase.update({
+      name: localUpdatedUser.name,
+      location: localUpdatedUser.location,
+      email: localUpdatedUser.email,
+      image: localUpdatedUser.image,
+      projectList: localUpdatedUser.projectList
+    });
   }
 }
