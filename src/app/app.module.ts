@@ -41,15 +41,12 @@ export const firebaseConfig = {
     AboutComponent,
     ContactComponent,
     SideBarComponent,
-<<<<<<< HEAD
     AdminComponent,
-    EditUserComponent
-=======
+    EditUserComponent,
     NewProjectComponent,
     NewContactComponent,
     NewSocialmediaComponent,
     UserProjectComponent
->>>>>>> be609b29879cafbc2b1604dfc10192406a67a002
   ],
   imports: [
     BrowserModule,
