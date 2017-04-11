@@ -8,16 +8,20 @@
   <div class="pro-info">
     <div class="pic">
     </div>
+
     <h1>jeojepojeopjpoejopejopejpoej</h1>
-      <h1 class="name">Name: {{userToDisplay?.name}}</h1>
-      <h2 class="location">{{userToDisplay?.location}}</h2>
-      <h3 class="email">{{userToDisplay?.userEmail}}</h3>
-<ul class="project-list" *ngFor="let project of projectsToDisplay">
-  <li class="project">{{project?.title}}</li>
-</ul>
+
+    <h1 class="name">Name: {{userToDisplay?.name}}</h1>
+    <h2 class="location">{{userToDisplay?.location}}</h2>
+    <h3 class="email">{{userToDisplay?.userEmail}}</h3>
+    <!-- <ul class="project-list" *ngFor="let project of projectsToDisplay">
+      <li class="project">{{project?.title}}</li>
+    </ul> -->
+    <ul class="project-list" *ngFor="let projectKey of userToDisplay?.projects">
+      <app-user-project [projectKey]="projectKey"></app-user-project>
+    </ul>
 
   </div>
 
-
-  <!--ending container div -->
+<!--ending container div -->
 </div>

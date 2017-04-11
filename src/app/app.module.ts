@@ -22,6 +22,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { NewProjectComponent } from './new-project/new-project.component';
 import { NewContactComponent } from './new-contact/new-contact.component';
 import { NewSocialmediaComponent } from './new-socialmedia/new-socialmedia.component';
+import { UserProjectComponent } from './user-project/user-project.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -44,7 +45,8 @@ export const firebaseConfig = {
     SideBarComponent,
     NewProjectComponent,
     NewContactComponent,
-    NewSocialmediaComponent
+    NewSocialmediaComponent,
+    UserProjectComponent
   ],
   imports: [
     BrowserModule,

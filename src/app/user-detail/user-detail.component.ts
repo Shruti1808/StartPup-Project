@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
+import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
+
 import { User } from '../user.model';
 import { Need } from '../need.model';
 import { SocialMedia } from '../social-media.model';
 import { Contact } from '../contact.model';
 import { Project } from '../project.model';
+
 import { ProjectService } from '../project.service';
 import { UserService } from '../user.service';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Location } from '@angular/common';
-import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 
 @Component({
   selector: 'app-user-detail',
@@ -17,13 +19,12 @@ import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
   providers: [UserService, ProjectService]
 })
 export class UserDetailComponent implements OnInit {
-  projects: FirebaseObjectObservable<any[]>;
-  users: FirebaseObjectObservable<any[]>;
-  userId: string;
-  userToDisplay;
-  projectsToDisplay: Project[];
-  input;
-  userProject;
+  public projects: FirebaseObjectObservable<any[]>;
+  public users: FirebaseObjectObservable<any[]>;
+  public userId: string; //user object key
+  public userToDisplay; //user displayed on page
+  // public userProjects: string[] = []; //List of project keys associated with user
+  // public projectsToDisplay: FirebaseListObservable<any[]>; //list of project objects associated with user
 
 
   constructor(
@@ -32,18 +33,17 @@ export class UserDetailComponent implements OnInit {
     public route: ActivatedRoute,
     public location: Location) { }
 
-  ngOnInit() {
-    this.route.params.forEach((url) => {
-      this.userId = url['id'];
-    });
-    this.userToDisplay = this.userService.getUserById(this.userId).subscribe(dataLastEmittedFromObserver => {
-      this.userToDisplay = dataLastEmittedFromObserver;
-      console.log(this.userToDisplay)
-      for (let i = 0; i < this.userToDisplay.projects.length; i++) {
-        var userProject = new Project(this.userToDisplay.projects[i].title, this.userToDisplay.projects[i].needs, this.userToDisplay.projects[i].image, this.userToDisplay.projects[i].description, this.userToDisplay.projects[i].socialMedia, this.userToDisplay.projects[i].contactInformation, this.userToDisplay.projects[i].website);
-        this.projectsToDisplay.push(userProject);
-      }
-      console.log(this.projectsToDisplay);
-    })
+    ngOnInit() {
+      this.route.params.forEach((url) => {
+        this.userId = url['id'];
+      });
+
+      this.userToDisplay = this.userService.getUserById(this.userId).subscribe(dataLastEmittedFromObserver => {
+        this.userToDisplay = dataLastEmittedFromObserver;
+        // for(let i = 0; i < this.userToDisplay.projects.length; i++) {
+        //   this.userProjects.push(this.userToDisplay.projects[i]);
+        //   console.log(this.userProjects[i]);
+        // }
+      });
+    }
   }
-}
