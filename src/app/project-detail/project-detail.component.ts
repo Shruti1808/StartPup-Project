@@ -33,7 +33,7 @@ export class ProjectDetailComponent implements OnInit {
       console.log(this.projectId);
     });
     this.projectToDisplay = this.projectService.getProjectById(this.projectId).subscribe(dataLastEmittedFromObserver => {
-      this.user = new User(dataLastEmittedFromObserver.owner.name, dataLastEmittedFromObserver.owner.location, dataLastEmittedFromObserver.owner.userEmail, dataLastEmittedFromObserver.owner.userImage, dataLastEmittedFromObserver.owner.projectList);
+      this.user = new User(dataLastEmittedFromObserver.owner.name, dataLastEmittedFromObserver.owner.userEmail, dataLastEmittedFromObserver.owner.userPassword);
       // this.user.id = dataLastEmittedFromObserver.owner.id;
 
       setTimeout(() => {this.projectToDisplay = new Project(

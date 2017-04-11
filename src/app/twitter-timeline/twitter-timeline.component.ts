@@ -12,7 +12,7 @@ export class TwitterTimelineComponent implements OnInit {
 
   ngOnInit(){
     let twttr = (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0],
+      let js, fjs = d.getElementsByTagName(s)[0],
       t = twttr || {};
       if (d.getElementById(id)) {return t};
       js = d.createElement(s);
