@@ -33,4 +33,9 @@ export class UserService {
       projectList: localUpdatedUser.projectList
     });
   }
+
+  deleteUser(localUserToDelete){
+    var userEntryInFirebase = this.getUserById(localUserToDelete.$key);
+    userEntryInFirebase.remove();
+  }
 }
