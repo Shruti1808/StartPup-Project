@@ -23,6 +23,7 @@ import { NewProjectComponent } from './new-project/new-project.component';
 import { NewContactComponent } from './new-contact/new-contact.component';
 import { NewSocialmediaComponent } from './new-socialmedia/new-socialmedia.component';
 import { UserProjectComponent } from './user-project/user-project.component';
+import { TwitterTimelineComponent } from './twitter-timeline/twitter-timeline.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -46,7 +47,8 @@ export const firebaseConfig = {
     NewProjectComponent,
     NewContactComponent,
     NewSocialmediaComponent,
-    UserProjectComponent
+    UserProjectComponent,
+    TwitterTimelineComponent
   ],
   imports: [
     BrowserModule,

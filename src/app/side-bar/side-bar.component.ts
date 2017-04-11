@@ -29,4 +29,8 @@ export class SideBarComponent implements OnInit {
     }
   }
 
+  getTwitterHandle() {
+    return 'palaeoplushies';
+  }
+
 }
