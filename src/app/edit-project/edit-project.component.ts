@@ -41,7 +41,6 @@ export class EditProjectComponent implements OnInit {
       }
     }
     this.editSocialMediaForm = !this.editSocialMediaForm;
-    console.log(this.projectSocialMedia)
   }
 
   getSocialMedia(){
@@ -49,6 +48,11 @@ export class EditProjectComponent implements OnInit {
       var newSocialMediaLocal = new SocialMedia(socialAccount.mediaType, socialAccount.mediaAccount)
       this.projectSocialMedia.push(newSocialMediaLocal);
     }
+  }
+
+  deleteSocialMedia(mediaToDelete) {
+    var index = this.projectSocialMedia.indexOf(mediaToDelete);
+    this.projectSocialMedia.splice(index, 1);
   }
 
 }

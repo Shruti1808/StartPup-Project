@@ -20,7 +20,7 @@
     <h3>Social Media</h3>
     <div *ngIf="!editSocialMediaForm">
       <div *ngFor = 'let socialmedia of projectToEdit.socialMedia' >
-        <h4>{{socialmedia.mediaType}}: {{socialmedia.mediaAccount}}<i class="fa fa-pencil" aria-hidden="true" (click)="editSocialMedia(socialmedia)"></i>
+        <h4>{{socialmedia.mediaType}}: {{socialmedia.mediaAccount}} <i class="fa fa-pencil" aria-hidden="true" (click)="editSocialMedia(socialmedia)"></i><i class="fa fa-times" aria-hidden="true" (click)="deleteSocialMedia(socialmedia)"></i>
         </h4>
       </div>
     </div>
