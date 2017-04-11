@@ -1,6 +1,7 @@
 <div class="project-detail-box row">
   <div class="main-project col-md-8">
     <h2>{{projectToDisplay?.title}}</h2>
+    <app-edit-project [projectToEdit]='projectToDisplay'></app-edit-project>
     <img *ngIf="projectToDisplay" [src]="projectToDisplay?.image" alt="projectToDisplay?.title" />
     <p [innerHTML]="projectToDisplay?.description"></p>
   </div>

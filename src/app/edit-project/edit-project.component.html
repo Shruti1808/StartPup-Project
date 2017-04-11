@@ -1,0 +1,20 @@
+<button class="btn btn-sm btn-info" (click)="showProjectEditForm = true">Edit</button>
+<div *ngIf='showProjectEditForm'>
+  <div class="form-group">
+    <label >Title</label>
+    <input class="form-control" [(ngModel)]="projectToEdit.title" placeholder={{projectToEdit.title}}>
+  </div>
+  <div class="form-group">
+    <label >Image</label>
+    <input class="form-control" [(ngModel)]="projectToEdit.image" placeholder={{projectToEdit.image}}>
+  </div>
+  <div class="form-group">
+    <label >Description</label>
+    <input class="form-control" [(ngModel)]="projectToEdit.description" placeholder={{projectToEdit.description}}>
+  </div>
+  <div class="form-group">
+    <label >Website</label>
+    <input class="form-control" [(ngModel)]="projectToEdit.website" placeholder={{projectToEdit.website}}>
+  </div>
+  <button type="button" class="btn btn-success" (click)="showProjectEditForm = false; submitEdit(projectToEdit)">Submit</button>
+</div>
