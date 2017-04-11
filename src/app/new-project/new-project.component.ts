@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   providers:[ ProjectService ]
 })
 export class NewProjectComponent implements OnInit {
+  newDescription: string = "";
 
   constructor(private projectService: ProjectService, private router: Router) { }
 
