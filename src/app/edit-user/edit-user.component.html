@@ -1,0 +1,37 @@
+<p>
+  edit-user works!
+</p>
+<h3>Add New User to Group</h3>
+<div class="form-group">
+  <div>
+    <label for="name">Name:</label>
+      <br>
+      <input class ="form-control" type="text" name="name"  #newName>
+  </div>
+
+  <div>
+    <label for="location">Location:</label>
+      <br>
+      <input class ="form-control" type="text" name="location"  #newLocation>
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+      <br>
+      <input class ="form-control" type="text" name="email"  #newEmail>
+  </div>
+
+  <div>
+    <label for="image">Upload image:</label>
+      <br>
+      <input class ="form-control" type="text" name="image"  #newImage>
+  </div>
+
+  <div>
+    <label for="project-list">List of Projects:</label>
+      <br>
+      <input class ="form-control" type="text" name="project-list"  #newProjectList>
+  </div>
+
+  <button (click)= "submitForm(newName.value, newLocation.value, newEmail.value, newImage.value, newProjectList.value);newName.value=''; newLocation.value=''; newEmail.value= '';newImage.value='';newProjectList.value=''"></button>
+</div>
