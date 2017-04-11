@@ -13,6 +13,7 @@
 </div>
 <div class="form-group">
   <h3>Social Media</h3>
+  <h4 *ngFor = 'let socialmedia of socialMedia'>{{socialmedia.mediaType}}: {{socialmedia.mediaAccount}}</h4>
   <label>Choose social media</label>
   <select (change)="onChange($event.target.value)">
     <option value="">Select social media</option>
@@ -25,7 +26,7 @@
 
   <label *ngIf="socialMediaString=='LinkedIn' ">Input url</label>
   <input *ngIf="socialMediaString != ''" type="text" name="name" [(ngModel)]="newAccount">
-  <span *ngIf="newAccount" >
+  <span *ngIf="newAccount" (click)="addNewSocialMedia()">
     <i class="fa fa-plus-square fa-lg" aria-hidden="true"></i>
   </span>
 </div>
