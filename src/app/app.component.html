@@ -7,10 +7,11 @@
 
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#" (click)= "showSignup=true">Signup</a></li>
-      <li><a routerLink="login">Login</a></li>
+      <li><a (click)= "showSignup=true">Signup</a></li>
       <li><a routerLink="new-project">New Project</a></li>
       <li><a routerLink="about">About</a></li>
+      <li *ngIf="!isLoggedIn"><a (click)="showLogin = true">Login</a></li>
+      <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
       <a class="navbar-brand" routerLink="contact">Contact Us</a>
 
     </ul>
@@ -21,6 +22,9 @@
   <router-outlet></router-outlet>
   <div *ngIf="showSignup" id="signup">
     <app-signup (clickSender)="showSignup = false;"></app-signup>
+  </div>
+  <div *ngIf="showLogin" id="login">
+    <app-login (closeLogin)="showLogin = false;"></app-login>
   </div>
 </div>
 

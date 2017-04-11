@@ -20,32 +20,12 @@ const appRoutes: Routes = [
     component: HomeComponent
   },
   {
-    path: '',
-    component: ProjectListComponent
-  },
-  {
-    path: 'users/:id',
-    component: UserDetailComponent
-  },
-  {
     path: 'projects/:id',
     component: ProjectDetailComponent
   },
   {
     path: 'new-project',
     component: NewProjectComponent
-  },
-  {
-    path: 'new-project',
-    component: NewContactComponent
-  },
-  {
-    path: 'new-project',
-    component: NewSocialmediaComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
   },
   {
     path: 'contact',
@@ -58,10 +38,6 @@ const appRoutes: Routes = [
   {
     path: 'admin',
     component: AdminComponent
-  },
-  {
-    path: 'users/:id',
-    component: EditUserComponent
   }
 
 

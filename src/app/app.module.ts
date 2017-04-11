@@ -2,7 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
+import { AF } from "./providers/af";
+
+import { masterFirebaseConfig } from './api-keys';
 import { routing } from './app.routing';
+
 import { AppComponent } from './app.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
@@ -12,7 +17,6 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { AdminComponent } from './admin/admin.component';
@@ -57,7 +61,7 @@ export const firebaseConfig = {
     routing,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [],
+  providers: [AF],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

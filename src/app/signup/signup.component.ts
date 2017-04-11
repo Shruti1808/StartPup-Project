@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
+import {AF} from "../providers/af";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-signup',
@@ -10,14 +12,34 @@ import { UserService } from '../user.service';
 })
 export class SignupComponent implements OnInit {
   @Output() clickSender = new EventEmitter();
+  public error: any;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+              private afService: AF,
+              private router: Router
+              ) { }
 
   ngOnInit() {
   }
 
-  createNewUser(newName, newLocation, newUserEmail, newUserImage){
-    var newUser = new User(newName, newLocation, newUserEmail, newUserImage, []);
+  register(event, name, email, password) {
+    event.preventDefault();
+    this.afService.registerUser(email, password).then((user) => {
+      this.afService.saveUserInfoFromForm(user.uid, name, email).then(() => {
+        this.router.navigate(['']);
+      })
+        .catch((error) => {
+          this.error = error;
+        });
+    })
+      .catch((error) => {
+        this.error = error;
+        console.log(this.error);
+      });
+  }
+
+  createNewUser(newName, newEmail, newPassword){
+    let newUser = new User(newName, newEmail, newPassword);
     this.userService.addNewUser(newUser);
     this.clickSender.emit();
   }
