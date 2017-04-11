@@ -18,14 +18,13 @@ export class UserProjectComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-
     this.projectToDisplay = this.projectService.getProjectById(this.projectKey).subscribe(dataLastEmittedFromObserver => {
       this.projectToDisplay = dataLastEmittedFromObserver;
       console.log(this.projectToDisplay);
     });
   }
 
-  goToProjectDetail(keyOfClickedProject) {
+  goToProjectDetail() {
     this.router.navigate(["projects", this.projectKey]);
   }
 }
