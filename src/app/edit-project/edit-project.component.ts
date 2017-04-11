@@ -9,6 +9,7 @@ import { ProjectService } from '../project.service';
 })
 export class EditProjectComponent implements OnInit {
   @Input() projectToEdit;
+  test: string="Idk";
 
   showProjectEditForm: boolean = false;
 

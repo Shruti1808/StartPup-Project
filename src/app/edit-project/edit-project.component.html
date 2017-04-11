@@ -10,7 +10,7 @@
   </div>
   <div class="form-group">
     <label >Description</label>
-    <input class="form-control" [(ngModel)]="projectToEdit.description" placeholder={{projectToEdit.description}}>
+    <div [froalaEditor] [(froalaModel)]="projectToEdit.description" ></div>
   </div>
   <div class="form-group">
     <label >Website</label>
