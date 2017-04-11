@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Need } from '../need.model';
 import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 import { ProjectService } from '../project.service';
+import { Project } from '../project.model';
 
 @Component({
   selector: 'app-need',
@@ -10,14 +11,26 @@ import { ProjectService } from '../project.service';
   providers: [ProjectService]
 })
 export class NeedComponent implements OnInit {
- 
-  constructor(private productService: ProjectService) { }
+  @Input() selectedProjectKey;
+  currentProject: Project;
+  currentNeeds: Need[];
+  projects: FirebaseObjectObservable<any[]>;
+
+  constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
+    console.log(this.selectedProjectKey);
+    this.projectService.getProjectById(this.selectedProjectKey).subscribe(thisProject => {
+        this.currentProject = thisProject;
+    });
+    console.log(this.currentProject);
+    this.currentNeeds = this.currentProject.needs;
   }
 
-  submitForm(title: string, type: string, description: string) {
-    var newNeed: Need = new Need(title, type, description);
+  submitForm(newTitle, newType, newDescription) {
+    var newNeed = new Need(newTitle, newType, newDescription);
+    this.currentNeeds.push(newNeed);
+    this.projectService.addNewNeed(this.currentProject, this.currentNeeds);
     console.log(newNeed);
   }
 
