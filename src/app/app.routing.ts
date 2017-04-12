@@ -14,7 +14,7 @@ import { NewProjectComponent } from './new-project/new-project.component';
 import { NewContactComponent } from './new-contact/new-contact.component';
 import { NewSocialmediaComponent } from './new-socialmedia/new-socialmedia.component';
 import { NeedComponent } from './need/need.component';
-
+import { CompleteProfileComponent } from './complete-profile/complete-profile.component';
 
 import { AuthGuardService } from './auth-guard.service';
 
@@ -52,9 +52,13 @@ const appRoutes: Routes = [
   {
     path: 'projects/:id',
     component: NeedComponent
+  },
+  {
+    path: 'newuser/:id',
+    component: CompleteProfileComponent
   }
 
 
- ];
+];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes)

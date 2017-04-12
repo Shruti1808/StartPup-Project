@@ -1,0 +1,12 @@
+<h3>Complete your profile</h3>
+<div class="">
+  <input class="form-control" [(ngModel)]="currentUser.name">
+
+  <input class="form-control" type="text" name="location" placeholder="Location" #newLocation>
+
+  <input class="form-control" type="text" name="about" placeholder="About Me" #newAbout>
+
+  <input class="form-control" type="text" name="image" placeholder="Image URL" #newImage>
+
+  <button type="button" (click)="saveProfile(newLocation.value, newAbout.value, newImage.value)">Save</button>
+</div>

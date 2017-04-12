@@ -7,11 +7,11 @@
 </div>
 
 <form class="form-signin" (submit)="register($event, newName.value, newEmail.value, newPassword.value)">
-  <input class="form-control" type="text" name="user" placeholder="Name" #newName><br>
+  <input class="form-control" type="text" name="user" placeholder="Name" #newName>
 
-  <input class="form-control" type="text" name="email" placeholder="Email" #newEmail><br>
+  <input class="form-control" type="text" name="email" placeholder="Email" #newEmail>
 
-  <input class="form-control" type="text" name="password" placeholder="Password" #newPassword><br>
+  <input class="form-control" type="text" name="password" placeholder="Password" #newPassword>
 
   <button class="btn btn-info" type="submit">Register</button>
 </form>

@@ -29,8 +29,7 @@ export class UserService {
       name: localUpdatedUser.name,
       location: localUpdatedUser.location,
       email: localUpdatedUser.email,
-      image: localUpdatedUser.image,
-      projectList: localUpdatedUser.projectList
+      image: localUpdatedUser.image
     });
   }
 

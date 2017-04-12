@@ -30,6 +30,7 @@ import { UserProjectComponent } from './user-project/user-project.component';
 import { TwitterTimelineComponent } from './twitter-timeline/twitter-timeline.component';
 import { NeedComponent } from './need/need.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
+import { CompleteProfileComponent } from './complete-profile/complete-profile.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -58,8 +59,10 @@ export const firebaseConfig = {
     UserProjectComponent,
     TwitterTimelineComponent,
     NeedComponent,
-    EditProjectComponent
+    EditProjectComponent,
+    CompleteProfileComponent
   ],
+  
   imports: [
     BrowserModule,
     FormsModule,
