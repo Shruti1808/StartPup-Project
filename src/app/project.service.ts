@@ -48,7 +48,7 @@ export class ProjectService {
       image: localUpdatedProject.image,
       description: localUpdatedProject.description,
       socialMedia: socialMediaArray,
-      contactInformation: localUpdatedProject.contactInformation,
+      contactInformation: contactArray,
       website: localUpdatedProject.website
     })
   }

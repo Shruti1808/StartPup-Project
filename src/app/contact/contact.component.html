@@ -7,11 +7,11 @@
     </div>
   </div>
   <div *ngIf = "editContactForm">
-    <h4>{{currentEditContact.contactType}}: </h4>
-    <label *ngIf="currentEditContact.contactType=='Email'">Input email</label>
-    <label *ngIf="currentEditContact.contactType=='Phone' ">Input number</label>
-    <input *ngIf="currentEditContact.contactType != ''" type="text" name="name" [(ngModel)]="currentEditContact.contactDetail">
-    <button type="button" name="button" (click)="confirmEditContact()">Confirm</button>
+    <h4>{{currentContact.contactType}}: </h4>
+    <label *ngIf="currentContact.contactType=='Email'">Input email</label>
+    <label *ngIf="currentContact.contactType=='Phone' ">Input number</label>
+    <input *ngIf="currentContact.contactType != ''" type="text" name="name" [(ngModel)]="currentContact.contactDetail">
+    <button type="button" name="button" (click)="confirmEditContact();editContactForm = !editContactForm">Confirm</button>
   </div>
   <label>Add New Contact Info</label>
   <select (change)="onChange($event.target.value)">
@@ -23,7 +23,7 @@
 
   <label *ngIf="contactString=='Phone' ">Input number</label>
   <input *ngIf="contactString != ''" type="text" name="name" [(ngModel)]="newDetail">
-  <span *ngIf="newDetail" (click)="addNewContact()">
+  <span *ngIf="newDetail" (click)="addContact()">
     <i class="fa fa-plus-square fa-lg" aria-hidden="true"></i>
   </span>
 </div>

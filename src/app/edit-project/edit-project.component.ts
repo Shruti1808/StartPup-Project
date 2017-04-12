@@ -58,5 +58,6 @@ export class EditProjectComponent implements OnInit {
 
   setContacts(contactsArray){
     this.contacts = contactsArray;
+    console.log(this.contacts);
   }
 }

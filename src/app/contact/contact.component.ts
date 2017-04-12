@@ -37,6 +37,7 @@ export class ContactComponent implements OnInit {
         contact.contactDetail = this.currentContact.contactDetail;
       }
     }
+    this.addClicked.emit(this.contacts);
   }
 
   deleteContact(contactToDelete) {
