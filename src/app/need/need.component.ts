@@ -12,9 +12,11 @@ import { Project } from '../project.model';
 })
 export class NeedComponent implements OnInit {
   @Input() selectedProjectKey;
+  selectedNeed = new Need(null, null, null);
   currentProject: Project;
   currentNeeds: Need[];
   projects: FirebaseObjectObservable<any[]>;
+  public editArea = false;
 
   constructor(private projectService: ProjectService) { }
 
@@ -31,6 +33,11 @@ export class NeedComponent implements OnInit {
     this.currentNeeds.push(newNeed);
     console.log(this.currentNeeds);
     this.projectService.addNewNeed(this.currentProject, this.currentNeeds);
+  }
+
+  setSelection(need){
+    this.editArea = true;
+    this.selectedNeed = need;
   }
 
 }

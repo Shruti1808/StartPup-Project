@@ -1,9 +1,12 @@
 
 <div class="row need-row" *ngFor="let need of currentNeeds">
-    <h4>{{need.title}}</h4>
-    <h4>{{need.type}}</h4>
-    <h5>{{need.description}}</h5>
-</div>
+    <h4 (click)="setSelection(need)">{{need.title}}</h4>
+    <h4 (click)="setSelection(need)">{{need.type}}</h4>
+    <h5 (click)="setSelection(need)">{{need.description}}</h5>
+    <br>
+  </div>
+  <app-edit-need *ngIf="editArea" [selectedNeed]="selectedNeed"></app-edit-need>
+
 
 <!-- this might later become a modal -->
     <div class="panel panel-default">

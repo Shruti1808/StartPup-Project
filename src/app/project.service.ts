@@ -8,6 +8,7 @@ import { Need } from './need.model';
 @Injectable()
 export class ProjectService {
   projects: FirebaseListObservable<any[]>;
+  needs: FirebaseListObservable<any[]>;
 
   constructor(private angularFire: AngularFire) {
     this.projects = angularFire.database.list('projects');
@@ -30,8 +31,8 @@ export class ProjectService {
     this.projects.push(newProject);
   }
 
-  getNeedByProjectId(projectId: string){
-    return this.angularFire.database.object('projects/'+ projectId);
+  getNeedByProjectId(projectId: string, needId){
+    return this.angularFire.database.object('projects/'+ projectId + 'needs/' + needId);
   }
 
   addNewNeed(currentProject, newNeeds: Need[]){
@@ -61,4 +62,17 @@ export class ProjectService {
     var projectEntryInFirebase = this.getProjectById(localProjectToDelete.$key);
     projectEntryInFirebase.remove();
   }
+
+updateNeed(localUpdatedNeed) {
+  console.log(localUpdatedNeed);
+  var needEntryInFirebase = this.getProjectById(localUpdatedNeed.$key);
+  console.log(needEntryInFirebase);
+  needEntryInFirebase.update({
+    title: localUpdatedNeed.title,
+    type: localUpdatedNeed.type,
+    description: localUpdatedNeed.description
+  });
+}
+
+
 }

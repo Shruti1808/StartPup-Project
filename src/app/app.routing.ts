@@ -14,6 +14,7 @@ import { NewProjectComponent } from './new-project/new-project.component';
 import { NewContactComponent } from './new-contact/new-contact.component';
 import { NewSocialmediaComponent } from './new-socialmedia/new-socialmedia.component';
 import { NeedComponent } from './need/need.component';
+import { EditNeedComponent } from './edit-need/edit-need.component';
 
 
 const appRoutes: Routes = [
@@ -68,6 +69,10 @@ const appRoutes: Routes = [
   {
     path: 'projects/:id',
     component: NeedComponent
+  },
+  {
+    path: 'projects/:id',
+    component: EditNeedComponent
   }
 
 
