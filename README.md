@@ -1,14 +1,29 @@
 # StartPup Project
- - Group Project utilizing the concepts of Angular and extended Angular along with interaction with Firebase.
+#### By _**Alexandra Holcombe, Grinil Khanna, Shruti Priya,  Elise St Hilaire & Renee Mei**_
+
+ ** Group Project utilizing the concepts of Angular and extended Angular along with interaction with Firebase.It includes Modern JavaScript MVC's, filter using Pipes, nested Components and Data Binding.
 
 ## Description
  This is a website built around creativity and creative projects.It allows users to showcase their skills and get resources and support they need to make their ideas a reality.It also provides an opportunity to share it with a vibrant community of people.
 
+## Setup/Installation Requirements
 
+** Functionality OverView: **
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+The example application uses Twitter API for connecting with the users having creative ideas.
 
-## Development server
+- Authenticate users (login/signup pages + logout button)
+- CRUD for Users.
+- CRUD  for Projects
+- CRUD for SocialMedia
+- GET and display lists of startup projects on the splash page.
+- Follow other users on their social account.
+- Has Profile Page for Users and to display their basic info and their list of created projects.
+
+## Getting Started
+
+Make sure you have installed [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3 globally on your system, then run `npm install` to resolve all dependencies .
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
@@ -36,10 +51,20 @@ Run `ng github-pages:deploy` to deploy to GitHub Pages.
 
 To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
+## Support and contact details
+Please contact Allie Holcombe at alexandra.holcombe@gmail.com, Grinil Khanna at gmkhanna@gmail.com, Renee Mei at meiqianye@gmail.com, Elise St Hilaire at eliseylenore@gmail.com and Shruti Priya at shrutipriya1808@gmail.com.
+
+## Technologies
+* Angular -CLI,
+* TypeScript,
+* Firebase,
+* Froala Editor,
+* Twitter API,
+* SCSS
 
 ### Legal
 
-Copyright (c) 2017, Shruti Priya
+Copyright (c) 2017
 
 This software is licensed under the MIT license.
 
