@@ -1,39 +1,26 @@
 
-<h3>Add New User to Group</h3>
 <div class="form-group">
-  <div>
-    <label for="name">Name:</label>
-      <br>
-      <input [(ngModel)]="selectedUser.displayName">
-  </div>
-
-  <div>
-    <label for="location">Location:</label>
-      <br>
-      <input class ="form-control" type="text" [(ngModel)]="selectedUser.location">
-  </div>
-
-  <div>
-    <label for="email">Email:</label>
-      <br>
-      <input class ="form-control" type="text" [(ngModel)]="selectedUser.userEmail">
-  </div>
-
-  <div>
-    <label for="image">Upload image:</label>
-      <br>
-      <input class ="form-control" type="text" [(ngModel)]="selectedUser.userImage">
-  </div>
-<br>
-  <div>
-    // This needs to be changed - mehod which loads this user's projects on Init./////
-    <label for="project-list">List of Projects:</label>
-      <br>
-      <input class ="form-control" type="text" [(ngModel)]="selectedUser.projectList">
-  </div>
- <br>
-  <button class = "btn btn-success" (click)="beginUpdatingUser(selectedUser)">Update</button>
-  <br>
-  <br>
-  <button class = "btn btn-danger" (click)="beginDeletingUser(selectedUser)">Delete</button>
+  <label for="name">Name:</label>
+  <input class="form-control" [(ngModel)]="selectedUser.name">
 </div>
+
+<div class="form-group">
+  <label for="location">Location:</label>
+  <br>
+  <input class ="form-control" type="text" [(ngModel)]="selectedUser.location">
+</div>
+
+<div class="form-group">
+  <label for="email">Email:</label>
+  <br>
+  <input class ="form-control" type="text" [(ngModel)]="selectedUser.email">
+</div>
+
+<div class="form-group">
+  <label for="image">Upload image:</label>
+  <input class ="form-control" type="text" [(ngModel)]="selectedUser.image">
+</div>
+
+<button class = "btn btn-success" (click)="beginUpdatingUser(selectedUser)">Update</button>
+
+<button class = "btn btn-danger" (click)="beginDeletingUser(selectedUser)">Delete</button>

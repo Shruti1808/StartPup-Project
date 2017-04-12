@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { AF } from '../providers/af';
 
 
 @Component({
@@ -11,14 +12,21 @@ import { Router } from '@angular/router';
 })
 export class EditUserComponent implements OnInit {
   @Input() selectedUser;
+  @Output() clickSender = new EventEmitter();
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private afService: AF
+  ) { }
 
   ngOnInit() {
   }
 
   beginUpdatingUser(userToUpdate){
     this.userService.updateUser(userToUpdate);
+    this.afService.updateProfile(userToUpdate.name, userToUpdate.image);
+    this.clickSender.emit();
   }
 
   beginDeletingUser(userToDelete){

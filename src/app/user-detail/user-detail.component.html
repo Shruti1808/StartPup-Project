@@ -8,7 +8,7 @@
   <div class="row">
     <div class="col-sm-3 pro-info">
 
-      <img src="{{userToDisplay?.userImage}}" alt="{{userToDisplay?.name}}" />
+      <img class="user-avatar" src="{{userToDisplay?.image}}" alt="{{userToDisplay?.name}}" />
 
       <h1 class="name">{{userToDisplay?.name}}</h1>
       <h4 class="location">{{userToDisplay?.location}}</h4>
@@ -25,7 +25,7 @@
   <div class="row">
     <div class="col-sm-5">
       <button *ngIf="!showEditor" (click)="showEditUser()">Edit Profile</button>
-      <app-edit-user *ngIf="showEditor" [selectedUser]="userToDisplay"></app-edit-user>
+      <app-edit-user *ngIf="showEditor" [selectedUser]="userToDisplay" (clickSender)="showEditor = false"></app-edit-user>
     </div>
   </div>
 
