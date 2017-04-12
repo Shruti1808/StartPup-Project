@@ -13,6 +13,8 @@ export class EditProjectComponent implements OnInit {
   @Input() projectId;
   currentEditMedia: SocialMedia;
   projectSocialMedia: SocialMedia[] = [];
+  socialMediaString: string = '';
+  newAccount: string = '';
 
   showProjectEditForm: boolean = false;
   editSocialMediaForm: boolean = false;
@@ -64,4 +66,14 @@ export class EditProjectComponent implements OnInit {
     }
   }
 
+  onChange(socialMediaOption) {
+    this.socialMediaString = socialMediaOption;
+  }
+
+  addNewSocialMedia(){
+    var newSocialMedia = new SocialMedia(this.socialMediaString, this.newAccount);
+    this.projectSocialMedia.push(newSocialMedia);
+    this.socialMediaString = '';
+    this.newAccount = '';
+  }
 }
