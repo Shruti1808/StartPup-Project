@@ -32,7 +32,6 @@ export class ProjectDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
       this.projectId = urlParameters['id'];
-      console.log(this.projectId);
     });
     this.projectToDisplay = this.projectService.getProjectById(this.projectId).subscribe(dataLastEmittedFromObserver => {
       this.user = new User(dataLastEmittedFromObserver.owner.name, dataLastEmittedFromObserver.owner.userEmail, dataLastEmittedFromObserver.owner.userPassword);
@@ -47,11 +46,6 @@ export class ProjectDetailComponent implements OnInit {
               dataLastEmittedFromObserver.contactInformation,
               dataLastEmittedFromObserver.website
             )}, 1);
-
-
-
-      console.log(this.projectToDisplay);
-      console.log(this.user);
     });
   }
 
