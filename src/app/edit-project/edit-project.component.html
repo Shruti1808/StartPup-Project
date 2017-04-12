@@ -1,4 +1,4 @@
-<button class="btn btn-sm btn-info" (click)="showProjectEditForm = true; getSocialMedia()">Edit</button>
+<button class="btn btn-sm btn-info" (click)="showProjectEditForm = true; getSocialMedia(); getContacts()">Edit</button>
 <div *ngIf='showProjectEditForm' class="edit-project">
   <div class="form-group">
     <label >Title</label>
@@ -17,6 +17,7 @@
     <input class="form-control" [(ngModel)]="projectToEdit.website" placeholder={{projectToEdit.website}}>
   </div>
 <app-social-media (addClicked)="setSocialMedia($event)" [projectToEdit] = "projectToEdit" [socialMedia] = "projectSocialMedia"></app-social-media>
+<app-contact [contacts] = "contacts" (addClicked)="setContacts($event)"></app-contact>
   <button type="button" class="btn btn-success" (click)="showProjectEditForm = false; submitEdit(projectToEdit)">Submit</button>
   <button type="button" name="button" class="btn btn-warning" (click)="reload()">Cancel</button>
 </div>

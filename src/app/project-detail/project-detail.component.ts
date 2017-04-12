@@ -44,9 +44,12 @@ export class ProjectDetailComponent implements OnInit {
               dataLastEmittedFromObserver.description,
               dataLastEmittedFromObserver.socialMedia,
               dataLastEmittedFromObserver.contactInformation,
-              dataLastEmittedFromObserver.website
+              dataLastEmittedFromObserver.website,
+
             )}, 1);
+
     });
+
   }
 
   deleteProject(projectToDelete){

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProjectService } from '../project.service';
 import { SocialMedia } from '../social-media.model';
+import { Contact } from '../contact.model';
 
 @Component({
   selector: 'app-edit-project',
@@ -13,6 +14,7 @@ export class EditProjectComponent implements OnInit {
   @Input() projectId;
 
   projectSocialMedia: SocialMedia[] = [];
+  contacts: Contact[] = [];
 
   constructor(private projectService: ProjectService) { }
 
@@ -20,7 +22,7 @@ export class EditProjectComponent implements OnInit {
   }
 
   submitEdit(projectToEdit) {
-    this.projectService.editProject(this.projectToEdit, this.projectSocialMedia, this.projectId);
+    this.projectService.editProject(this.projectToEdit, this.projectSocialMedia, this.contacts, this.projectId);
   }
 
   reload(){
@@ -32,9 +34,9 @@ export class EditProjectComponent implements OnInit {
 
   getSocialMedia(){
     this.projectSocialMedia = [];
-    if (this.projectToEdit.projectSocialMedia){
-      for (let socialAccount of this.projectToEdit.projectSocialMedia){
-        var newSocialMediaLocal = new SocialMedia(socialAccount.mediaType, socialAccount.mediaAccount)
+    if (this.projectToEdit.socialMedia){
+      for (let socialAccount of this.projectToEdit.socialMedia){
+        var newSocialMediaLocal = new SocialMedia(socialAccount.mediaType, socialAccount.mediaAccount);
         this.projectSocialMedia.push(newSocialMediaLocal);
       }
     }
@@ -42,5 +44,19 @@ export class EditProjectComponent implements OnInit {
 
   setSocialMedia(mediaArray){
     this.projectSocialMedia = mediaArray;
+  }
+
+  getContacts(){
+    this.contacts = [];
+    if (this.projectToEdit.contactInformation){
+      for (let contact of this.projectToEdit.contactInformation){
+        var newContactLocal = new Contact(contact.contactType, contact.contactDetail)
+        this.contacts.push(newContactLocal);
+      }
+    }
+  }
+
+  setContacts(contactsArray){
+    this.contacts = contactsArray;
   }
 }
