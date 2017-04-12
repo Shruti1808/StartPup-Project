@@ -19,19 +19,17 @@ export class NeedComponent implements OnInit {
   constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
-    console.log(this.selectedProjectKey);
     this.projectService.getProjectById(this.selectedProjectKey).subscribe(thisProject => {
         this.currentProject = thisProject;
+        this.currentNeeds = this.currentProject.needs;
     });
-    console.log(this.currentProject);
-    this.currentNeeds = this.currentProject.needs;
   }
 
   submitForm(newTitle, newType, newDescription) {
     var newNeed = new Need(newTitle, newType, newDescription);
     this.currentNeeds.push(newNeed);
+    console.log(this.currentNeeds);
     this.projectService.addNewNeed(this.currentProject, this.currentNeeds);
-    console.log(newNeed);
   }
 
 }
