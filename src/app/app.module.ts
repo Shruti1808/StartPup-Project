@@ -32,6 +32,7 @@ import { NeedComponent } from './need/need.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { CompleteProfileComponent } from './complete-profile/complete-profile.component';
 import { EditNeedComponent } from './edit-need/edit-need.component';
+import { AddNeedComponent } from './add-need/add-need.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -62,7 +63,8 @@ export const firebaseConfig = {
     NeedComponent,
     EditProjectComponent,
     CompleteProfileComponent,
-    EditNeedComponent
+    EditNeedComponent,
+    AddNeedComponent
   ],
 
   imports: [

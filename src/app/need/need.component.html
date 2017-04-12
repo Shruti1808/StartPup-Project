@@ -1,37 +1,10 @@
+<div class="need-box">
+  <h4>{{need.title}}</h4>
+  <h4>{{need.type}}</h4>
+  <h5>{{need.description}}</h5>
+  <h5>{{need.$key}}</h5>
 
-<div class="row need-row" *ngFor="let need of currentNeeds">
-    <h4 (click)="setSelection(need)">{{need.title}}</h4>
-    <h4 (click)="setSelection(need)">{{need.type}}</h4>
-    <h5 (click)="setSelection(need)">{{need.description}}</h5>
-    <h5 (click)="setSelection(need)">{{need.key}}</h5>
-    <br>
-  </div>
-  <app-edit-need *ngIf="editArea" [selectedNeed]="selectedNeed"></app-edit-need>
+  <button type="button" (click)="setSelection()">Edit</button>
+</div>
 
-
-<!-- this might later become a modal -->
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class ="panel-title">Add your need for the project</h3>
-      </div>
-      <br>
-      <div>
-        <label>Title:</label>
-        <br>
-        <input type="text"  #newTitle>
-      </div>
-      <br>
-      <div>
-        <label>Type Of Need:</label>
-        <br>
-        <input type="text"  #newType>
-      </div>
-      <br>
-      <div>
-        <label>Description:</label>
-        <br>
-        <input type="text"  #newDescription>
-      </div>
-      <br>
-      <button class =" btn btn-primary" (click)="submitForm(newTitle.value, newType.value, newDescription.value); newTitle.value=''; newType.value=''; newDescription.value=''">Add</button>
-    </div>
+<app-edit-need *ngIf="editArea" [selectedNeed]="need" [projectId]="selectedProjectKey" (clickSender)="finishEditing()"></app-edit-need>

@@ -12,24 +12,29 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class EditNeedComponent implements OnInit {
   @Input() selectedNeed;
+  @Input() projectId;
+  public currentProject;
   public editForm = true;
-  public projectId;
 
 
   constructor(private projectService: ProjectService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // this.route.params.forEach((urlParameters) => {
-    // this.projectId = urlParameters['id'];
-}
+    console.log(this.projectId);
+    this.currentProject = this.projectService.getProjectById(this.projectId).subscribe((dataLastEmittedFromObserver) => {
+      this.currentProject = dataLastEmittedFromObserver;
+      console.log(this.currentProject.needs);
+    });
+  }
 
   // beginUpdatingNeed(needToUpdate){
   //   this.projectService.updateNeed(needToUpdate);
   // }
 
-  finishedEditNeed(needToEdit) {
-    this.projectService.updateNeed(this.projectId, needToEdit);
-    this.editForm = false;
+  finishedEditNeed() {
+    this.projectService.updateNeed(this.projectId, this.selectedNeed);
+    console.log(this.projectId);
+    console.log(this.selectedNeed);
   }
 
 

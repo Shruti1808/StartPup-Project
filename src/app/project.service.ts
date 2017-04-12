@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 import { Project } from './project.model';
 import { NeedComponent } from './need/need.component';
 import { Need } from './need.model';
@@ -8,6 +8,8 @@ import { Need } from './need.model';
 @Injectable()
 export class ProjectService {
   projects: FirebaseListObservable<any[]>;
+  project: FirebaseObjectObservable<any>;
+  projectNeeds: FirebaseListObservable<any[]>
 
   constructor(private angularFire: AngularFire) {
     this.projects = angularFire.database.list('projects');
@@ -30,16 +32,26 @@ export class ProjectService {
     this.projects.push(newProject);
   }
 
-  getNeedByProjectId(projectId: string, needId){
-    return this.angularFire.database.object('projects/'+ projectId + '/needs/' + needId);
+  getNeedsByProjectId(projectId: string){
+    return this.angularFire.database.list('projects/'+ projectId + '/needs/');
   }
 
-  addNewNeed(currentProject, newNeeds: Need[]){
-    var projectEntryInFirebase = this.getProjectById(currentProject.$key);
-    projectEntryInFirebase.update({
-      needs: newNeeds
+  getNeedById(needId: string, projectId: string) {
+      return this.angularFire.database.object('projects/'+ projectId + '/needs/' + needId);
+  }
+
+  // getNeedByProjectId(projectId: string, needId){
+  //   return this.angularFire.database.object('projects/'+ projectId + '/needs/' + needId);
+  // }
+
+  addNewNeed(currentProject, newNeed){
+    this.projectNeeds = this.getNeedsByProjectId(currentProject);
+    let key = this.projectNeeds.push(newNeed).key;
+    newNeed = this.getNeedById(key, currentProject);
+    newNeed.update({
+      key: key
     })
-}
+  }
 
   editProject(localUpdatedProject, socialMediaArray, localUpdatedProjectKey) {
     //$key is undefined
@@ -62,26 +74,8 @@ export class ProjectService {
     projectEntryInFirebase.remove();
   }
 
-updateNeed(projectId, localUpdatedNeed) {
-  console.log(localUpdatedNeed);
-  // var projEntryinFire = this.getProjectById(projectId);
-  // console.log(needEntryinFire);
-  console.log(localUpdatedNeed);
-  console.log(localUpdatedNeed.$key);
-  // for (var i = 0; i < needs.length; i++) {
-  //   if (localUpdatedNeed.$key === i) {
-  //
-  //   }
-  //
-  //   projEntryinFire.needs
-  //
-  //   update({
-  // }
-  //   title: localUpdatedNeed.title,
-  //   type: localUpdatedNeed.type,
-  //   description: localUpdatedNeed.description
-  // });
-}
-
-
+  updateNeed(projectId, localUpdatedNeed) {
+    // this.projectNeeds = this.getNeedsByProjectId(projectId);
+    // for (let need of this.projectNeeds)
+  }
 }

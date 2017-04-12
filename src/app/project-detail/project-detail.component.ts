@@ -21,6 +21,7 @@ export class ProjectDetailComponent implements OnInit {
   public projectId: string;
   public projectToDisplay: any;
   public user: User;
+  public projectNeeds: any[] = []
 
   constructor(
     private route: ActivatedRoute,
@@ -57,5 +58,4 @@ export class ProjectDetailComponent implements OnInit {
       this.router.navigate([""]);
     }
   }
-
 }
