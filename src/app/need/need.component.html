@@ -3,6 +3,7 @@
     <h4 (click)="setSelection(need)">{{need.title}}</h4>
     <h4 (click)="setSelection(need)">{{need.type}}</h4>
     <h5 (click)="setSelection(need)">{{need.description}}</h5>
+    <h5 (click)="setSelection(need)">{{need.key}}</h5>
     <br>
   </div>
   <app-edit-need *ngIf="editArea" [selectedNeed]="selectedNeed"></app-edit-need>

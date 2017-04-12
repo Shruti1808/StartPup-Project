@@ -1,4 +1,10 @@
-# Startpup
+# Startpup Project
+ - Group Project utilizing the concepts of Angular and extended Angular alongwith interaction with Firebase.
+
+## Description
+ This is a website built around creativity and creative projects.
+
+
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 

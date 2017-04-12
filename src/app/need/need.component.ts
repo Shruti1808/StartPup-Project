@@ -12,7 +12,8 @@ import { Project } from '../project.model';
 })
 export class NeedComponent implements OnInit {
   @Input() selectedProjectKey;
-  selectedNeed = new Need(null, null, null);
+  @Input() selectedNeed
+  //  = new Need(null, null, null);
   currentProject: Project;
   currentNeeds: Need[];
   projects: FirebaseObjectObservable<any[]>;
@@ -24,6 +25,7 @@ export class NeedComponent implements OnInit {
     this.projectService.getProjectById(this.selectedProjectKey).subscribe(thisProject => {
         this.currentProject = thisProject;
         this.currentNeeds = this.currentProject.needs;
+        console.log(this.currentNeeds);
     });
   }
 
@@ -38,6 +40,8 @@ export class NeedComponent implements OnInit {
   setSelection(need){
     this.editArea = true;
     this.selectedNeed = need;
+    console.log("need name " + this.selectedNeed);
+    console.log(this.projects);
   }
 
 }

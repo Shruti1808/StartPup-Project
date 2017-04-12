@@ -8,7 +8,6 @@ import { Need } from './need.model';
 @Injectable()
 export class ProjectService {
   projects: FirebaseListObservable<any[]>;
-  needs: FirebaseListObservable<any[]>;
 
   constructor(private angularFire: AngularFire) {
     this.projects = angularFire.database.list('projects');
@@ -32,7 +31,7 @@ export class ProjectService {
   }
 
   getNeedByProjectId(projectId: string, needId){
-    return this.angularFire.database.object('projects/'+ projectId + 'needs/' + needId);
+    return this.angularFire.database.object('projects/'+ projectId + '/needs/' + needId);
   }
 
   addNewNeed(currentProject, newNeeds: Need[]){
@@ -63,15 +62,25 @@ export class ProjectService {
     projectEntryInFirebase.remove();
   }
 
-updateNeed(localUpdatedNeed) {
+updateNeed(projectId, localUpdatedNeed) {
   console.log(localUpdatedNeed);
-  var needEntryInFirebase = this.getProjectById(localUpdatedNeed.$key);
-  console.log(needEntryInFirebase);
-  needEntryInFirebase.update({
-    title: localUpdatedNeed.title,
-    type: localUpdatedNeed.type,
-    description: localUpdatedNeed.description
-  });
+  // var projEntryinFire = this.getProjectById(projectId);
+  // console.log(needEntryinFire);
+  console.log(localUpdatedNeed);
+  console.log(localUpdatedNeed.$key);
+  // for (var i = 0; i < needs.length; i++) {
+  //   if (localUpdatedNeed.$key === i) {
+  //
+  //   }
+  //
+  //   projEntryinFire.needs
+  //
+  //   update({
+  // }
+  //   title: localUpdatedNeed.title,
+  //   type: localUpdatedNeed.type,
+  //   description: localUpdatedNeed.description
+  // });
 }
 
 
