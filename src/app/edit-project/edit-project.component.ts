@@ -45,16 +45,21 @@ export class EditProjectComponent implements OnInit {
   }
 
   getSocialMedia(){
-    for (let socialAccount of this.projectToEdit.socialMedia){
-      var newSocialMediaLocal = new SocialMedia(socialAccount.mediaType, socialAccount.mediaAccount)
-      this.projectSocialMedia.push(newSocialMediaLocal);
+    this.projectSocialMedia = [];
+    if (this.projectToEdit.socialMedia){
+      for (let socialAccount of this.projectToEdit.socialMedia){
+        var newSocialMediaLocal = new SocialMedia(socialAccount.mediaType, socialAccount.mediaAccount)
+        this.projectSocialMedia.push(newSocialMediaLocal);
+      }
     }
   }
 
   deleteSocialMedia(mediaToDelete) {
-    for (let index in this.projectSocialMedia){
-      if (this.projectSocialMedia[parseInt(index)].mediaType == mediaToDelete.mediaType){
-        this.projectSocialMedia.splice(parseInt(index),1);
+    if(confirm("Are you sure you would like to delete this?")) {
+      for (let index in this.projectSocialMedia){
+        if (this.projectSocialMedia[parseInt(index)].mediaType == mediaToDelete.mediaType){
+          this.projectSocialMedia.splice(parseInt(index),1);
+        }
       }
     }
   }
