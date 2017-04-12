@@ -57,11 +57,8 @@ export const firebaseConfig = {
     TwitterTimelineComponent,
     NeedComponent,
     EditProjectComponent,
-<<<<<<< HEAD
-    SocialMediaComponent
-=======
+    SocialMediaComponent,
     EditNeedComponent
->>>>>>> 054ff40f0132a8a4c161098b0a3e70c3415442ad
   ],
   imports: [
     BrowserModule,
