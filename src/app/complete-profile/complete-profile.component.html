@@ -8,5 +8,5 @@
 
   <input class="form-control" type="text" name="image" placeholder="Image URL" #newImage>
 
-  <button type="button" (click)="saveProfile(newLocation.value, newAbout.value, newImage.value)">Save</button>
+  <button type="button" (click)="saveProfile(currentUser.name, newLocation.value, newAbout.value, newImage.value)">Save</button>
 </div>

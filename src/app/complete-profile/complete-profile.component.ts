@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { AF } from '../providers/af';
 
 @Component({
   selector: 'app-complete-profile',
@@ -18,7 +19,8 @@ export class CompleteProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private afService: AF
   ) { }
 
   ngOnInit() {
@@ -32,11 +34,10 @@ export class CompleteProfileComponent implements OnInit {
     });
   }
 
-  saveProfile(location, about, image) {
+  saveProfile(name, location, about, image) {
     this.currentUser.location = location;
     this.currentUser.about = about;
     this.currentUser.image = image;
-    this.userService.updateUser(this.currentUser);
-    this.router.navigate([""]);
+    this.afService.updateProfile(name, image);
   }
 }

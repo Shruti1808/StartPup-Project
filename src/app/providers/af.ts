@@ -13,14 +13,14 @@ export class AF {
 
   constructor(public af: AngularFire, public auth: AngularFireAuth) {
     this.auth.subscribe((state: FirebaseAuthState) => {
-     this.authState = state;
-     console.log("I AM AUTH STATE");
-           console.log(this.authState);
-       });
-   }
+      this.authState = state;
+      console.log("I AM AUTH STATE");
+      console.log(this.authState);
+    });
+  }
 
-   get authenticated(): boolean {
-       return this.authState !== null;
+  get authenticated(): boolean {
+    return this.authState !== null;
   }
   /**
   * Logs out the current user
@@ -67,6 +67,13 @@ export class AF {
     {
       provider: AuthProviders.Password,
       method: AuthMethods.Password,
+    });
+  }
+
+  updateProfile(name, photo) {
+    this.authState.auth.updateProfile({
+      displayName: name,
+      photoURL: photo
     });
   }
 }
