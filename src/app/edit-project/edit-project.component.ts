@@ -10,6 +10,7 @@ import { SocialMedia } from '../social-media.model';
 })
 export class EditProjectComponent implements OnInit {
   @Input() projectToEdit;
+  @Input() projectId;
   currentEditMedia: SocialMedia;
   projectSocialMedia: SocialMedia[] = [];
 
@@ -22,7 +23,7 @@ export class EditProjectComponent implements OnInit {
   }
 
   submitEdit(projectToEdit) {
-    this.projectService.editProject(projectToEdit, this.projectSocialMedia);
+    this.projectService.editProject(this.projectToEdit, this.projectSocialMedia, this.projectId);
   }
 
   reload(){
@@ -51,8 +52,11 @@ export class EditProjectComponent implements OnInit {
   }
 
   deleteSocialMedia(mediaToDelete) {
-    var index = this.projectSocialMedia.indexOf(mediaToDelete);
-    this.projectSocialMedia.splice(index, 1);
+    for (let index in this.projectSocialMedia){
+      if (this.projectSocialMedia[parseInt(index)].mediaType == mediaToDelete.mediaType){
+        this.projectSocialMedia.splice(parseInt(index),1);
+      }
+    }
   }
 
 }

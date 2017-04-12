@@ -40,6 +40,7 @@ export class ProjectDetailComponent implements OnInit {
       // this.user.id = dataLastEmittedFromObserver.owner.id;
 
       setTimeout(() => {this.projectToDisplay = new Project(
+<<<<<<< HEAD
         dataLastEmittedFromObserver.needs,
         dataLastEmittedFromObserver.title,
         dataLastEmittedFromObserver.image,
@@ -48,6 +49,16 @@ export class ProjectDetailComponent implements OnInit {
         dataLastEmittedFromObserver.contactInformation,
         dataLastEmittedFromObserver.website
       )}, 1);
+=======
+              dataLastEmittedFromObserver.needs,
+              dataLastEmittedFromObserver.title,
+              dataLastEmittedFromObserver.image,
+              dataLastEmittedFromObserver.description,
+              dataLastEmittedFromObserver.socialMedia,
+              dataLastEmittedFromObserver.contactInformation,
+              dataLastEmittedFromObserver.website
+            )}, 1);
+>>>>>>> 590992d92fcdc8eb1ff2c1d6a81bf87c1e71bed6
     });
   }
 
