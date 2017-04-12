@@ -23,6 +23,7 @@ import { NewContactComponent } from './new-contact/new-contact.component';
 import { NewSocialmediaComponent } from './new-socialmedia/new-socialmedia.component';
 import { UserProjectComponent } from './user-project/user-project.component';
 import { TwitterTimelineComponent } from './twitter-timeline/twitter-timeline.component';
+import { NeedComponent } from './need/need.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
 
 export const firebaseConfig = {
@@ -51,6 +52,7 @@ export const firebaseConfig = {
     NewSocialmediaComponent,
     UserProjectComponent,
     TwitterTimelineComponent,
+    NeedComponent,
     EditProjectComponent
   ],
   imports: [

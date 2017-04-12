@@ -3,7 +3,8 @@ import { User } from './user.model';
 export class Need{
   constructor(
     public title: string,
+    public type: string,
     public description: string,
-    public candidates: User[]
+    // public candidates: User[]
   ){};
 }

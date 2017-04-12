@@ -13,6 +13,8 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { NewProjectComponent } from './new-project/new-project.component';
 import { NewContactComponent } from './new-contact/new-contact.component';
 import { NewSocialmediaComponent } from './new-socialmedia/new-socialmedia.component';
+import { NeedComponent } from './need/need.component';
+
 
 const appRoutes: Routes = [
   {
@@ -62,6 +64,10 @@ const appRoutes: Routes = [
   {
     path: 'users/:id',
     component: EditUserComponent
+  },
+  {
+    path: 'projects/:id',
+    component: NeedComponent
   }
 
 
