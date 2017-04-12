@@ -37,7 +37,11 @@ export class CompleteProfileComponent implements OnInit {
   saveProfile(name, location, about, image) {
     this.currentUser.location = location;
     this.currentUser.about = about;
+    if (!image) {
+      image = "./assets/images/user.png";
+    }
     this.currentUser.image = image;
     this.afService.updateProfile(name, image);
+    this.router.navigate(['']);
   }
 }
