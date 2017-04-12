@@ -15,6 +15,7 @@ import { NewContactComponent } from './new-contact/new-contact.component';
 import { NewSocialmediaComponent } from './new-socialmedia/new-socialmedia.component';
 import { NeedComponent } from './need/need.component';
 import { CompleteProfileComponent } from './complete-profile/complete-profile.component';
+import { EditNeedComponent } from './edit-need/edit-need.component';
 
 import { AuthGuardService } from './auth-guard.service';
 
@@ -29,8 +30,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'new-project',
-    component: NewProjectComponent,
-    canActivate: [AuthGuardService]
+    component: NewProjectComponent
   },
   {
     path: 'contact',
@@ -42,12 +42,11 @@ const appRoutes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminComponent,
-    canActivate: [AuthGuardService]
+    component: AdminComponent
   },
   {
     path: 'users/:id',
-    component: EditUserComponent
+    component: UserDetailComponent
   },
   {
     path: 'projects/:id',

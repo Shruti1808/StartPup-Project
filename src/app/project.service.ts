@@ -30,6 +30,10 @@ export class ProjectService {
     this.projects.push(newProject);
   }
 
+  getNeedByProjectId(projectId: string, needId){
+    return this.angularFire.database.object('projects/'+ projectId + '/needs/' + needId);
+  }
+
   addNewNeed(currentProject, newNeeds: Need[]){
     var projectEntryInFirebase = this.getProjectById(currentProject.$key);
     projectEntryInFirebase.update({
@@ -57,4 +61,27 @@ export class ProjectService {
     var projectEntryInFirebase = this.getProjectById(localProjectToDelete.$key);
     projectEntryInFirebase.remove();
   }
+
+updateNeed(projectId, localUpdatedNeed) {
+  console.log(localUpdatedNeed);
+  // var projEntryinFire = this.getProjectById(projectId);
+  // console.log(needEntryinFire);
+  console.log(localUpdatedNeed);
+  console.log(localUpdatedNeed.$key);
+  // for (var i = 0; i < needs.length; i++) {
+  //   if (localUpdatedNeed.$key === i) {
+  //
+  //   }
+  //
+  //   projEntryinFire.needs
+  //
+  //   update({
+  // }
+  //   title: localUpdatedNeed.title,
+  //   type: localUpdatedNeed.type,
+  //   description: localUpdatedNeed.description
+  // });
+}
+
+
 }

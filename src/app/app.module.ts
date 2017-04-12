@@ -30,7 +30,11 @@ import { UserProjectComponent } from './user-project/user-project.component';
 import { TwitterTimelineComponent } from './twitter-timeline/twitter-timeline.component';
 import { NeedComponent } from './need/need.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
+<<<<<<< HEAD
 import { CompleteProfileComponent } from './complete-profile/complete-profile.component';
+=======
+import { EditNeedComponent } from './edit-need/edit-need.component';
+>>>>>>> 054ff40f0132a8a4c161098b0a3e70c3415442ad
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -60,7 +64,11 @@ export const firebaseConfig = {
     TwitterTimelineComponent,
     NeedComponent,
     EditProjectComponent,
+<<<<<<< HEAD
     CompleteProfileComponent
+=======
+    EditNeedComponent
+>>>>>>> 054ff40f0132a8a4c161098b0a3e70c3415442ad
   ],
   
   imports: [
