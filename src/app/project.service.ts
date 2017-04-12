@@ -8,7 +8,6 @@ import { Need } from './need.model';
 @Injectable()
 export class ProjectService {
   projects: FirebaseListObservable<any[]>;
-  addingNeed = [];
 
   constructor(private angularFire: AngularFire) {
     this.projects = angularFire.database.list('projects');
@@ -31,28 +30,18 @@ export class ProjectService {
     this.projects.push(newProject);
   }
 
-  // getNeeds(){
-  //   return this.getProjectById.needs;
-  // }
-
   addNewNeed(currentProject, newNeeds: Need[]){
     var projectEntryInFirebase = this.getProjectById(currentProject.$key);
     projectEntryInFirebase.update({
       needs: newNeeds
     })
-  // this.projects.subscribe(projects => {
-  //     this.addingNeed.push(newNeed);
-  //   });
-  //   console.log(this.addingNeed);
-  //    this.addingNeed;
-  // }
 }
 
   editProject(localUpdatedProject, socialMediaArray, localUpdatedProjectKey) {
-
-    console.log(localUpdatedProjectKey);
     //$key is undefined
+    console.log(localUpdatedProjectKey)
     var projectEntryInFirebase = this.getProjectById(localUpdatedProjectKey);
+    console.log(projectEntryInFirebase)
     projectEntryInFirebase.update({
       // needs: localUpdatedProject.needs,
       title: localUpdatedProject.title,
