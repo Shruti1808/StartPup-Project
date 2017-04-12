@@ -2,10 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { FroalaEditorModule, FroalaViewModule} from 'angular2-froala-wysiwyg';
+
 
 import { AF } from "./providers/af";
-
 import { masterFirebaseConfig } from './api-keys';
+
 import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
@@ -26,6 +28,7 @@ import { NewContactComponent } from './new-contact/new-contact.component';
 import { NewSocialmediaComponent } from './new-socialmedia/new-socialmedia.component';
 import { UserProjectComponent } from './user-project/user-project.component';
 import { TwitterTimelineComponent } from './twitter-timeline/twitter-timeline.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -52,14 +55,17 @@ export const firebaseConfig = {
     NewContactComponent,
     NewSocialmediaComponent,
     UserProjectComponent,
-    TwitterTimelineComponent
+    TwitterTimelineComponent,
+    EditProjectComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     routing,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot()
   ],
   providers: [AF],
   bootstrap: [AppComponent]
