@@ -40,15 +40,18 @@ export class ProjectDetailComponent implements OnInit {
       // this.user.id = dataLastEmittedFromObserver.owner.id;
 
       setTimeout(() => {this.projectToDisplay = new Project(
-        dataLastEmittedFromObserver.needs,
-        dataLastEmittedFromObserver.title,
-        dataLastEmittedFromObserver.image,
-        dataLastEmittedFromObserver.description,
-        dataLastEmittedFromObserver.socialMedia,
-        dataLastEmittedFromObserver.contactInformation,
-        dataLastEmittedFromObserver.website
-      )}, 1);
+              dataLastEmittedFromObserver.needs,
+              dataLastEmittedFromObserver.title,
+              dataLastEmittedFromObserver.image,
+              dataLastEmittedFromObserver.description,
+              dataLastEmittedFromObserver.socialMedia,
+              dataLastEmittedFromObserver.contactInformation,
+              dataLastEmittedFromObserver.website,
+
+            )}, 1);
+
     });
+
   }
 
   deleteProject(projectToDelete){

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SocialMedia } from '../social-media.model';
 import { Project } from '../project.model';
+import { Contact } from '../contact.model';
 import { ProjectService } from '../project.service';
 import { Router } from '@angular/router';
 
@@ -11,10 +12,11 @@ import { Router } from '@angular/router';
   providers:[ ProjectService ]
 })
 export class NewProjectComponent implements OnInit {
-  newDescription: string = "";
-  socialMediaString: string = "";
-  newAccount: string="";
   socialMedia : SocialMedia[] = [];
+  newDescription: string = "";
+  contacts: Contact[]=[];
+
+
   public options: Object = {
     height:400
   }
@@ -25,20 +27,17 @@ export class NewProjectComponent implements OnInit {
   }
 
   createNewProject(newTitle, newImage, newDescription, newWebsite){
-    var newProject = new Project([], newTitle, newImage, newDescription, this.socialMedia, [], newWebsite);
+    var newProject = new Project([], newTitle, newImage, newDescription, this.socialMedia, this.contacts, newWebsite);
     this.projectService.addNewProject(newProject);
     this.router.navigate([""]);
   }
 
-  onChange(socialMediaOption) {
-    this.socialMediaString = socialMediaOption;
+  setSocialMedia(mediaArray){
+    this.socialMedia = mediaArray;
   }
 
-  addNewSocialMedia(){
-    var newSocialMedia = new SocialMedia(this.socialMediaString, this.newAccount);
-    this.socialMedia.push(newSocialMedia);
-    this.socialMediaString = '';
-    this.newAccount = '';
+  setContact(contactArray){
+    this.contacts = contactArray;
   }
 
 }
