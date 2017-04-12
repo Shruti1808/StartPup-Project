@@ -5,7 +5,6 @@ import {AngularFire, AuthProviders, AuthMethods, FirebaseListObservable, Angular
 
 export class AF {
   public users: FirebaseListObservable<any>;
-  public currentUser;
   public displayName: string;
   public email: string;
   public uid: string;
@@ -25,7 +24,8 @@ export class AF {
   /**
   * Logs out the current user
   */
-  logout() {
+  logout(currentUser) {
+    currentUser = null;
     return this.af.auth.logout();
   }
 
