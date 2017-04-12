@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { Contact } from '../contact.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -9,13 +10,14 @@ import { Contact } from '../contact.model';
 export class ContactComponent implements OnInit {
   @Input() contacts;
   @Output() addClicked = new EventEmitter();
+  newContactArray: Contact[]=[];
   currentContact: Contact;
   contactString: string = "";
   newDetail: string="";
   showContactEditForm: boolean = false;
   editContactForm: boolean = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -26,9 +28,15 @@ export class ContactComponent implements OnInit {
 
   addContact() {
     var newContact = new Contact(this.contactString, this.newDetail);
-    this.contacts.push(newContact);
+    if (this.router.url == 'new-project'){
+      this.newContactArray.push(newContact);
+      this.addClicked.emit(this.newContactArray);
+    }else {
+      this.contacts.push(newContact);
+      this.addClicked.emit(this.contacts);
+    }
     this.contactString = '';
-    this.addClicked.emit(this.contacts);
+    this.newDetail = '';
   }
 
   confirmEditContact() {

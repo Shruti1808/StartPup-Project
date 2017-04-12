@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, Input,EventEmitter } from '@angular/core';
 import { SocialMedia } from '../social-media.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-social-media',
@@ -11,13 +12,14 @@ export class SocialMediaComponent implements OnInit {
   @Input() socialMedia;
   @Output() addClicked = new EventEmitter();
   currentEditMedia: SocialMedia;
+  newSocialMediaArray: SocialMedia[];
   socialMediaString: string = "";
   newAccount: string="";
   showProjectEditForm: boolean = false;
   editSocialMediaForm: boolean = false;
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -26,12 +28,22 @@ export class SocialMediaComponent implements OnInit {
     this.socialMediaString = socialMediaOption;
   }
 
-  addNewSocialMedia(){
+  addSocialMedia(){
     var newSocialMedia = new SocialMedia(this.socialMediaString, this.newAccount);
-    this.socialMedia.push(newSocialMedia);
+    if (this.router.url == 'new-project'){
+      this.newSocialMediaArray.push(newSocialMedia);
+      this.addClicked.emit(this.newSocialMediaArray);
+    }else {
+      this.socialMedia.push(newSocialMedia);
+      this.addClicked.emit(this.socialMedia);
+    }
     this.socialMediaString = '';
     this.newAccount = '';
-    this.addClicked.emit(this.socialMedia);
+  }
+
+  addNewSocialMedia(){
+    var newSocialMedia = new SocialMedia(this.socialMediaString, this.newAccount);
+
   }
 
   confirmEditSocialMedia(){

@@ -1,9 +1,11 @@
 <div class="form-group">
   <h3>Contact Info</h3>
   <div *ngIf="!editContactForm">
-    <div *ngFor = 'let contact of contacts' >
-      <h4>{{contact.contactType}}: {{contact.contactDetail}} <i class="fa fa-pencil" aria-hidden="true" (click)="editContact(contact)"></i><i class="fa fa-times" aria-hidden="true" (click)="deleteContact(contact)"></i>
-      </h4>
+      <div *ngFor = 'let contact of contacts' >
+        <div *ngIf="contact.contactType">
+        <h4>{{contact.contactType}}: {{contact.contactDetail}} <i class="fa fa-pencil" aria-hidden="true" (click)="editContact(contact)"></i><i class="fa fa-times" aria-hidden="true" (click)="deleteContact(contact)"></i>
+        </h4>
+      </div>
     </div>
   </div>
   <div *ngIf = "editContactForm">
@@ -16,8 +18,8 @@
   <label>Add New Contact Info</label>
   <select (change)="onChange($event.target.value)">
     <option value="">Select contact type</option>
-    <option value="Facebook">Phone</option>
-    <option value="LinkedIn">Email</option>
+    <option value="Phone">Phone</option>
+    <option value="Email">Email</option>
   </select>
   <label *ngIf="contactString=='Email'">Input email</label>
 

@@ -1,9 +1,11 @@
 <div class="form-group">
   <h3>Social Media</h3>
   <div *ngIf="!editSocialMediaForm">
-    <div *ngFor = 'let socialmedia of socialMedia' >
-      <h4>{{socialmedia.mediaType}}: {{socialmedia.mediaAccount}} <i class="fa fa-pencil" aria-hidden="true" (click)="editSocialMedia(socialmedia)"></i><i class="fa fa-times" aria-hidden="true" (click)="deleteSocialMedia(socialmedia)"></i>
-      </h4>
+      <div *ngFor = 'let socialmedia of socialMedia'>
+        <div *ngIf="socialmedia.mediaType">
+        <h4>{{socialmedia.mediaType}}: {{socialmedia.mediaAccount}} <i class="fa fa-pencil" aria-hidden="true" (click)="editSocialMedia(socialmedia)"></i><i class="fa fa-times" aria-hidden="true" (click)="deleteSocialMedia(socialmedia)"></i>
+        </h4>
+      </div>
     </div>
   </div>
   <div *ngIf = "editSocialMediaForm">
@@ -25,7 +27,7 @@
 
   <label *ngIf="socialMediaString=='LinkedIn' ">Input url</label>
   <input *ngIf="socialMediaString != ''" type="text" name="name" [(ngModel)]="newAccount">
-  <span *ngIf="newAccount" (click)="addNewSocialMedia()">
+  <span *ngIf="newAccount" (click)="addSocialMedia()">
     <i class="fa fa-plus-square fa-lg" aria-hidden="true"></i>
   </span>
 </div>
