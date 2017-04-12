@@ -11,13 +11,8 @@ import { SocialMedia } from '../social-media.model';
 export class EditProjectComponent implements OnInit {
   @Input() projectToEdit;
   @Input() projectId;
-  currentEditMedia: SocialMedia;
-  projectSocialMedia: SocialMedia[] = [];
-  socialMediaString: string = '';
-  newAccount: string = '';
 
-  showProjectEditForm: boolean = false;
-  editSocialMediaForm: boolean = false;
+  projectSocialMedia: SocialMedia[] = [];
 
   constructor(private projectService: ProjectService) { }
 
@@ -32,48 +27,20 @@ export class EditProjectComponent implements OnInit {
     window.location.reload();
   }
 
-  editSocialMedia(mediaToEdit){
-    this.editSocialMediaForm = true;
-    this.currentEditMedia = mediaToEdit;
-  }
 
-  confirmEditSocialMedia(){
-    for (let socialAccount of this.projectSocialMedia){
-      if (socialAccount.mediaType == this.currentEditMedia.mediaType){
-        socialAccount.mediaAccount = this.currentEditMedia.mediaAccount;
-      }
-    }
-    this.editSocialMediaForm = !this.editSocialMediaForm;
-  }
+
 
   getSocialMedia(){
     this.projectSocialMedia = [];
-    if (this.projectToEdit.socialMedia){
-      for (let socialAccount of this.projectToEdit.socialMedia){
+    if (this.projectToEdit.projectSocialMedia){
+      for (let socialAccount of this.projectToEdit.projectSocialMedia){
         var newSocialMediaLocal = new SocialMedia(socialAccount.mediaType, socialAccount.mediaAccount)
         this.projectSocialMedia.push(newSocialMediaLocal);
       }
     }
   }
 
-  deleteSocialMedia(mediaToDelete) {
-    if(confirm("Are you sure you would like to delete this?")) {
-      for (let index in this.projectSocialMedia){
-        if (this.projectSocialMedia[parseInt(index)].mediaType == mediaToDelete.mediaType){
-          this.projectSocialMedia.splice(parseInt(index),1);
-        }
-      }
-    }
-  }
-
-  onChange(socialMediaOption) {
-    this.socialMediaString = socialMediaOption;
-  }
-
-  addNewSocialMedia(){
-    var newSocialMedia = new SocialMedia(this.socialMediaString, this.newAccount);
-    this.projectSocialMedia.push(newSocialMedia);
-    this.socialMediaString = '';
-    this.newAccount = '';
+  setSocialMedia(mediaArray){
+    this.projectSocialMedia = mediaArray;
   }
 }
