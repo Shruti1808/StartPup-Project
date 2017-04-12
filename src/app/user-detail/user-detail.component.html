@@ -24,7 +24,8 @@
   </div>
   <div class="row">
     <div class="col-sm-5">
-      <!-- <app-edit-user [selectedUser]="userToDisplay"></app-edit-user> -->
+      <button *ngIf="!showEditor" (click)="showEditUser()">Edit Profile</button>
+      <app-edit-user *ngIf="showEditor" [selectedUser]="userToDisplay"></app-edit-user>
     </div>
   </div>
 
