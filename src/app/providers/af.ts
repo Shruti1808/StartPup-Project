@@ -5,8 +5,10 @@ import {AngularFire, AuthProviders, AuthMethods, FirebaseListObservable} from 'a
 
 export class AF {
   public users: FirebaseListObservable<any>;
+  public currentUser;
   public displayName: string;
   public email: string;
+  public uid: string;
 
   constructor(public af: AngularFire) {}
   /**
