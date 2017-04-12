@@ -26,6 +26,8 @@ import { TwitterTimelineComponent } from './twitter-timeline/twitter-timeline.co
 import { NeedComponent } from './need/need.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
+import { EditNeedComponent } from './edit-need/edit-need.component';
+
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -55,7 +57,11 @@ export const firebaseConfig = {
     TwitterTimelineComponent,
     NeedComponent,
     EditProjectComponent,
+<<<<<<< HEAD
     SocialMediaComponent
+=======
+    EditNeedComponent
+>>>>>>> 054ff40f0132a8a4c161098b0a3e70c3415442ad
   ],
   imports: [
     BrowserModule,
