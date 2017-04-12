@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {AngularFire, AuthProviders, AuthMethods, FirebaseListObservable} from 'angularfire2';
+import {AngularFire, AuthProviders, AuthMethods, FirebaseListObservable, AngularFireAuth, FirebaseAuthState} from 'angularfire2';
 
 @Injectable()
 
@@ -9,8 +9,19 @@ export class AF {
   public displayName: string;
   public email: string;
   public uid: string;
+  public authState;
 
-  constructor(public af: AngularFire) {}
+  constructor(public af: AngularFire, public auth: AngularFireAuth) {
+    this.auth.subscribe((state: FirebaseAuthState) => {
+     this.authState = state;
+     console.log("I AM AUTH STATE");
+           console.log(this.authState);
+       });
+   }
+
+   get authenticated(): boolean {
+       return this.authState !== null;
+  }
   /**
   * Logs out the current user
   */
