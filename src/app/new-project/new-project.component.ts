@@ -11,10 +11,10 @@ import { Router } from '@angular/router';
   providers:[ ProjectService ]
 })
 export class NewProjectComponent implements OnInit {
-  newDescription: string = "";
-  socialMediaString: string = "";
-  newAccount: string="";
   socialMedia : SocialMedia[] = [];
+  newDescription: string = "";
+
+
   public options: Object = {
     height:400
   }
@@ -30,15 +30,8 @@ export class NewProjectComponent implements OnInit {
     this.router.navigate([""]);
   }
 
-  onChange(socialMediaOption) {
-    this.socialMediaString = socialMediaOption;
-  }
-
-  addNewSocialMedia(){
-    var newSocialMedia = new SocialMedia(this.socialMediaString, this.newAccount);
-    this.socialMedia.push(newSocialMedia);
-    this.socialMediaString = '';
-    this.newAccount = '';
+  setSocialMedia(mediaArray){
+    this.socialMedia = mediaArray;
   }
 
 }
