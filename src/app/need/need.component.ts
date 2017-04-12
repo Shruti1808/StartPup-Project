@@ -25,6 +25,7 @@ export class NeedComponent implements OnInit {
     });
   }
 
+
   submitForm(newTitle, newType, newDescription) {
     var newNeed = new Need(newTitle, newType, newDescription);
     this.currentNeeds.push(newNeed);

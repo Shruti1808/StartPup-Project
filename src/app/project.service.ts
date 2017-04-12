@@ -30,6 +30,10 @@ export class ProjectService {
     this.projects.push(newProject);
   }
 
+  getNeedByProjectId(projectId: string){
+    return this.angularFire.database.object('projects/'+ projectId);
+  }
+
   addNewNeed(currentProject, newNeeds: Need[]){
     var projectEntryInFirebase = this.getProjectById(currentProject.$key);
     projectEntryInFirebase.update({
