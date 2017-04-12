@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
 
@@ -11,6 +11,7 @@ import { User } from '../user.model';
 export class SideBarComponent implements OnInit {
   @Input() project: any;
   @Input() owner: User;
+  twitterHandle: string;
 
   constructor() { }
 
@@ -29,8 +30,13 @@ export class SideBarComponent implements OnInit {
     }
   }
 
-  getTwitterHandle() {
-    return 'palaeoplushies';
+  getTwitterHandle(socialMedia) {
+    console.log(socialMedia);
+    // for(let media of socialMedia) {
+    //   if(media.mediaType == "Twitter") {
+      return socialMedia;
+    //   }
+    // }
   }
 
 }

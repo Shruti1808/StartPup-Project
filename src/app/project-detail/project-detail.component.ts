@@ -39,7 +39,7 @@ export class ProjectDetailComponent implements OnInit {
       this.user = new User(dataLastEmittedFromObserver.owner.name, dataLastEmittedFromObserver.owner.location, dataLastEmittedFromObserver.owner.userEmail, dataLastEmittedFromObserver.owner.userImage, dataLastEmittedFromObserver.owner.projectList);
       // this.user.id = dataLastEmittedFromObserver.owner.id;
 
-      setTimeout(() => {this.projectToDisplay = new Project(
+        this.projectToDisplay = new Project(
               dataLastEmittedFromObserver.needs,
               dataLastEmittedFromObserver.title,
               dataLastEmittedFromObserver.image,
@@ -48,7 +48,7 @@ export class ProjectDetailComponent implements OnInit {
               dataLastEmittedFromObserver.contactInformation,
               dataLastEmittedFromObserver.website,
 
-            )}, 1);
+            );
 
     });
 

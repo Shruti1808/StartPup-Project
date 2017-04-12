@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {WindowReference} from './window-reference';
 
 @Component({
   selector: 'app-twitter-timeline',
@@ -11,9 +12,11 @@ export class TwitterTimelineComponent implements OnInit {
   constructor() { }
 
   ngOnInit(){
-    let twttr = (function(d, s, id) {
+    console.log( this.twitterHandle) ;
+    let win = WindowReference.get();
+    win.twttr = (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0],
-      t = twttr || {};
+      t = win.twttr || {};
       if (d.getElementById(id)) {return t};
       js = d.createElement(s);
       js.id = id;
@@ -28,14 +31,17 @@ export class TwitterTimelineComponent implements OnInit {
       return t;
     }(document, 'script', 'twitter-wjs'));
 
-    setTimeout(function () { twttr.widgets.load(); }, 500);
-    // twttr.widgets.createTimeline(
-    //   {
-    //     sourceType: 'profile',
-    //     screenName: 'this.twitterHandle'
-    //   },
-    //   document.getElementById("twitter-timeline")
-    // );
+    // setTimeout(function () { twttr.widgets.load(); }, 2);
+    // console.log(twttr)
+    win.twttr.ready(()=>{
+      win.twttr.widgets.createTimeline(
+        {
+          sourceType: 'profile',
+          screenName: 'this.twitterHandle'
+        },
+        document.getElementById("twitter-timeline")
+      );
+    })
   }
 
   getTwitterUrl(twitterHandle:string) {

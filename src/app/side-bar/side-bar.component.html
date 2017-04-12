@@ -3,13 +3,25 @@
   <img [src]="owner?.userImage" alt="owner?.name" />
     <h3>{{owner?.name}}</h3>
     <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{owner?.location}}</p>
+    <p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{owner?.userEmail}}</p>
   </div>
   <div class="social-media-box row" *ngIf="project.socialMedia != null">
     <div *ngFor="let sm of project.socialMedia" class="social-media">
-      <h5><i [class]="getType(sm)" aria-hidden="true"></i><a href="{{sm.mediaAddress}}"> {{sm.mediaAddress}}</a></h5>
+      <div *ngIf="sm.mediaType == 'Facebook'">
+        <h5><i [class]="getType(sm)" aria-hidden="true"></i><a href="https://www.facebook.com/{{sm.mediaAccount}}/" target="_blank"> @{{sm.mediaAccount}}</a></h5>
+      </div>
+      <div *ngIf="sm.mediaType == 'Twitter'">
+        <h5><i [class]="getType(sm)" aria-hidden="true"></i><a href="https://www.twitter.com/{{sm.mediaAccount}}/" target="_blank"> @{{sm.mediaAccount}}</a></h5> <input type="hidden" name="name" value="{{sm.mediaAccount}}" [(ngModel)]="twitterHandle">
+      </div>
+      <div *ngIf="sm.mediaType == 'LinkedIn'">
+        <h5><i [class]="getType(sm)" aria-hidden="true"></i><a href="{{sm.mediaAccount}}" target="_blank"> @{{sm.mediaAccount}}</a></h5>
+      </div>
+      <div *ngIf="sm.mediaType == 'Instagram'">
+        <h5 (click)="console.log(twitterHandle)"><i [class]="getType(sm)" aria-hidden="true"></i><a href="https://www.instagram.com/{{sm.mediaAccount}}/" target="_blank"> @{{sm.mediaAccount}}</a></h5>
+      </div>
     </div>
   </div>
   <div class="tweetbox">
-    <!-- <app-twitter-timeline [twitterHandle] ="getTwitterHandle()"></app-twitter-timeline> -->
+    <app-twitter-timeline [twitterHandle] ="'jccaylen'"></app-twitter-timeline>
   </div>
 </div>
