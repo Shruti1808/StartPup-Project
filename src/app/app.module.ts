@@ -22,11 +22,8 @@ import { NewProjectComponent } from './new-project/new-project.component';
 import { NewContactComponent } from './new-contact/new-contact.component';
 import { NewSocialmediaComponent } from './new-socialmedia/new-socialmedia.component';
 import { UserProjectComponent } from './user-project/user-project.component';
-<<<<<<< HEAD
 import { TwitterTimelineComponent } from './twitter-timeline/twitter-timeline.component';
-=======
 import { EditProjectComponent } from './edit-project/edit-project.component';
->>>>>>> project
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,

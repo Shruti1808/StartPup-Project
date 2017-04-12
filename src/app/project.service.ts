@@ -22,8 +22,11 @@ export class ProjectService {
     return this.angularFire.database.object('projects/'+ projectId);
   }
 
-  editProject(localUpdatedProject, socialMediaArray) {
-    var projectEntryInFirebase = this.getProjectById(localUpdatedProject.$key);
+  editProject(localUpdatedProject, socialMediaArray, localUpdatedProjectKey) {
+
+    console.log(localUpdatedProjectKey);
+    //$key is undefined
+    var projectEntryInFirebase = this.getProjectById(localUpdatedProjectKey);
     projectEntryInFirebase.update({
       // needs: localUpdatedProject.needs,
       title: localUpdatedProject.title,

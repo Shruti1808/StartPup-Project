@@ -22,7 +22,8 @@ export class EditProjectComponent implements OnInit {
   }
 
   submitEdit(projectToEdit) {
-    this.projectService.editProject(projectToEdit, this.projectSocialMedia);
+    console.log(projectToEdit.$key);
+    this.projectService.editProject(projectToEdit, this.projectSocialMedia, projectToEdit.$key);
   }
 
   reload(){
