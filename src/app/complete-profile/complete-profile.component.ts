@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-complete-profile',
@@ -16,7 +17,8 @@ export class CompleteProfileComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -28,6 +30,13 @@ export class CompleteProfileComponent implements OnInit {
       this.currentUser = dataLastEmittedFromObserver;
       console.log(this.currentUser.$key);
     });
+  }
 
+  saveProfile(location, about, image) {
+    this.currentUser.location = location;
+    this.currentUser.about = about;
+    this.currentUser.image = image;
+    this.userService.updateUser(this.currentUser);
+    this.router.navigate([""]);
   }
 }
