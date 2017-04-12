@@ -1,0 +1,33 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
+import { UserService } from '../user.service';
+
+@Component({
+  selector: 'app-complete-profile',
+  templateUrl: './complete-profile.component.html',
+  styleUrls: ['./complete-profile.component.scss'],
+  providers: [UserService]
+})
+export class CompleteProfileComponent implements OnInit {
+  public userId: string;
+  public currentUser;
+
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private userService: UserService
+  ) { }
+
+  ngOnInit() {
+    this.route.params.forEach((urlParameters) => {
+      this.userId = urlParameters['id'];
+      console.log(this.userId);
+    });
+    this.currentUser = this.userService.getUserById(this.userId).subscribe(dataLastEmittedFromObserver => {
+      this.currentUser = dataLastEmittedFromObserver;
+      console.log(this.currentUser.$key);
+    });
+
+  }
+}

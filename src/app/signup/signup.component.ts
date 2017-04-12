@@ -26,7 +26,8 @@ export class SignupComponent implements OnInit {
     event.preventDefault();
     this.afService.registerUser(email, password).then((user) => {
       this.afService.saveUserInfoFromForm(user.uid, name, email).then(() => {
-        this.router.navigate(['']);
+        this.clickSender.emit();
+        this.router.navigate(['newuser', user.uid]);
       })
         .catch((error) => {
           this.error = error;
