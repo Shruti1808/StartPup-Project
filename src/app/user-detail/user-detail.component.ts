@@ -40,6 +40,7 @@ export class UserDetailComponent implements OnInit {
 
       this.userToDisplay = this.userService.getUserById(this.userId).subscribe(dataLastEmittedFromObserver => {
         this.userToDisplay = dataLastEmittedFromObserver;
+        console.log(this.userToDisplay);
         // for(let i = 0; i < this.userToDisplay.projects.length; i++) {
         //   this.userProjects.push(this.userToDisplay.projects[i]);
         //   console.log(this.userProjects[i]);

@@ -10,7 +10,7 @@
       <li *ngIf="!isLoggedIn"><a (click)= "showSignup=true">Signup</a></li>
       <li><a routerLink="new-project">New Project</a></li>
       <li><a routerLink="about">About</a></li>
-      <li *ngIf="showName()">Welcome, {{currentUser.displayName}}</li>
+      <li *ngIf="showName()"><a (click)="navigateToProfile()"> Welcome, {{currentUser.displayName}}</a></li>
       <li *ngIf="!isLoggedIn"><a (click)="showLogin = true">Login</a></li>
       <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
 

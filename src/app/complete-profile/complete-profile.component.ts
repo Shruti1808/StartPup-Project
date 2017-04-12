@@ -42,6 +42,7 @@ export class CompleteProfileComponent implements OnInit {
     }
     this.currentUser.image = image;
     this.afService.updateProfile(name, image);
+    this.userService.updateUser(this.currentUser);
     this.router.navigate(['']);
   }
 }

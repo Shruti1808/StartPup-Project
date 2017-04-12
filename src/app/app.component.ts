@@ -44,6 +44,11 @@ export class AppComponent implements OnInit{
     }
   }
 
+  navigateToProfile() {
+    console.log(this.currentUser.uid);
+    this.router.navigate(['users', this.currentUser.uid]);
+  }
+
   logout() {
     this.afService.logout(this.currentUser);
     this.router.navigate(['']);
