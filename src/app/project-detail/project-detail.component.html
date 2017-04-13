@@ -1,13 +1,13 @@
 <div class="project-detail-box row">
   <div class="main-project col-md-8">
     <h2>{{projectToDisplay?.title}}</h2>
-    <app-edit-project [projectToEdit]='projectToDisplay' [projectId]='projectId'></app-edit-project>
+    <app-edit-project *ngIf="startEditing" [projectToEdit]='projectToDisplay' [projectId]='projectId' (closeModalSender)='startEditing = false'></app-edit-project>
 
     <img *ngIf="projectToDisplay" [src]="projectToDisplay?.image" alt="projectToDisplay?.title" />
     <p [innerHTML]="projectToDisplay?.description"></p>
   </div>
   <div class="col-md-4">
-    <app-side-bar [project]="projectToDisplay" [owner]="user" [userIsOwner]="userIsOwner"></app-side-bar>
+    <app-side-bar [project]="projectToDisplay" [owner]="user" [userIsOwner]="userIsOwner" (editClickSender)="editClickSender()"></app-side-bar>
   </div>
 </div>
 <app-add-need [selectedProjectKey]="projectId"></app-add-need>
