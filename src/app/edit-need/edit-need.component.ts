@@ -22,21 +22,14 @@ export class EditNeedComponent implements OnInit {
   constructor(private projectService: ProjectService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // console.log(this.projectId);
-    // this.currentProject = this.projectService.getProjectById(this.projectId).subscribe((dataLastEmittedFromObserver) => {
-    //   this.currentProject = dataLastEmittedFromObserver;
-    //   console.log(this.currentProject.needs);
-    // });
   }
-
-  // beginUpdatingNeed(needToUpdate){
-  //   this.projectService.updateNeed(needToUpdate);
-  // }
 
   finishedEditNeed() {
     this.projectService.updateNeed(this.selectedNeed, this.projectId, this.needId);
     this.clickSender.emit();
   }
 
-
+  closeEditNeed() {
+    this.clickSender.emit();
+  }
 }

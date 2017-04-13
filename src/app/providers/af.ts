@@ -13,8 +13,6 @@ export class AF {
   constructor(public af: AngularFire, public auth: AngularFireAuth) {
     this.auth.subscribe((state: FirebaseAuthState) => {
       this.authState = state;
-      console.log("I AM AUTH STATE");
-      console.log(this.authState);
     });
   }
 

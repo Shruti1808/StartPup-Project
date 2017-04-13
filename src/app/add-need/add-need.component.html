@@ -3,24 +3,19 @@
   <div class="panel-heading">
     <h3 class ="panel-title">Add your need for the project</h3>
   </div>
-  <br>
-  <div>
-    <label>Title:</label>
-    <br>
-    <input type="text"  #newTitle>
+  <div class="panel-body">
+    <div class="form-group">
+      <label>Title:</label>
+      <input type="text" #newTitle class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Type Of Need:</label>
+      <input type="text" #newType class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Description:</label>
+      <input type="text" #newDescription class="form-control">
+    </div>
+    <button class =" btn btn-primary" (click)="submitForm(newTitle.value, newType.value, newDescription.value); newTitle.value=''; newType.value=''; newDescription.value='';">Add</button>
   </div>
-  <br>
-  <div>
-    <label>Type Of Need:</label>
-    <br>
-    <input type="text"  #newType>
-  </div>
-  <br>
-  <div>
-    <label>Description:</label>
-    <br>
-    <input type="text"  #newDescription>
-  </div>
-  <br>
-  <button class =" btn btn-primary" (click)="submitForm(newTitle.value, newType.value, newDescription.value); newTitle.value=''; newType.value=''; newDescription.value='';">Add</button>
 </div>

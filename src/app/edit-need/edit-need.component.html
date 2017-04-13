@@ -1,27 +1,27 @@
 
 
-<div class="panel panel-default" *ngIf="editForm">
+<div class="panel panel-default">
   <div class="panel-heading">
     <h4 class ="panel-title">Edit Need</h4>
   </div>
+  <div class="panel-body">
+    <div class="form">
+      <div class="form-group">
+        <label>Need Title:</label>
+        <input [(ngModel)]="selectedNeed.title" class="form-control">
+      </div>
 
+      <div class="form-group">
+        <label>New Need Type:</label>
+        <input [(ngModel)]="selectedNeed.type" class="form-control">
+      </div>
 
-<div>
-  <label>Need Title:</label>
-  <input [(ngModel)]="selectedNeed.title">
-  <br>
+      <div class="form-group">
+        <label>New Need Description:</label>
+        <input [(ngModel)]="selectedNeed.description" class="form-control">
+      </div>
+      <button class= "btn btn-primary" (click)="finishedEditNeed()">Update</button>
+      <button class= "btn btn-primary" (click)="closeEditNeed()"><i class="fa fa-times" aria-hidden="true"></i></button>
+    </div>
+  </div>
 </div>
-
-<div>
-  <label>New Need Type:</label>
-  <input [(ngModel)]="selectedNeed.type">
-  <br>
-</div>
-
-<div>
-  <label>New Need Description:</label>
-  <input [(ngModel)]="selectedNeed.description">
-</div>
-<button class= "btn btn-primary" (click)="finishedEditNeed()">Update</button>
-</div>
-  <br>

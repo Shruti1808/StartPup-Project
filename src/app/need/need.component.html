@@ -3,7 +3,7 @@
   <h4>{{need.type}}</h4>
   <h5>{{need.description}}</h5>
 
-  <button type="button" (click)="setSelection()">Edit</button>
+  <button *ngIf="userIsOwner" type="button" (click)="setSelection()">Edit</button>
 </div>
 
 <app-edit-need *ngIf="editArea" [selectedNeed]="need" [projectId]="selectedProjectKey" [needId]="needId" (clickSender)="finishEditing()"></app-edit-need>

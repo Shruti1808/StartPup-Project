@@ -3,13 +3,14 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Project } from './project.model';
 import { NeedComponent } from './need/need.component';
 import { Need } from './need.model';
+import { AF } from './providers/af';
 
 
 @Injectable()
 export class ProjectService {
   projects: FirebaseListObservable<any[]>;
 
-  constructor(private angularFire: AngularFire) {
+  constructor(private angularFire: AngularFire, private afService: AF) {
     this.projects = angularFire.database.list('projects');
   }
 
@@ -69,6 +70,19 @@ export class ProjectService {
       title: localNeed.title,
       type: localNeed.type
     })
+  }
+
+  authenticateProject(projectKey) {
+    let project;
+    this.getProjectById(projectKey).subscribe((data) => {
+      project = data;
+    })
+    const currentUser = this.afService.authState.uid;
+    const projectOwner = project.owner;
+
+    if (currentUser === projectOwner) {
+      return true;
+    }
   }
 
 
