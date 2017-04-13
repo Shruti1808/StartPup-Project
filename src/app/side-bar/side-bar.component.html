@@ -1,30 +1,34 @@
 <div class="side-bar-box">
   <div class="owner-box row">
-    <img [src]="owner?.image" alt="owner?.name" />
-    <h3>{{owner?.name}}</h3>
-    <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{owner?.location}}</p>
-    <p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{owner?.userEmail}}</p>
+    <div class="col-md-5">
+      <img [src]="owner?.image" class="owner-image" alt="owner?.name">
+    </div>
+    <div class="col-md-7">
+      <h3><a (click)="routeToOwner(owner.uid)">{{owner?.name}}</a></h3>
+      <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{owner?.location}}</p>
+      <p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{owner?.userEmail}}</p>
+    </div>
   </div>
   <div class="social-media-box row" *ngIf="project.socialMedia">
     <div *ngFor="let sm of project.socialMedia" class="social-media">
       <div *ngIf="sm.mediaType == 'Facebook'">
-        <h5><i [class]="getType(sm)" aria-hidden="true"></i><a href="https://www.facebook.com/{{sm.mediaAccount}}/" target="_blank"> @{{sm.mediaAccount}}</a></h5>
+        <p><i [class]="getType(sm)" aria-hidden="true"></i><a href="https://www.facebook.com/{{sm.mediaAccount}}/" target="_blank"> @{{sm.mediaAccount}}</a></p>
       </div>
       <div *ngIf="sm.mediaType == 'Twitter'">
-        <h5><i [class]="getType(sm)" aria-hidden="true"></i><a href="https://www.twitter.com/{{sm.mediaAccount}}/" target="_blank"> @{{sm.mediaAccount}}</a></h5> <input type="hidden" name="name" value="{{sm.mediaAccount}}" [(ngModel)]="twitterHandle">
+        <p><i [class]="getType(sm)" aria-hidden="true"></i><a href="https://www.twitter.com/{{sm.mediaAccount}}/" target="_blank"> @{{sm.mediaAccount}}</a></p> <input type="hidden" name="name" value="{{sm.mediaAccount}}" [(ngModel)]="twitterHandle">
       </div>
       <div *ngIf="sm.mediaType == 'LinkedIn'">
-        <h5><i [class]="getType(sm)" aria-hidden="true"></i><a href="{{sm.mediaAccount}}" target="_blank"> @{{sm.mediaAccount}}</a></h5>
+        <p><i [class]="getType(sm)" aria-hidden="true"></i><a href="{{sm.mediaAccount}}" target="_blank"> @{{sm.mediaAccount}}</a></p>
       </div>
       <div *ngIf="sm.mediaType == 'Instagram'">
-        <h5><i [class]="getType(sm)" aria-hidden="true"></i><a href="https://www.instagram.com/{{sm.mediaAccount}}/" target="_blank"> @{{sm.mediaAccount}}</a></h5>
+        <p><i [class]="getType(sm)" aria-hidden="true"></i><a href="https://www.instagram.com/{{sm.mediaAccount}}/" target="_blank"> @{{sm.mediaAccount}}</a></p>
       </div>
     </div>
   </div>
   <div class="admin" *ngIf="userIsOwner">
-    <button type="button" class="btn btn-danger btn-sm" (click)="deleteProject(projectToDisplay)">Delete</button>
-    <button class="btn btn-sm btn-info" (click)="editClicked()">Edit</button>
-    <button type="button" class="btn btn-danger btn-sm" (click)="addNeedClicked()">New Need</button>
+    <button type="button" class="btn btn-danger btn-block" (click)="deleteProject(projectToDisplay)">Delete</button>
+    <button class="btn btn-block btn-info" (click)="editClicked()">Edit</button>
+    <button type="button" class="btn btn-block" (click)="addNeedClicked()">New Need</button>
   </div>
   <div class="tweetbox">
     <app-twitter-timeline [socialMedia] ="project.socialMedia"></app-twitter-timeline>
