@@ -1,0 +1,38 @@
+{
+      // rooms contains only meta info about each room
+      // stored under the room's unique ID
+      "projects": {
+        "0": {
+          "title": "room alpha",
+          "description": "Drone delivery.",
+          "contact-info": "097097097097",
+          "image": "https://ksr-ugc.imgix.net/assets/016/112/300/cad781be2f6809d470385c4efe0b40fa_original.png?w=680&fit=max&v=1491214813&auto=format&lossless=true&s=121c1d0d9b83c1e2b0ca3235e1b249c8",
+          "owner": "Linda Yale",
+          "social-media": ""
+        },
+        "two": { ... },
+        "three": { ... }
+      },
+      // room members are easily accessible (or restricted)
+      // we also store these by room ID
+      "members": {
+        // we'll talk about indices like this below
+        "one": {
+          "mchen": true,
+          "hmadi": true
+        },
+        "two": { ... },
+        "three": { ... }
+      },
+      // messages are separate from data we may want to iterate quickly
+      // but still easily paginated and queried, and organized by room ID
+      "messages": {
+        "one": {
+          "m1": { "sender": "mchen", "message": "foo" },
+          "m2": { ... },
+          "m3": { ... }
+        },
+        "two": { ... },
+        "three": { ... }
+      }
+    }

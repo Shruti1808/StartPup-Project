@@ -7,7 +7,7 @@ export const masterFirebaseConfig = {
   messagingSenderId: "807530857690"
 };
 
-export const masterLinkedinConfig = {
-  apiKey: "yiuXvEAjOKFdsA83",
-  clientId: "yiuXvEAjOKFdsA83"
-}
+// export const masterLinkedinConfig = {
+//   apiKey: "yiuXvEAjOKFdsA83",
+//   clientId: "yiuXvEAjOKFdsA83"
+// }

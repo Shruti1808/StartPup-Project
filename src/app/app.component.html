@@ -13,13 +13,11 @@
       <li *ngIf="showName()"><a (click)="navigateToProfile()"> Welcome, {{currentUser.displayName}}</a></li>
       <li *ngIf="!isLoggedIn"><a (click)="showLogin = true">Login</a></li>
       <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
-
     </ul>
   </div>
 </nav>
 
 <div class="container">
-  <router-outlet></router-outlet>
   <div *ngIf="showSignup" id="signup">
     <app-signup (clickSender)="showSignup = false;"></app-signup>
   </div>
@@ -27,3 +25,28 @@
     <app-login (closeLogin)="showLogin = false;"></app-login>
   </div>
 </div>
+
+<div class="footer-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<div class="copyright">
+					© 2017, StartPup Ltd., All rights reserved
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	       <div class="design">
+					 <a routerLink="contact">Contact Us!</a> |  <a target="_blank" routerLink="about">About StartPup</a>
+				</div>
+			</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<router-outlet></router-outlet>
+=======
+>>>>>>> 12c65f74df56b7e628cf70dca92a6116affcf272

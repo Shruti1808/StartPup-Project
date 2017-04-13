@@ -15,6 +15,7 @@ export class EditProjectComponent implements OnInit {
   @Input() projectId;
   @Output() closeModalSender = new EventEmitter();
 
+  showProjectEditForm: boolean = false;
   projectSocialMedia: SocialMedia[] = [];
   contacts: Contact[] = [];
 
@@ -22,7 +23,7 @@ export class EditProjectComponent implements OnInit {
     private projectService: ProjectService,
     private router: Router
   ) { }
-
+  
   ngOnInit() {
     this.getSocialMedia();
     this.getContacts();

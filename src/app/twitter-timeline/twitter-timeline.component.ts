@@ -7,7 +7,7 @@ import {WindowReference} from './window-reference';
   styleUrls: ['./twitter-timeline.component.scss']
 })
 export class TwitterTimelineComponent implements OnInit {
-  twitterHandle: string;
+  twitterHandle: string=null;
   @Input() socialMedia;
 
   constructor() { }
@@ -19,7 +19,6 @@ export class TwitterTimelineComponent implements OnInit {
           this.twitterHandle = media.mediaAccount;
         }
       };
-
       let win = WindowReference.get();
       win.twttr = (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],

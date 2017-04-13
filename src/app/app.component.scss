@@ -2,6 +2,11 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+.navbar {
+  margin-bottom: 0;
+  border: none;
+}
+
 #signup {
   z-index: 5;
   position: fixed;
@@ -13,6 +18,39 @@
   padding:20px;
 }
 
-.container {
-  margin-bottom: 20px;
+div.container-fluid {
+  background-color: rgba(119, 70, 153, .85);
+  a {
+    color: white
+    }
+}
+
+
+/************ Footer ***********/
+
+.footer-bottom {
+    background-color: #774699;
+    min-height: 30px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+.copyright {
+    color: #fff;
+    line-height: 30px;
+    min-height: 30px;
+    padding: 7px 0;
+}
+.design {
+    color: #fff;
+    line-height: 30px;
+    min-height: 30px;
+    padding: 7px 0;
+    text-align: right;
+}
+.design a {
+    color: #fff;
+    .container {
+      margin-bottom: 20px;
+}
 }

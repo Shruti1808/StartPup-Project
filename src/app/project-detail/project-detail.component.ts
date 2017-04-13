@@ -47,7 +47,6 @@ export class ProjectDetailComponent implements OnInit {
         }, 1);
 
       });
-      console.log(this.user);
       console.log(dataLastEmittedFromObserver.owner);
       setTimeout(() => {
         this.projectToDisplay = new Project(
