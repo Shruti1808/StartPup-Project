@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ProjectService } from '../project.service';
 import { SocialMedia } from '../social-media.model';
 import { Contact } from '../contact.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-project',
@@ -16,17 +17,18 @@ export class EditProjectComponent implements OnInit {
   projectSocialMedia: SocialMedia[] = [];
   contacts: Contact[] = [];
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService, private router: Router) { }
 
   ngOnInit() {
   }
 
   submitEdit(projectToEdit) {
     this.projectService.editProject(this.projectToEdit, this.projectSocialMedia, this.contacts, this.projectId);
+    this.router.navigate([this.router.url]);
   }
 
   reload(){
-    window.location.reload();
+    location.reload();
   }
 
 
