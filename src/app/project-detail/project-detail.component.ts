@@ -35,27 +35,16 @@ export class ProjectDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
       this.projectId = urlParameters['id'];
-      console.log(this.projectId);
     });
     this.projectToDisplay = this.projectService.getProjectById(this.projectId).subscribe(dataLastEmittedFromObserver => {
 
-      this.user = this.userService.getUserById(dataLastEmittedFromObserver.owner).subscribe((dataLastEmittedFromObserver) => {
+      setTimeout(() => {
+        this.user = this.userService.getUserById(dataLastEmittedFromObserver.owner).subscribe((dataLastEmittedFromObserver) => {
         this.user = dataLastEmittedFromObserver;
+        this.userIsOwner = this.projectService.authenticateProject(this.projectId);
       });
       console.log(this.user);
-      // this.user.id = dataLastEmittedFromObserver.owner.id;
-
-      // setTimeout(() => {this.projectToDisplay = new Project(
-      //   dataLastEmittedFromObserver.owner,
-      //   dataLastEmittedFromObserver.needs,
-      //   dataLastEmittedFromObserver.title,
-      //   dataLastEmittedFromObserver.image,
-      //   dataLastEmittedFromObserver.description,
-      //   dataLastEmittedFromObserver.socialMedia,
-      //   dataLastEmittedFromObserver.contactInformation,
-      //   dataLastEmittedFromObserver.website
-      // )}, 1);
-      // this.userIsOwner = this.projectService.authenticateProject(this.projectId);
+      console.log(dataLastEmittedFromObserver.owner);
       this.projectToDisplay = new Project(
         dataLastEmittedFromObserver.owner,
         dataLastEmittedFromObserver.needs,
@@ -64,9 +53,22 @@ export class ProjectDetailComponent implements OnInit {
         dataLastEmittedFromObserver.description,
         dataLastEmittedFromObserver.socialMedia,
         dataLastEmittedFromObserver.contactInformation,
-        dataLastEmittedFromObserver.website,
+        dataLastEmittedFromObserver.website
+      );}, 5);
 
-      );
+
+      // setTimeout(() => {}, 1);
+      // this.projectToDisplay = new Project(
+      //   dataLastEmittedFromObserver.owner,
+      //   dataLastEmittedFromObserver.needs,
+      //   dataLastEmittedFromObserver.title,
+      //   dataLastEmittedFromObserver.image,
+      //   dataLastEmittedFromObserver.description,
+      //   dataLastEmittedFromObserver.socialMedia,
+      //   dataLastEmittedFromObserver.contactInformation,
+      //   dataLastEmittedFromObserver.website,
+      //
+      // );
     });
 
   }
