@@ -5,12 +5,12 @@
 
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li *ngIf="!isLoggedIn"><a (click)= "showSignup=true">Signup</a></li>
-      <li *ngIf="isLoggedIn"><a routerLink="new-project">New Project</a></li>
-      <li><a routerLink="about">About</a></li>
-      <li *ngIf="showName()"><a (click)="navigateToProfile()"> Welcome, {{currentUser.displayName}}</a></li>
-      <li *ngIf="!isLoggedIn"><a (click)="showLogin = true">Login</a></li>
-      <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
+      <li class="navbar-link" *ngIf="!isLoggedIn"><a (click)= "showSignup=true">Signup</a></li>
+      <li class="navbar-link" *ngIf="isLoggedIn"><a routerLink="new-project">New Project</a></li>
+      <li class="navbar-link" ><a routerLink="about">About</a></li>
+      <li class="navbar-link" *ngIf="showName()"><a (click)="navigateToProfile()"> Welcome, {{currentUser.displayName}}</a></li>
+      <li class="navbar-link" *ngIf="!isLoggedIn"><a (click)="showLogin = true">Login</a></li>
+      <li class="navbar-link" *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
     </ul>
   </div>
 </nav>
