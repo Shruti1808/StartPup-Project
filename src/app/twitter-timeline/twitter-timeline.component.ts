@@ -12,17 +12,11 @@ export class TwitterTimelineComponent implements OnInit {
   constructor() { }
 
   ngOnInit(){
-<<<<<<< HEAD
-    let twttr = (function(d, s, id) {
-      let js, fjs = d.getElementsByTagName(s)[0],
-      t = twttr || {};
-=======
     console.log( this.twitterHandle) ;
     let win = WindowReference.get();
     win.twttr = (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0],
       t = win.twttr || {};
->>>>>>> 761990ea59eea5e23615f1aeffd36cd9ba167ebf
       if (d.getElementById(id)) {return t};
       js = d.createElement(s);
       js.id = id;
