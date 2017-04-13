@@ -39,7 +39,6 @@ export class NewProjectComponent implements OnInit {
     let newProject = new Project(this.currentUser, [], newTitle, newImage, newDescription, this.socialMedia, [], newWebsite);
     let key = this.projectService.addNewProject(newProject);
     this.userService.addProjectToUser(this.currentUser, key);
-    this.projectService.addNewProject(newProject);
     this.router.navigate(['projects', key]);
   }
 

@@ -1,5 +1,6 @@
+<button class="btn btn-sm btn-info" (click)="showProjectEditForm = true; getSocialMedia(); getContacts();this.router.navigate(['projects/edit', this.projectId]);">Edit</button>
+<div *ngIf='showProjectEditForm' class="edit-project">
 <!-- showProjectEditForm = true; getSocialMedia(); getContacts() -->
-<div class="edit-project">
   <div class="form-group">
     <label>Title</label>
     <input class="form-control" [(ngModel)]="projectToEdit.title" placeholder={{projectToEdit.title}}>
