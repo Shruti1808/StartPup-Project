@@ -19,6 +19,8 @@
 
 .panel {
   box-shadow: 2px 2px 5px #dddddd;
+  height:400px;
+  overflow: hidden;
 }
 
 .panel-body {
@@ -32,4 +34,8 @@
 
 .space {
   height: 50px;
+}
+
+.textbody {
+  margin:5px;
 }

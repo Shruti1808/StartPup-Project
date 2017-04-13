@@ -41,7 +41,7 @@ export class UserDetailComponent implements OnInit {
 
       setTimeout(() => {
         this.userToDisplay = dataLastEmittedFromObserver;
-      }, 1);
+      }, 3);
 
       console.log(this.userToDisplay);
     });
@@ -49,5 +49,5 @@ export class UserDetailComponent implements OnInit {
 
   showEditUser() {
     this.showEditor = true;
-  }  
+  }
 }

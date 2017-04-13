@@ -1,24 +1,40 @@
   <!-- user profile info section -->
-  <div class="row">
+<div class="container">
+  <div class="row" id = "user-profile">
     <div class="col-sm-3 pro-info">
+      <div class="img-circle">
+        <img class="user-avatar img-circle" src="{{userToDisplay?.image}}" alt="{{userToDisplay?.name}}" />
+      </div>
 
-      <img class="user-avatar" src="{{userToDisplay?.image}}" alt="{{userToDisplay?.name}}" />
-
-      <h1 class="name">{{userToDisplay?.name}}</h1>
-      <h4 class="location">{{userToDisplay?.location}}</h4>
-      <h4 class="email"><em>{{userToDisplay?.email}}</em></h4>
+      <h2 class="name">{{userToDisplay?.name}}</h2>
+      <div class="profile-usermenu">
+        <ul class="nav">
+      <li class="active">
+        <a><i class="glyphicon glyphicon-home"></i>
+          {{userToDisplay?.location}}</a>
+      </li>
+      <li>
+        <a><i class="glyphicon glyphicon-user"></i>
+            {{userToDisplay?.email}}</a>
+      </li>
+    </ul>
+  </div>
     </div>
     <div class="col-sm-1">
     </div>
     <div class="col-sm-8">
-      <ul class="project-list" *ngFor="let projectKey of userToDisplay?.projects | keys">
-        <app-user-project [projectKey]="projectKey"></app-user-project>
-      </ul>
+      <div *ngIf="!showEditor">
+        <h1>Projects:</h1>
+        <ul class="project-list list-unstyled" *ngFor="let projectKey of userToDisplay?.projects | keys">
+          <app-user-project [projectKey]="projectKey"></app-user-project>
+        </ul>
+      </div>
+      <app-edit-user *ngIf="showEditor" [selectedUser]="userToDisplay" (clickSender)="showEditor = false;"></app-edit-user>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-5">
-      <button *ngIf="!showEditor" (click)="showEditUser()">Edit Profile</button>
-      <app-edit-user *ngIf="showEditor" [selectedUser]="userToDisplay" (clickSender)="showEditor = false"></app-edit-user>
+      <button *ngIf="!showEditor" (click)="showEditUser()" class="btn btn-sm btn-info">Edit Profile</button>
     </div>
   </div>
+</div>
