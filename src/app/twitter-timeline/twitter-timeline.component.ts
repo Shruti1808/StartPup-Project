@@ -7,44 +7,53 @@ import {WindowReference} from './window-reference';
   styleUrls: ['./twitter-timeline.component.scss']
 })
 export class TwitterTimelineComponent implements OnInit {
-  @Input() twitterHandle: string;
+  twitterHandle: string;
+  @Input() socialMedia;
 
   constructor() { }
 
   ngOnInit(){
-    console.log( this.twitterHandle) ;
-    let win = WindowReference.get();
-    win.twttr = (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0],
-      t = win.twttr || {};
-      if (d.getElementById(id)) {return t};
-      js = d.createElement(s);
-      js.id = id;
-      js.src = 'https://platform.twitter.com/widgets.js';
-      fjs.parentNode.insertBefore(js, fjs);
-
-      t._e = [];
-      t.ready = function(f) {
-        t._e.push(f);
+    setTimeout(()=>{
+      for(let media of this.socialMedia) {
+        if(media.mediaType == "Twitter") {
+          this.twitterHandle = media.mediaAccount;
+        }
       };
 
-      return t;
-    }(document, 'script', 'twitter-wjs'));
+      let win = WindowReference.get();
+      win.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+        t = win.twttr || {};
+        if (d.getElementById(id)) {return t};
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://platform.twitter.com/widgets.js';
+        fjs.parentNode.insertBefore(js, fjs);
 
-    // setTimeout(function () { twttr.widgets.load(); }, 2);
-    // console.log(twttr)
-    win.twttr.ready(()=>{
-      win.twttr.widgets.createTimeline(
-        {
-          sourceType: 'profile',
-          screenName: 'this.twitterHandle'
-        },
-        document.getElementById("twitter-timeline"),
-        {
-          height: 400,
-        }
-      );
-    })
+        t._e = [];
+        t.ready = function(f) {
+          t._e.push(f);
+        };
+
+        return t;
+      }(document, 'script', 'twitter-wjs'));
+
+      // setTimeout(function () { twttr.widgets.load(); }, 2);
+      // console.log(twttr)
+      win.twttr.ready(()=>{
+        win.twttr.widgets.createTimeline(
+          {
+            sourceType: 'profile',
+            screenName: this.twitterHandle
+          },
+          document.getElementById("twitter-timeline"),
+          {
+            height: 600,
+            chrome: 'noscrollbar'
+          }
+        );
+      })
+    }, 100);
   }
 
   getTwitterUrl(twitterHandle:string) {

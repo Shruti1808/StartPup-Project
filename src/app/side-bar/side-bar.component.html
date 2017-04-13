@@ -17,7 +17,7 @@
         <h5><i [class]="getType(sm)" aria-hidden="true"></i><a href="{{sm.mediaAccount}}" target="_blank"> @{{sm.mediaAccount}}</a></h5>
       </div>
       <div *ngIf="sm.mediaType == 'Instagram'">
-        <h5 (click)="console.log(twitterHandle)"><i [class]="getType(sm)" aria-hidden="true"></i><a href="https://www.instagram.com/{{sm.mediaAccount}}/" target="_blank"> @{{sm.mediaAccount}}</a></h5>
+        <h5><i [class]="getType(sm)" aria-hidden="true"></i><a href="https://www.instagram.com/{{sm.mediaAccount}}/" target="_blank"> @{{sm.mediaAccount}}</a></h5>
       </div>
     </div>
   </div>
@@ -27,6 +27,6 @@
     <button type="button" class="btn btn-danger btn-sm" (click)="addNeedClicked()">New Need</button>
   </div>
   <div class="tweetbox">
-    <app-twitter-timeline [twitterHandle] ="'jccaylen'"></app-twitter-timeline>
+    <app-twitter-timeline [socialMedia] ="project.socialMedia"></app-twitter-timeline>
   </div>
 </div>
