@@ -24,36 +24,30 @@ export class UserDetailComponent implements OnInit {
   public userId: string; //user object key
   public userToDisplay;
   public showEditor = false; //user displayed on page
-  // public userProjects: string[] = []; //List of project keys associated with user
-  // public projectsToDisplay: FirebaseListObservable<any[]>; //list of project objects associated with user
-
 
   constructor(
     public projectService: ProjectService,
     public userService: UserService,
     public route: ActivatedRoute,
-    public location: Location) { }
+    public location: Location
+  ) { };
 
-    ngOnInit() {
-      this.route.params.forEach((url) => {
-        this.userId = url['id'];
-      });
+  ngOnInit() {
+    this.route.params.forEach((url) => {
+      this.userId = url['id'];
+    });
 
-      this.userToDisplay = this.userService.getUserById(this.userId).subscribe(dataLastEmittedFromObserver => {
+    this.userToDisplay = this.userService.getUserById(this.userId).subscribe(dataLastEmittedFromObserver => {
 
-        setTimeout(() => {
-          this.userToDisplay = dataLastEmittedFromObserver;
-        }, 1);
+      setTimeout(() => {
+        this.userToDisplay = dataLastEmittedFromObserver;
+      }, 1);
 
-        console.log(this.userToDisplay);
-        // for(let i = 0; i < this.userToDisplay.projects.length; i++) {
-        //   this.userProjects.push(this.userToDisplay.projects[i]);
-        //   console.log(this.userProjects[i]);
-        // }
-      });
-    }
-
-    showEditUser() {
-      this.showEditor = true;
-    }
+      console.log(this.userToDisplay);
+    });
   }
+
+  showEditUser() {
+    this.showEditor = true;
+  }
+}

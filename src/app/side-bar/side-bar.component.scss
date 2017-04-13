@@ -3,29 +3,27 @@
 }
 
 .side-bar-box {
-  border: 1px solid green;
+  margin-top: -20px;
+  .col-md-5 {
+    padding: 0;
+  }
   .owner-box {
-    outline: 5px solid red;
-    img {
-      max-width: 40%;
-      outline: 10px solid black;
-      margin-top: 10px;
-      margin-left: 10px;
-      margin: 10px 20px 10px 10px;
-      float: left;
+    width: 100%;
+    .owner-image {
+      width: 100%;
     }
     h3 {
       display: inline-block;
       margin-top: 10px;
+      font-weight: 700;
     }
   }
 }
 
 .social-media-box {
-  border: 1px solid blue;
+  max-width: 100%;
   margin-top: 20px;
   padding: 10px;
   a {
-    font-size: 20px;
   }
 }

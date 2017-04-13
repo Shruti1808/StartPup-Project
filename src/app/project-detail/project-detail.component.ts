@@ -42,6 +42,7 @@ export class ProjectDetailComponent implements OnInit {
       this.user = this.userService.getUserById(dataLastEmittedFromObserver.owner).subscribe((dataLastEmittedFromObserver) => {
         setTimeout(() => {
           this.user = dataLastEmittedFromObserver;
+          this.user.uid = dataLastEmittedFromObserver.owner;
           this.userIsOwner = this.projectService.authenticateProject(this.projectId);
         }, 1);
 

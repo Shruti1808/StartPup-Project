@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-bar',
@@ -16,7 +17,7 @@ export class SideBarComponent implements OnInit {
   @Output() needClickSender = new EventEmitter();
   twitterHandle: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
 
@@ -24,13 +25,13 @@ export class SideBarComponent implements OnInit {
 
   getType(socialMedia){
     if (socialMedia.mediaType === 'Facebook') {
-      return "fa fa-facebook-square  fa-2x";
+      return "fa fa-facebook-square  fa-1x";
     } else if (socialMedia.mediaType === 'Twitter') {
-      return "fa fa-twitter-square fa-2x";
+      return "fa fa-twitter-square fa-1x";
     } else if (socialMedia.mediaType === 'Instagram') {
-      return "fa fa-instagram fa-2x";
+      return "fa fa-instagram fa-1x";
     } else if (socialMedia.mediaType === 'LinkedIn') {
-      return "fa fa-linkedin-square fa-2x";
+      return "fa fa-linkedin-square fa-1x";
     }
     console.log("SOCIAL MEDIA");
     console.log(this.owner.socialMedia);
@@ -55,4 +56,8 @@ export class SideBarComponent implements OnInit {
     this.needClickSender.emit();
   }
 
+  routeToOwner() {
+    console.log(this.owner.uid);
+    this.router.navigate(['users'], this.owner);
+  }
 }
