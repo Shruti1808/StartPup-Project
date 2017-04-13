@@ -8,7 +8,11 @@ import { User } from "./user.model";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
+
+
 export class AppComponent implements OnInit{
+  currentRoute: string = this.router.url;
   title = 'StartPup';
   showSignup: boolean = false;
   showLogin: boolean = false;
