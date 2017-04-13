@@ -1,16 +1,26 @@
 :host {
-  border: 1px solid orange;
+}
+
+a {
+  cursor: pointer;
 }
 
 .side-bar-box {
-  margin-top: -20px;
+  margin-top: 0px;
   .col-md-5 {
     padding: 0;
   }
   .owner-box {
+    padding: 10px 0px;
+    display: table;
+    margin-left: 3px;
     width: 100%;
-    .owner-image {
-      width: 100%;
+    .col-md-5 {
+      display: table-cell;
+      vertical-align: middle;
+      .owner-image {
+        width: 100%;
+      }
     }
     h3 {
       display: inline-block;
@@ -20,10 +30,19 @@
   }
 }
 
+hr {
+  color: #774699;
+  width: 3px;
+}
+
 .social-media-box {
   max-width: 100%;
   margin-top: 20px;
   padding: 10px;
-  a {
-  }
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.tweetbox {
+  margin-top: 30px;
 }

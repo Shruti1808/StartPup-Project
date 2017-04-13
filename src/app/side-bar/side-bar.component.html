@@ -4,11 +4,12 @@
       <img [src]="owner?.image" class="owner-image" alt="owner?.name">
     </div>
     <div class="col-md-7">
-      <h3><a (click)="routeToOwner(owner.uid)">{{owner?.name}}</a></h3>
+      <h3 (click)="routeToOwner(owner.uid)"><a>{{owner?.name}}</a></h3>
       <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{owner?.location}}</p>
       <p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{owner?.userEmail}}</p>
     </div>
   </div>
+  <hr>
   <div class="social-media-box row" *ngIf="project.socialMedia">
     <div *ngFor="let sm of project.socialMedia" class="social-media">
       <div *ngIf="sm.mediaType == 'Facebook'">
@@ -25,11 +26,13 @@
       </div>
     </div>
   </div>
+  <hr>
   <div class="admin" *ngIf="userIsOwner">
     <button type="button" class="btn btn-danger btn-block" (click)="deleteProject(projectToDisplay)">Delete</button>
     <button class="btn btn-block btn-info" (click)="editClicked()">Edit</button>
     <button type="button" class="btn btn-block" (click)="addNeedClicked()">New Need</button>
   </div>
+  <hr>
   <div class="tweetbox">
     <app-twitter-timeline [socialMedia] ="project.socialMedia"></app-twitter-timeline>
   </div>

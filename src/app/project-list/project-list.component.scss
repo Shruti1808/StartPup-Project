@@ -22,7 +22,7 @@
 }
 
 .panel-body {
-  min-height: 250px;
+  max-height: 400px;
 }
 
 .panel-heading{
@@ -32,4 +32,26 @@
 
 .space {
   height: 50px;
+}
+
+.project {
+  h4 {
+    font-weight: bold;
+  }
+  h4, img {
+    cursor: pointer;
+  }
+  div {
+    font-size: 14px;
+  }
+}
+
+h4 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  weight: 700;
+  text-transform: uppercase;
+}
+
+h1, .h1{
+  font-size: 14px!important;
 }

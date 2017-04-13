@@ -1,9 +1,13 @@
-<div class="need-box">
-  <h4>{{need.title}}</h4>
-  <h4>{{need.type}}</h4>
-  <h5>{{need.description}}</h5>
+<div class="need-box panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">{{need.title}}</h4>
+  </div>
+  <div class="panel-body">
+    <h4>{{need.type}}</h4>
+    <h5>{{need.description}}</h5>
 
-  <button *ngIf="userIsOwner" type="button" (click)="setSelection()">Edit</button>
+    <button *ngIf="userIsOwner" type="button" class="btn btn-default" (click)="setSelection()">Edit</button>
+  </div>
 </div>
 
 <app-edit-need *ngIf="editArea" [selectedNeed]="need" [projectId]="selectedProjectKey" [needId]="needId" (clickSender)="finishEditing()"></app-edit-need>

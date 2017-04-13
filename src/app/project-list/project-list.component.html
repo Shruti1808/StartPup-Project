@@ -2,12 +2,12 @@
   <div class="flex-container">
     <div *ngFor = 'let project of projects | async' (click)="goToProjectDetail(project)" class="flex-object">
       <div class="panel panel-default panel-front">
-      	<div class="panel-heading">
-      		<h4 class="panel-title"><a HREF="#"><img src="{{project.image}}"></a></h4>
+        <div class="panel-heading">
+          <img src="{{project.image}}">
         </div>
-        <div class="panel-body">
-          <h4>{{project.title}}</h4>
-            <div class="" [innerHTML]="truncateDescription(project.description)"></div>
+        <div class="panel-body project">
+          <h4><a>{{project.title}}</a></h4>
+          <div class="textbody" [innerHTML]="truncateDescription(project.description)"></div>
         </div>
       </div>
     </div>

@@ -9,6 +9,11 @@
   border: none;
 }
 
+.navbar-link:hover a {
+  color: black !important;
+  cursor: pointer;
+}
+
 #signup {
   z-index: 5;
   position: fixed;
@@ -18,6 +23,10 @@
   background-color: white;
   box-shadow: 0px 5px 10px #888888;
   padding:20px;
+}
+
+a:hover {
+  color: black;
 }
 
 /************ Header ***********/
@@ -52,6 +61,7 @@ div.container-fluid {
   width: 100%;
   position: fixed;
   bottom: 0;
+  z-index: 1000;
 }
 .copyright {
   color: #fff;
