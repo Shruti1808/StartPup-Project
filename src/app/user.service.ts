@@ -42,7 +42,9 @@ export class UserService {
   }
 
   addProjectToUser(userId, projectKey) {
-    this.angularFire.database.list('/users/' + userId + '/projects/').push(true);
+    const projects = this.angularFire.database.object('/users/'+ userId + '/projects/');
+    projects.update({ [projectKey]: true});
+    // this.angularFire.database.list('/users/' + userId + '/projects/').child(projectKey).set(true);
   }
 
   getUserProjects(userId) {
