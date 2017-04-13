@@ -27,7 +27,7 @@ export class ProjectService {
 
 
   addNewProject(newProject: Project){
-    this.projects.push(newProject);
+    return this.projects.push(newProject).key;
   }
 
   addNewNeed(currentProject, newNeed){
