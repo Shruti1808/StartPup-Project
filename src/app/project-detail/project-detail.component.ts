@@ -38,8 +38,10 @@ export class ProjectDetailComponent implements OnInit {
     });
     this.projectToDisplay = this.projectService.getProjectById(this.projectId).subscribe(dataLastEmittedFromObserver => {
 
-      setTimeout(() => {this.user = this.userService.getUserById(dataLastEmittedFromObserver.owner).subscribe((dataLastEmittedFromObserver) => {
+      setTimeout(() => {
+        this.user = this.userService.getUserById(dataLastEmittedFromObserver.owner).subscribe((dataLastEmittedFromObserver) => {
         this.user = dataLastEmittedFromObserver;
+        this.userIsOwner = this.projectService.authenticateProject(this.projectId);
       });
       console.log(this.user);
       console.log(dataLastEmittedFromObserver.owner);
@@ -52,11 +54,10 @@ export class ProjectDetailComponent implements OnInit {
         dataLastEmittedFromObserver.socialMedia,
         dataLastEmittedFromObserver.contactInformation,
         dataLastEmittedFromObserver.website
-      );}, 1);
+      );}, 5);
 
 
       // setTimeout(() => {}, 1);
-      this.userIsOwner = this.projectService.authenticateProject(this.projectId);
       // this.projectToDisplay = new Project(
       //   dataLastEmittedFromObserver.owner,
       //   dataLastEmittedFromObserver.needs,
