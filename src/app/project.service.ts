@@ -79,11 +79,13 @@ export class ProjectService {
     this.getProjectById(projectKey).subscribe((data) => {
       project = data;
     })
-    const currentUser = this.afService.authState.uid;
-    const projectOwner = project.owner;
+    if (this.afService.authState) {
+      const currentUser = this.afService.authState.uid;
+      const projectOwner = project.owner;
 
-    if (currentUser === projectOwner) {
-      return true;
+      if (currentUser === projectOwner) {
+        return true;
+      }
     }
   }
 

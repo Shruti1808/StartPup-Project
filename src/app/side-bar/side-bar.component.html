@@ -7,7 +7,6 @@
   </div>
   <div class="social-media-box row" *ngIf="project.socialMedia">
     <div *ngFor="let sm of project.socialMedia" class="social-media">
-      <h5><i [class]="getType(sm)" aria-hidden="true"></i><a href="{{sm.mediaAccount}}">{{sm.mediaAccount}}</a></h5>
       <div *ngIf="sm.mediaType == 'Facebook'">
         <h5><i [class]="getType(sm)" aria-hidden="true"></i><a href="https://www.facebook.com/{{sm.mediaAccount}}/" target="_blank"> @{{sm.mediaAccount}}</a></h5>
       </div>
