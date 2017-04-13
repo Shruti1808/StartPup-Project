@@ -39,7 +39,10 @@ export class TwitterTimelineComponent implements OnInit {
           sourceType: 'profile',
           screenName: 'this.twitterHandle'
         },
-        document.getElementById("twitter-timeline")
+        document.getElementById("twitter-timeline"),
+        {
+          height: 400,
+        }
       );
     })
   }
