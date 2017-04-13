@@ -4,7 +4,6 @@
     <div class="navbar-header">
       <a class="navbar-brand" routerLink="">StartPup</a>
 
-
     </div>
     <ul class="nav navbar-nav navbar-right">
       <li *ngIf="!isLoggedIn"><a (click)= "showSignup=true">Signup</a></li>
@@ -16,7 +15,27 @@
   </div>
 </nav>
 
+
+
+<!-- ......Header........ -->
+<header class="business-header" *ngIf ="currentRoute === '/'">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12  text-center">
+        <div class="row space"></div>
+        <h1 class="tagline">Bring New Ideas To Life</h1>
+
+        <p>Explore creative projects and help bring bold new ideas into the world </p>
+        <p>Our mission is to share your creative ideas, help you find resources and make your dreams a reality.</p>
+      </div>
+    </div>
+  </div>
+</header>
+    <!-- ......Header ends here..... -->
+
+
 <div class="container">
+  <router-outlet></router-outlet>
   <div *ngIf="showSignup" id="signup">
     <app-signup (clickSender)="showSignup = false;"></app-signup>
   </div>
@@ -41,11 +60,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-<router-outlet></router-outlet>
-=======
->>>>>>> 12c65f74df56b7e628cf70dca92a6116affcf272
