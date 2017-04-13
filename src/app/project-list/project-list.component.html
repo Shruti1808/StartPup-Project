@@ -1,8 +1,14 @@
 <p>
   project-list works!
 </p>
-<ul>
-  <li *ngFor = 'let project of projects | async' (click)="goToProjectDetail(project)">
-    <h2>{{project.title}}</h2>
-  </li>
-</ul>
+  <div *ngFor = 'let project of projects | async' (click)="goToProjectDetail(project)">
+    <div class="panel panel-default panel-front">
+    	<div class="panel-heading">
+    		<h4 class="panel-title"><a HREF="#"><img src="{{project.image}}"></a></h4>
+      </div>
+      <div class="panel-body">
+        <h4>{{project.title}}</h4>
+          <div class="" [innerHTML]="truncateDescription(project.description)"></div>
+      </div>
+    </div>
+  </div>
