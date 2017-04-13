@@ -13,6 +13,7 @@ export class SideBarComponent implements OnInit {
   @Input() owner;
   @Input() userIsOwner;
   @Output() editClickSender = new EventEmitter();
+  @Output() needClickSender = new EventEmitter();
   twitterHandle: string;
 
   constructor() { }
@@ -45,6 +46,10 @@ export class SideBarComponent implements OnInit {
 
   editClicked() {
     this.editClickSender.emit();
+  }
+
+  addNeedClicked() {
+    this.needClickSender.emit();
   }
 
 }

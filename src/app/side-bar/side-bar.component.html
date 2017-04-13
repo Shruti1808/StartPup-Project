@@ -22,8 +22,9 @@
     </div>
   </div>
   <div class="admin" *ngIf="userIsOwner">
-    <button type="button" class="btn btn-danger btn-sm" name="button" (click)="deleteProject(projectToDisplay)">Delete</button>
+    <button type="button" class="btn btn-danger btn-sm" (click)="deleteProject(projectToDisplay)">Delete</button>
     <button class="btn btn-sm btn-info" (click)="editClicked()">Edit</button>
+    <button type="button" class="btn btn-danger btn-sm" (click)="addNeedClicked()">New Need</button>
   </div>
   <div class="tweetbox">
     <app-twitter-timeline [twitterHandle] ="'jccaylen'"></app-twitter-timeline>

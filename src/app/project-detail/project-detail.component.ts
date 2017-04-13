@@ -23,6 +23,7 @@ export class ProjectDetailComponent implements OnInit {
   public projectNeeds: any[] = []
   public userIsOwner = false;
   public startEditing = false;
+  public showAddNeed = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -71,5 +72,9 @@ export class ProjectDetailComponent implements OnInit {
 
   editClickSender() {
     this.startEditing = true;
+  }
+
+  needClickSender() {
+    this.showAddNeed = true;
   }
 }
