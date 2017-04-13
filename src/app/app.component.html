@@ -7,22 +7,19 @@
 
     </div>
     <ul class="nav navbar-nav navbar-right">
+      <li><a routerLink="new-project">New Project</a></li>
       <li><a href="#" (click)= "showSignup=true">Signup</a></li>
       <li><a routerLink="login">Login</a></li>
-      <li><a routerLink="new-project">New Project</a></li>
-      <li><a routerLink="about">About</a></li>
-      <a class="navbar-brand" routerLink="contact">Contact Us</a>
-
     </ul>
   </div>
 </nav>
 
 <div class="container">
-  <router-outlet></router-outlet>
   <div *ngIf="showSignup" id="signup">
     <app-signup (clickSender)="showSignup = false;"></app-signup>
   </div>
 </div>
+
 
 <div class="footer-bottom">
 	<div class="container">
@@ -34,9 +31,15 @@
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 	       <div class="design">
-					 <a routerLink="contact">Contact Us!</a> |  <a target="_blank" href="http://www.startpup.com">Web Design & Development by Webenlance</a>
+					 <a routerLink="contact">Contact Us!</a> |  <a target="_blank" routerLink="about">About StartPup</a>
 				</div>
 			</div>
     </div>
   </div>
 </div>
+
+
+
+
+
+<router-outlet></router-outlet>
