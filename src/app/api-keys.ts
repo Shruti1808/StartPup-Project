@@ -6,3 +6,8 @@ export const masterFirebaseConfig = {
   storageBucket: "startpup-9068d.appspot.com",
   messagingSenderId: "807530857690"
 };
+
+export const masterLinkedinConfig = {
+  apiKey: "yiuXvEAjOKFdsA83",
+  clientId: "yiuXvEAjOKFdsA83"
+}
