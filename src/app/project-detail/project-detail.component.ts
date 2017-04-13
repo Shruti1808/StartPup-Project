@@ -1,5 +1,4 @@
-
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
 import { Project } from '../project.model';
@@ -20,7 +19,11 @@ import { Router } from '@angular/router';
 export class ProjectDetailComponent implements OnInit {
   public projectId: string;
   public projectToDisplay: any;
-  public user: User;
+  public user;
+  public projectNeeds: any[] = []
+  public userIsOwner = false;
+  public startEditing = false;
+  public showAddNeed = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,25 +36,31 @@ export class ProjectDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
       this.projectId = urlParameters['id'];
-      console.log(this.projectId);
     });
     this.projectToDisplay = this.projectService.getProjectById(this.projectId).subscribe(dataLastEmittedFromObserver => {
-      this.user = new User(dataLastEmittedFromObserver.owner.name, dataLastEmittedFromObserver.owner.location, dataLastEmittedFromObserver.owner.userEmail, dataLastEmittedFromObserver.owner.userImage, dataLastEmittedFromObserver.owner.projectList);
-      // this.user.id = dataLastEmittedFromObserver.owner.id;
 
+      this.user = this.userService.getUserById(dataLastEmittedFromObserver.owner).subscribe((dataLastEmittedFromObserver) => {
+        setTimeout(() => {
+          this.user = dataLastEmittedFromObserver;
+          this.userIsOwner = this.projectService.authenticateProject(this.projectId);
+        }, 1);
+
+      });
+      console.log(this.user);
+      console.log(dataLastEmittedFromObserver.owner);
+      setTimeout(() => {
         this.projectToDisplay = new Project(
-              dataLastEmittedFromObserver.needs,
-              dataLastEmittedFromObserver.title,
-              dataLastEmittedFromObserver.image,
-              dataLastEmittedFromObserver.description,
-              dataLastEmittedFromObserver.socialMedia,
-              dataLastEmittedFromObserver.contactInformation,
-              dataLastEmittedFromObserver.website,
-
-            );
-
+          dataLastEmittedFromObserver.owner,
+          dataLastEmittedFromObserver.needs,
+          dataLastEmittedFromObserver.title,
+          dataLastEmittedFromObserver.image,
+          dataLastEmittedFromObserver.description,
+          dataLastEmittedFromObserver.socialMedia,
+          dataLastEmittedFromObserver.contactInformation,
+          dataLastEmittedFromObserver.website
+        )
+      }, 1);
     });
-
   }
 
   deleteProject(projectToDelete){
@@ -61,4 +70,11 @@ export class ProjectDetailComponent implements OnInit {
     }
   }
 
+  editClickSender() {
+    this.startEditing = true;
+  }
+
+  needClickSender() {
+    this.showAddNeed = true;
+  }
 }

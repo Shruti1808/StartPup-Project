@@ -7,9 +7,11 @@
 
     </div>
     <ul class="nav navbar-nav navbar-right">
+      <li *ngIf="!isLoggedIn"><a (click)= "showSignup=true">Signup</a></li>
       <li><a routerLink="new-project">New Project</a></li>
-      <li><a href="#" (click)= "showSignup=true">Signup</a></li>
-      <li><a routerLink="login">Login</a></li>
+      <li *ngIf="showName()"><a (click)="navigateToProfile()"> Welcome, {{currentUser.displayName}}</a></li>
+      <li *ngIf="!isLoggedIn"><a (click)="showLogin = true">Login</a></li>
+      <li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
     </ul>
   </div>
 </nav>
@@ -18,8 +20,10 @@
   <div *ngIf="showSignup" id="signup">
     <app-signup (clickSender)="showSignup = false;"></app-signup>
   </div>
+  <div *ngIf="showLogin" id="login">
+    <app-login (closeLogin)="showLogin = false;"></app-login>
+  </div>
 </div>
-
 
 <div class="footer-bottom">
 	<div class="container">
@@ -43,3 +47,5 @@
 
 
 <router-outlet></router-outlet>
+=======
+>>>>>>> 12c65f74df56b7e628cf70dca92a6116affcf272

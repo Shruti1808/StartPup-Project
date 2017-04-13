@@ -1,15 +1,16 @@
 <div class="project-detail-box row">
   <div class="main-project col-md-8">
     <h2>{{projectToDisplay?.title}}</h2>
-    <app-edit-project [projectToEdit]='projectToDisplay' [projectId]='projectId'></app-edit-project>
-    <button type="button" class="btn btn-danger btn-sm" name="button" (click)="deleteProject(projectToDisplay)">Delete</button>
+    <app-edit-project *ngIf="startEditing" [projectToEdit]='projectToDisplay' [projectId]='projectId' (closeModalSender)='startEditing = false'></app-edit-project>
+    <app-add-need  *ngIf="showAddNeed" [selectedProjectKey]="projectId"></app-add-need>
+
     <img *ngIf="projectToDisplay" [src]="projectToDisplay?.image" alt="projectToDisplay?.title" />
     <p [innerHTML]="projectToDisplay?.description"></p>
+    <div class="needs-list">
+      <app-need *ngFor="let needId of projectToDisplay.needs | keys" [selectedProjectKey]="projectId" [needId]="needId" [userIsOwner]="userIsOwner"></app-need>
+    </div>
   </div>
   <div class="col-md-4">
-    <app-side-bar [project]="projectToDisplay" [owner]="user"></app-side-bar>
+    <app-side-bar [project]="projectToDisplay" [owner]="user" [userIsOwner]="userIsOwner" (editClickSender)="editClickSender()" (needClickSender)="needClickSender()"></app-side-bar>
   </div>
 </div>
-
-<h2>here is the needs list</h2>
-<app-need [selectedProjectKey]="projectId"></app-need>

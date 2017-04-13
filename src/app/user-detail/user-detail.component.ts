@@ -22,7 +22,8 @@ export class UserDetailComponent implements OnInit {
   public projects: FirebaseObjectObservable<any[]>;
   public users: FirebaseObjectObservable<any[]>;
   public userId: string; //user object key
-  public userToDisplay; //user displayed on page
+  public userToDisplay;
+  public showEditor = false; //user displayed on page
   // public userProjects: string[] = []; //List of project keys associated with user
   // public projectsToDisplay: FirebaseListObservable<any[]>; //list of project objects associated with user
 
@@ -39,11 +40,20 @@ export class UserDetailComponent implements OnInit {
       });
 
       this.userToDisplay = this.userService.getUserById(this.userId).subscribe(dataLastEmittedFromObserver => {
-        this.userToDisplay = dataLastEmittedFromObserver;
+
+        setTimeout(() => {
+          this.userToDisplay = dataLastEmittedFromObserver;
+        }, 1);
+
+        console.log(this.userToDisplay);
         // for(let i = 0; i < this.userToDisplay.projects.length; i++) {
         //   this.userProjects.push(this.userToDisplay.projects[i]);
         //   console.log(this.userProjects[i]);
         // }
       });
+    }
+
+    showEditUser() {
+      this.showEditor = true;
     }
   }

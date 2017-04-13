@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 import { User } from './user.model';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UserService {
   users: FirebaseListObservable<any[]>;
+  user;
+  public userProjects;
+  public localUserProjects = [];
 
   constructor(private angularFire: AngularFire) {
     this.users = angularFire.database.list('users');
@@ -22,20 +26,29 @@ export class UserService {
     return this.angularFire.database.object('/users/'+ userId);
   }
 
-
   updateUser(localUpdatedUser){
     var userEntryInFirebase = this.getUserById(localUpdatedUser.$key);
     userEntryInFirebase.update({
       name: localUpdatedUser.name,
       location: localUpdatedUser.location,
       email: localUpdatedUser.email,
-      image: localUpdatedUser.image,
-      projectList: localUpdatedUser.projectList
+      image: localUpdatedUser.image
     });
   }
 
   deleteUser(localUserToDelete){
     var userEntryInFirebase = this.getUserById(localUserToDelete.$key);
     userEntryInFirebase.remove();
+  }
+
+  addProjectToUser(userId, projectKey) {
+    const projects = this.angularFire.database.object('/users/'+ userId + '/projects/');
+    projects.update({ [projectKey]: true});
+    // this.angularFire.database.list('/users/' + userId + '/projects/').child(projectKey).set(true);
+  }
+
+  getUserProjects(userId) {
+    this.userProjects = this.angularFire.database.list('/users/'+ userId + '/projects/');
+    return this.userProjects.subscribe(userProjects => this.localUserProjects = userProjects);
   }
 }

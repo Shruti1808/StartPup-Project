@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Need } from '../need.model';
 import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 import { ProjectService } from '../project.service';
+import { AF } from '../providers/af';
 import { Project } from '../project.model';
 
 @Component({
@@ -11,37 +12,31 @@ import { Project } from '../project.model';
   providers: [ProjectService]
 })
 export class NeedComponent implements OnInit {
-  @Input() selectedProjectKey;
-  @Input() selectedNeed
-  //  = new Need(null, null, null);
-  currentProject: Project;
-  currentNeeds: Need[];
-  projects: FirebaseObjectObservable<any[]>;
+  @Input() selectedProjectKey: string;
+  @Input() needId;
+  @Input() userIsOwner;
+  public need;
+  public project;
   public editArea = false;
 
-  constructor(private projectService: ProjectService) { }
+  constructor(
+    private projectService: ProjectService,
+    private afService: AF
+  ) { }
 
   ngOnInit() {
-    this.projectService.getProjectById(this.selectedProjectKey).subscribe(thisProject => {
-        this.currentProject = thisProject;
-        this.currentNeeds = this.currentProject.needs;
-        console.log(this.currentNeeds);
-    });
+    this.projectService.getNeedById(this.selectedProjectKey, this.needId).subscribe((data) => {
+      this.need = data;
+    })
+    // this.userIsOwner = this.projectService.authenticateProject(this.selectedProjectKey);
   }
 
-
-  submitForm(newTitle, newType, newDescription) {
-    var newNeed = new Need(newTitle, newType, newDescription);
-    this.currentNeeds.push(newNeed);
-    console.log(this.currentNeeds);
-    this.projectService.addNewNeed(this.currentProject, this.currentNeeds);
+  finishEditing() {
+    this.editArea = false;
   }
 
-  setSelection(need){
+  setSelection(){
     this.editArea = true;
-    this.selectedNeed = need;
-    console.log("need name " + this.selectedNeed);
-    console.log(this.projects);
   }
 
 }

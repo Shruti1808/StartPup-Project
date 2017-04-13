@@ -1,7 +1,20 @@
-<h1>Signup</h1><br>
-<input class="form-control" type="text" name="user" placeholder="Username" #newName><br>
-<input class="form-control" type="text" name="location" placeholder="Location" #newLocation><br>
-<input class="form-control" type="text" name="email" placeholder="Email" #newEmail><br>
-<input class="form-control" type="text" name="Image" placeholder="Image URL" #newImage><br>
-<button class="btn btn-info" (click)="createNewUser(newName.value, newLocation.value, newEmail.value, newImage.value); newName.value=''; newLocation.value='';newEmail.value='';newImage.value='';">Register</button>
+<h1>Sign Up</h1><br>
+
+<div *ngIf="error" class="alert alert-warning" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  {{error}}
+</div>
+
+<form class="form-signin" (submit)="register($event, newName.value, newEmail.value, newPassword.value)">
+  <input class="form-control" type="text" name="user" placeholder="Name" #newName>
+
+  <input class="form-control" type="text" name="email" placeholder="Email" #newEmail>
+
+  <input class="form-control" type="text" name="password" placeholder="Password" #newPassword>
+
+  <button class="btn btn-info" type="submit">Register</button>
+</form>
+
+
 <button class="btn btn-warning" (click)="cancelAddNewUser()">Cancel</button>

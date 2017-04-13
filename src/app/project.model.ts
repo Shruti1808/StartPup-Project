@@ -4,9 +4,9 @@ import { SocialMedia } from './social-media.model';
 import { Contact } from './contact.model';
 
 export class Project {
-  public owner: string;
 
   constructor(
+    public owner: string,
     public needs: Need[],
     public title: string,
     public image: string,
