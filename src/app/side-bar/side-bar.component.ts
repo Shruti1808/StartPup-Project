@@ -17,6 +17,7 @@ export class SideBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
   getType(socialMedia){
@@ -34,12 +35,14 @@ export class SideBarComponent implements OnInit {
   }
 
   getTwitterHandle(socialMedia) {
-    console.log(socialMedia);
-    for(let media of socialMedia) {
-      if(media.mediaType == "Twitter") {
-      return media.mediaAccount;
+    setTimeout(()=> {
+      console.log(socialMedia)
+      for(let media of socialMedia) {
+        if(media.mediaType == "Twitter") {
+          return media.mediaAccount;
+        }
       }
-    }
+    }, 100);
   }
 
 }
