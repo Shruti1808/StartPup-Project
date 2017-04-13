@@ -1,5 +1,5 @@
 <div class="side-bar-box">
-  <div class="owner-box">
+  <div class="owner-box row">
     <div class="col-md-5">
       <img [src]="owner?.image" class="owner-image" alt="owner?.name">
     </div>
@@ -9,7 +9,7 @@
       <p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{owner?.userEmail}}</p>
     </div>
   </div>
-  <div class="social-media-box" *ngIf="project.socialMedia">
+  <div class="social-media-box row" *ngIf="project.socialMedia">
     <div *ngFor="let sm of project.socialMedia" class="social-media">
       <div *ngIf="sm.mediaType == 'Facebook'">
         <p><i [class]="getType(sm)" aria-hidden="true"></i><a href="https://www.facebook.com/{{sm.mediaAccount}}/" target="_blank"> @{{sm.mediaAccount}}</a></p>
