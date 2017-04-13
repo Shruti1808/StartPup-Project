@@ -2,6 +2,7 @@ import { ModuleWithProviders } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';

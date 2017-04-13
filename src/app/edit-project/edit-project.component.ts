@@ -14,6 +14,7 @@ export class EditProjectComponent implements OnInit {
   @Input() projectToEdit;
   @Input() projectId;
 
+  showProjectEditForm: boolean = false;
   projectSocialMedia: SocialMedia[] = [];
   contacts: Contact[] = [];
 
@@ -24,11 +25,10 @@ export class EditProjectComponent implements OnInit {
 
   submitEdit(projectToEdit) {
     this.projectService.editProject(this.projectToEdit, this.projectSocialMedia, this.contacts, this.projectId);
-    this.router.navigate([this.router.url]);
   }
 
   reload(){
-    location.reload();
+    window.location.reload();
   }
 
 

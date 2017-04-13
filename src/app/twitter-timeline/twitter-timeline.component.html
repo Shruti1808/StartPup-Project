@@ -1,8 +1,8 @@
-<div id="twitter-timeline">
-  {{twitterHandle}}
-  Tweets by @{{twitterHandle}}
-</div>
 
-<!-- <a class="twitter-timeline"
-  [href]="getTwitterUrl(twitterHandle)" data-height="600" data-chrome = "noscrollbar">
-</a> -->
+<div class="twitter-area">
+  <h2 *ngIf="twitterHandle === null">Add a twitter account.</h2>
+<div id="twitter-timeline" *ngIf="twitterHandle">
+    {{twitterHandle}}
+    Tweets by @{{twitterHandle}}
+  </div>
+</div>
