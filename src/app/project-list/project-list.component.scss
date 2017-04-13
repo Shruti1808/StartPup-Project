@@ -19,12 +19,11 @@
 
 .panel {
   box-shadow: 2px 2px 5px #dddddd;
-  height:400px;
-  overflow: hidden;
 }
 
 .panel-body {
-  min-height: 250px;
+  height: 250px;
+  overflow: hidden;
 }
 
 .panel-heading{
