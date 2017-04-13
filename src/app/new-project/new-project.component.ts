@@ -3,6 +3,7 @@ import { SocialMedia } from '../social-media.model';
 import { Project } from '../project.model';
 import { ProjectService } from '../project.service';
 import { Router } from '@angular/router';
+import { AF } from '../providers/af';
 
 @Component({
   selector: 'app-new-project',
@@ -18,14 +19,20 @@ export class NewProjectComponent implements OnInit {
   public options: Object = {
     height:400
   }
+  public currentUser;
 
-  constructor(private projectService: ProjectService, private router: Router) { }
+  constructor(
+    private projectService: ProjectService,
+    private router: Router,
+    private afService: AF
+  ) { }
 
   ngOnInit() {
   }
 
   createNewProject(newTitle, newImage, newDescription, newWebsite){
-    var newProject = new Project([], newTitle, newImage, newDescription, this.socialMedia, [], newWebsite);
+    this.currentUser = this.afService.authState.auth.uid;
+    var newProject = new Project(this.currentUser, [], newTitle, newImage, newDescription, this.socialMedia, [], newWebsite);
     this.projectService.addNewProject(newProject);
     this.router.navigate([""]);
   }
