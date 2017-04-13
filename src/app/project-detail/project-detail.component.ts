@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
@@ -38,39 +37,28 @@ export class ProjectDetailComponent implements OnInit {
     });
     this.projectToDisplay = this.projectService.getProjectById(this.projectId).subscribe(dataLastEmittedFromObserver => {
 
-      setTimeout(() => {
-        this.user = this.userService.getUserById(dataLastEmittedFromObserver.owner).subscribe((dataLastEmittedFromObserver) => {
-        this.user = dataLastEmittedFromObserver;
-        this.userIsOwner = this.projectService.authenticateProject(this.projectId);
+      this.user = this.userService.getUserById(dataLastEmittedFromObserver.owner).subscribe((dataLastEmittedFromObserver) => {
+        setTimeout(() => {
+          this.user = dataLastEmittedFromObserver;
+          this.userIsOwner = this.projectService.authenticateProject(this.projectId);
+        }, 1);
+
       });
       console.log(this.user);
       console.log(dataLastEmittedFromObserver.owner);
-      this.projectToDisplay = new Project(
-        dataLastEmittedFromObserver.owner,
-        dataLastEmittedFromObserver.needs,
-        dataLastEmittedFromObserver.title,
-        dataLastEmittedFromObserver.image,
-        dataLastEmittedFromObserver.description,
-        dataLastEmittedFromObserver.socialMedia,
-        dataLastEmittedFromObserver.contactInformation,
-        dataLastEmittedFromObserver.website
-      );}, 5);
-
-
-      // setTimeout(() => {}, 1);
-      // this.projectToDisplay = new Project(
-      //   dataLastEmittedFromObserver.owner,
-      //   dataLastEmittedFromObserver.needs,
-      //   dataLastEmittedFromObserver.title,
-      //   dataLastEmittedFromObserver.image,
-      //   dataLastEmittedFromObserver.description,
-      //   dataLastEmittedFromObserver.socialMedia,
-      //   dataLastEmittedFromObserver.contactInformation,
-      //   dataLastEmittedFromObserver.website,
-      //
-      // );
+      setTimeout(() => {
+        this.projectToDisplay = new Project(
+          dataLastEmittedFromObserver.owner,
+          dataLastEmittedFromObserver.needs,
+          dataLastEmittedFromObserver.title,
+          dataLastEmittedFromObserver.image,
+          dataLastEmittedFromObserver.description,
+          dataLastEmittedFromObserver.socialMedia,
+          dataLastEmittedFromObserver.contactInformation,
+          dataLastEmittedFromObserver.website
+        )
+      }, 1);
     });
-
   }
 
   deleteProject(projectToDelete){
