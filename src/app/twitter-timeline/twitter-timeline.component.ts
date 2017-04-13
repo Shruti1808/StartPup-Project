@@ -14,6 +14,7 @@ export class TwitterTimelineComponent implements OnInit {
 
   ngOnInit(){
     setTimeout(()=>{
+      console.log(this.socialMedia);
       for(let media of this.socialMedia) {
         if(media.mediaType == "Twitter") {
           this.twitterHandle = media.mediaAccount;
