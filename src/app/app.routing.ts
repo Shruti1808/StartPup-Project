@@ -27,7 +27,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'new-project',
-    component: NewProjectComponent,
+    component: NewProjectComponent
   },
   {
     path: 'contact',

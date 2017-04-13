@@ -11,25 +11,28 @@ import { Project } from '../project.model';
   providers: [ProjectService]
 })
 export class NeedComponent implements OnInit {
-  @Input() selectedProjectKey;
-  currentProject: Project;
-  currentNeeds: Need[];
-  projects: FirebaseObjectObservable<any[]>;
+  @Input() selectedProjectKey: string;
+  @Input() need;
+  public editArea = false;
 
   constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
-    this.projectService.getProjectById(this.selectedProjectKey).subscribe(thisProject => {
-        this.currentProject = thisProject;
-        this.currentNeeds = this.currentProject.needs;
-    });
+    console.log(this.selectedProjectKey);
+  //   this.projectService.getProjectById(this.selectedProjectKey).subscribe(thisProject => {
+  //       this.currentProject = thisProject;
+  //       this.currentNeeds = this.currentProject.needs;
+  //       console.log(this.currentNeeds);
+  //   });
   }
 
-  submitForm(newTitle, newType, newDescription) {
-    var newNeed = new Need(newTitle, newType, newDescription);
-    this.currentNeeds.push(newNeed);
-    console.log(this.currentNeeds);
-    this.projectService.addNewNeed(this.currentProject, this.currentNeeds);
+  finishEditing() {
+    console.log(this.need);
+    this.editArea = true;
+  }
+
+  setSelection(){
+    this.editArea = true;
   }
 
 }

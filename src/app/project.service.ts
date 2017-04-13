@@ -30,10 +30,10 @@ export class ProjectService {
     this.projects.push(newProject);
   }
 
-  addNewNeed(currentProject, newNeeds: Need[]){
+  addNewNeed(currentProject, newNeed){
     var projectEntryInFirebase = this.getProjectById(currentProject.$key);
     projectEntryInFirebase.update({
-      needs: newNeeds
+      needs: newNeed
     })
 }
 

@@ -10,4 +10,7 @@
     <app-side-bar [project]="projectToDisplay" [owner]="user"></app-side-bar>
   </div>
 </div>
-<app-need [selectedProjectKey]="projectId"></app-need>
+<app-add-need [selectedProjectKey]="projectId"></app-add-need>
+<div class="needs-list">
+  <app-need *ngFor="let need of projectToDisplay.needs" [selectedProjectKey]="projectId" [need]="need"></app-need>
+</div>

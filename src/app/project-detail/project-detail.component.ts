@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
@@ -20,6 +21,7 @@ export class ProjectDetailComponent implements OnInit {
   public projectId: string;
   public projectToDisplay: any;
   public user: User;
+  public projectNeeds: any[] = []
 
   constructor(
     private route: ActivatedRoute,
@@ -32,20 +34,22 @@ export class ProjectDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
       this.projectId = urlParameters['id'];
+      console.log(this.projectId);
     });
     this.projectToDisplay = this.projectService.getProjectById(this.projectId).subscribe(dataLastEmittedFromObserver => {
       this.user = new User(dataLastEmittedFromObserver.owner.name, dataLastEmittedFromObserver.owner.userEmail, dataLastEmittedFromObserver.owner.userPassword);
       // this.user.id = dataLastEmittedFromObserver.owner.id;
 
       setTimeout(() => {this.projectToDisplay = new Project(
-              dataLastEmittedFromObserver.needs,
-              dataLastEmittedFromObserver.title,
-              dataLastEmittedFromObserver.image,
-              dataLastEmittedFromObserver.description,
-              dataLastEmittedFromObserver.socialMedia,
-              dataLastEmittedFromObserver.contactInformation,
-              dataLastEmittedFromObserver.website
-            )}, 1);
+        dataLastEmittedFromObserver.owner,
+        dataLastEmittedFromObserver.needs,
+        dataLastEmittedFromObserver.title,
+        dataLastEmittedFromObserver.image,
+        dataLastEmittedFromObserver.description,
+        dataLastEmittedFromObserver.socialMedia,
+        dataLastEmittedFromObserver.contactInformation,
+        dataLastEmittedFromObserver.website
+      )}, 1);
     });
   }
 
@@ -55,5 +59,4 @@ export class ProjectDetailComponent implements OnInit {
       this.router.navigate([""]);
     }
   }
-
 }
