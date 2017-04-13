@@ -12,22 +12,19 @@ import { Project } from '../project.model';
 })
 export class NeedComponent implements OnInit {
   @Input() selectedProjectKey: string;
-  @Input() need;
+  @Input() needId;
+  public need;
   public editArea = false;
 
   constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
-    console.log(this.selectedProjectKey);
-  //   this.projectService.getProjectById(this.selectedProjectKey).subscribe(thisProject => {
-  //       this.currentProject = thisProject;
-  //       this.currentNeeds = this.currentProject.needs;
-  //       console.log(this.currentNeeds);
-  //   });
+    this.projectService.getNeedById(this.selectedProjectKey, this.needId).subscribe((data) => {
+      this.need = data;
+    })
   }
 
   finishEditing() {
-    console.log(this.need);
     this.editArea = true;
   }
 
