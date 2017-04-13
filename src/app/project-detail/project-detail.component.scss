@@ -2,12 +2,18 @@
   // border: 1px solid red;
 }
 
-.project-detail-box {
-  border: 1px solid blue;
+h1 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  weight: 700;
+  text-transform: uppercase;
+}
+
+.container {
+  margin-bottom: 50px;
 }
 
 .main-project {
-  border: 1px solid purple;
+
   img {
     display: block;
     max-width: 100%;

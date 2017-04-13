@@ -33,3 +33,21 @@
 .space {
   height: 50px;
 }
+
+.project {
+  h4 {
+    font-weight: bold;
+  }
+  h4, img {
+    cursor: pointer;
+  }
+  div {
+    font-size: 14px;
+  }
+}
+
+h4 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  weight: 700;
+  text-transform: uppercase;
+}

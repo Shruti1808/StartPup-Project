@@ -1,6 +1,6 @@
-<div class="project-detail-box row">
+<div class="project-detail-box container">
   <div class="main-project col-md-8">
-    <h2>{{projectToDisplay?.title}}</h2>
+    <h1>{{projectToDisplay?.title}}</h1>
     <app-edit-project *ngIf="startEditing" [projectToEdit]='projectToDisplay' [projectId]='projectId' (closeModalSender)='startEditing = false'></app-edit-project>
     <app-add-need  *ngIf="showAddNeed" [selectedProjectKey]="projectId"></app-add-need>
 
