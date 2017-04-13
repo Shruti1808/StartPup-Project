@@ -46,10 +46,6 @@ export class UserDetailComponent implements OnInit {
         }, 1);
 
         console.log(this.userToDisplay);
-        // for(let i = 0; i < this.userToDisplay.projects.length; i++) {
-        //   this.userProjects.push(this.userToDisplay.projects[i]);
-        //   console.log(this.userProjects[i]);
-        // }
       });
     }
 
