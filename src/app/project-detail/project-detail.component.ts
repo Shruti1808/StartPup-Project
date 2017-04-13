@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
 import { Project } from '../project.model';
@@ -22,6 +22,8 @@ export class ProjectDetailComponent implements OnInit {
   public user;
   public projectNeeds: any[] = []
   public userIsOwner = false;
+  public startEditing = false;
+  public showAddNeed = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -65,5 +67,13 @@ export class ProjectDetailComponent implements OnInit {
       this.projectService.deleteProject(projectToDelete);
       this.router.navigate([""]);
     }
+  }
+
+  editClickSender() {
+    this.startEditing = true;
+  }
+
+  needClickSender() {
+    this.showAddNeed = true;
   }
 }
