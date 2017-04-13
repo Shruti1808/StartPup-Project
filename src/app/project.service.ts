@@ -31,10 +31,8 @@ export class ProjectService {
   }
 
   addNewNeed(currentProject, newNeed){
-    var projectEntryInFirebase = this.getProjectById(currentProject.$key);
-    projectEntryInFirebase.update({
-      needs: newNeed
-    })
+    const needs = this.angularFire.database.list('/projects/'+ currentProject + '/needs/');
+    needs.push(newNeed);
 }
 
   editProject(localUpdatedProject, socialMediaArray, localUpdatedProjectKey) {
@@ -54,7 +52,7 @@ export class ProjectService {
   }
 
   deleteProject(localProjectToDelete) {
-    var projectEntryInFirebase = this.getProjectById(localProjectToDelete.$key);
+    var projectEntryInFirebase = this.getProjectById(localProjectToDelete.key);
     projectEntryInFirebase.remove();
   }
 }
