@@ -10,7 +10,7 @@ import { User } from '../user.model';
 })
 export class SideBarComponent implements OnInit {
   @Input() project: any;
-  @Input() owner: User;
+  @Input() owner;
 
   constructor() { }
 
@@ -27,6 +27,8 @@ export class SideBarComponent implements OnInit {
     } else if (socialMedia.mediaType === 'LinkedIn') {
       return "fa fa-linkedin-square fa-2x";
     }
+    console.log("SOCIAL MEDIA");
+    console.log(this.owner.socialMedia);
   }
 
   getTwitterHandle() {

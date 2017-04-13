@@ -20,7 +20,7 @@ import { Router } from '@angular/router';
 export class ProjectDetailComponent implements OnInit {
   public projectId: string;
   public projectToDisplay: any;
-  public user: User;
+  public user;
   public projectNeeds: any[] = []
 
   constructor(
@@ -37,7 +37,11 @@ export class ProjectDetailComponent implements OnInit {
       console.log(this.projectId);
     });
     this.projectToDisplay = this.projectService.getProjectById(this.projectId).subscribe(dataLastEmittedFromObserver => {
-      this.user = new User(dataLastEmittedFromObserver.owner.name, dataLastEmittedFromObserver.owner.userEmail, dataLastEmittedFromObserver.owner.userPassword);
+
+      this.user = this.userService.getUserById(dataLastEmittedFromObserver.owner).subscribe((dataLastEmittedFromObserver) => {
+        this.user = dataLastEmittedFromObserver;
+      });
+      console.log(this.user);
       // this.user.id = dataLastEmittedFromObserver.owner.id;
 
       setTimeout(() => {this.projectToDisplay = new Project(
