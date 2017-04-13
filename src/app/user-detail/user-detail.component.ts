@@ -49,5 +49,5 @@ export class UserDetailComponent implements OnInit {
 
   showEditUser() {
     this.showEditor = true;
-  }
+  }  
 }
