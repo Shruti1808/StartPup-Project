@@ -17,12 +17,17 @@
   margin: 1%;
 }
 
+.panel {
+  box-shadow: 2px 2px 5px #dddddd;
+}
+
 .panel-body {
   min-height: 250px;
 }
 
-.panel-heading {
+.panel-heading{
   padding: 0;
+  overflow: hidden;
 }
 
 .space {
