@@ -1,6 +1,6 @@
 <div class="side-bar-box">
   <div class="owner-box row">
-  <img [src]="owner?.image" alt="owner?.name" />
+    <img [src]="owner?.image" alt="owner?.name" />
     <h3>{{owner?.name}}</h3>
     <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{owner?.location}}</p>
   </div>
@@ -8,6 +8,9 @@
     <div *ngFor="let sm of project.socialMedia" class="social-media">
       <h5><i [class]="getType(sm)" aria-hidden="true"></i><a href="{{sm.mediaAccount}}">{{sm.mediaAccount}}</a></h5>
     </div>
+  </div>
+  <div class="admin" *ngIf="userIsOwner">
+    <button type="button" class="btn btn-danger btn-sm" name="button" (click)="deleteProject(projectToDisplay)">Delete</button>
   </div>
   <div class="tweetbox">
     <!-- <app-twitter-timeline [twitterHandle] ="getTwitterHandle()"></app-twitter-timeline> -->

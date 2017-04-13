@@ -22,6 +22,7 @@ export class ProjectDetailComponent implements OnInit {
   public projectToDisplay: any;
   public user;
   public projectNeeds: any[] = []
+  public userIsOwner = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -54,6 +55,7 @@ export class ProjectDetailComponent implements OnInit {
         dataLastEmittedFromObserver.contactInformation,
         dataLastEmittedFromObserver.website
       )}, 1);
+      this.userIsOwner = this.projectService.authenticateProject(this.projectId);
     });
   }
 

@@ -2,15 +2,15 @@
   <div class="main-project col-md-8">
     <h2>{{projectToDisplay?.title}}</h2>
     <app-edit-project [projectToEdit]='projectToDisplay' [projectId]='projectId'></app-edit-project>
-    <button type="button" class="btn btn-danger btn-sm" name="button" (click)="deleteProject(projectToDisplay)">Delete</button>
+
     <img *ngIf="projectToDisplay" [src]="projectToDisplay?.image" alt="projectToDisplay?.title" />
     <p [innerHTML]="projectToDisplay?.description"></p>
   </div>
   <div class="col-md-4">
-    <app-side-bar [project]="projectToDisplay" [owner]="user"></app-side-bar>
+    <app-side-bar [project]="projectToDisplay" [owner]="user" [userIsOwner]="userIsOwner"></app-side-bar>
   </div>
 </div>
 <app-add-need [selectedProjectKey]="projectId"></app-add-need>
 <div class="needs-list">
-  <app-need *ngFor="let needId of projectToDisplay.needs | keys" [selectedProjectKey]="projectId" [needId]="needId"></app-need>
+  <app-need *ngFor="let needId of projectToDisplay.needs | keys" [selectedProjectKey]="projectId" [needId]="needId" [userIsOwner]="userIsOwner"></app-need>
 </div>

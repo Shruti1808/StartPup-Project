@@ -14,10 +14,10 @@ import { Project } from '../project.model';
 export class NeedComponent implements OnInit {
   @Input() selectedProjectKey: string;
   @Input() needId;
+  @Input() userIsOwner;
   public need;
   public project;
   public editArea = false;
-  public userIsOwner = false;
 
   constructor(
     private projectService: ProjectService,
@@ -28,16 +28,7 @@ export class NeedComponent implements OnInit {
     this.projectService.getNeedById(this.selectedProjectKey, this.needId).subscribe((data) => {
       this.need = data;
     })
-    this.userIsOwner = this.projectService.authenticateProject(this.selectedProjectKey);
-    // this.projectService.getProjectById(this.selectedProjectKey).subscribe((data) => {
-    //   this.project = data;
-    // })
-    // const currentUser = this.afService.authState.uid;
-    // const projectOwner = this.project.owner;
-    //
-    // if (currentUser === projectOwner) {
-    //   this.userIsOwner = true;
-    // }
+    // this.userIsOwner = this.projectService.authenticateProject(this.selectedProjectKey);
   }
 
   finishEditing() {

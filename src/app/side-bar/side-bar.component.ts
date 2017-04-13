@@ -11,6 +11,7 @@ import { User } from '../user.model';
 export class SideBarComponent implements OnInit {
   @Input() project: any;
   @Input() owner;
+  @Input() userIsOwner;
 
   constructor() { }
 
