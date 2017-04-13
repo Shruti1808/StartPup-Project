@@ -22,8 +22,7 @@
 }
 
 .panel-body {
-  height: 250px;
-  overflow: hidden;
+  max-height: 400px;
 }
 
 .panel-heading{
@@ -53,6 +52,6 @@ h4 {
   text-transform: uppercase;
 }
 
-.textbody {
-  margin:5px;
+h1, .h1{
+  font-size: 14px!important;
 }
