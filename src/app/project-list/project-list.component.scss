@@ -19,6 +19,8 @@
 
 .panel {
   box-shadow: 2px 2px 5px #dddddd;
+  height:400px;
+  overflow: hidden;
 }
 
 .panel-body {
@@ -50,4 +52,8 @@ h4 {
   font-family: 'Open Sans Condensed', sans-serif;
   weight: 700;
   text-transform: uppercase;
+}
+
+.textbody {
+  margin:5px;
 }
