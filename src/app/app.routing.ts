@@ -11,8 +11,6 @@ import { ContactComponent } from './contact/contact.component';
 import { AdminComponent }   from './admin/admin.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { NewProjectComponent } from './new-project/new-project.component';
-import { NewContactComponent } from './new-contact/new-contact.component';
-import { NewSocialmediaComponent } from './new-socialmedia/new-socialmedia.component';
 import { NeedComponent } from './need/need.component';
 import { EditNeedComponent } from './edit-need/edit-need.component';
 
@@ -37,14 +35,6 @@ const appRoutes: Routes = [
   {
     path: 'new-project',
     component: NewProjectComponent
-  },
-  {
-    path: 'new-project',
-    component: NewContactComponent
-  },
-  {
-    path: 'new-project',
-    component: NewSocialmediaComponent
   },
   {
     path: 'login',

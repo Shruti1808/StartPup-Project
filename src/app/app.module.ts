@@ -19,14 +19,12 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { AdminComponent } from './admin/admin.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { NewProjectComponent } from './new-project/new-project.component';
-import { NewContactComponent } from './new-contact/new-contact.component';
-import { NewSocialmediaComponent } from './new-socialmedia/new-socialmedia.component';
 import { UserProjectComponent } from './user-project/user-project.component';
 import { TwitterTimelineComponent } from './twitter-timeline/twitter-timeline.component';
 import { NeedComponent } from './need/need.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
-import { EditNeedComponent } from './edit-need/edit-need.component';
+import { EditNeedComponent } from './edit-need/edit-need.component'; 
 
 
 export const firebaseConfig = {
@@ -51,8 +49,6 @@ export const firebaseConfig = {
     AdminComponent,
     EditUserComponent,
     NewProjectComponent,
-    NewContactComponent,
-    NewSocialmediaComponent,
     UserProjectComponent,
     TwitterTimelineComponent,
     NeedComponent,
@@ -67,7 +63,7 @@ export const firebaseConfig = {
     routing,
     AngularFireModule.initializeApp(firebaseConfig),
     FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot()
+    FroalaViewModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
