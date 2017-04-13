@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 // import { Need } from '../need.model';
 import { ProjectService } from '../project.service';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -13,18 +13,20 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class EditNeedComponent implements OnInit {
   @Input() selectedNeed;
   @Input() projectId;
+  @Input() needId;
   public currentProject;
   public editForm = true;
+  @Output() clickSender = new EventEmitter();
 
 
   constructor(private projectService: ProjectService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.projectId);
-    this.currentProject = this.projectService.getProjectById(this.projectId).subscribe((dataLastEmittedFromObserver) => {
-      this.currentProject = dataLastEmittedFromObserver;
-      console.log(this.currentProject.needs);
-    });
+    // console.log(this.projectId);
+    // this.currentProject = this.projectService.getProjectById(this.projectId).subscribe((dataLastEmittedFromObserver) => {
+    //   this.currentProject = dataLastEmittedFromObserver;
+    //   console.log(this.currentProject.needs);
+    // });
   }
 
   // beginUpdatingNeed(needToUpdate){
@@ -32,9 +34,8 @@ export class EditNeedComponent implements OnInit {
   // }
 
   finishedEditNeed() {
-    // this.projectService.updateNeed(this.projectId, this.selectedNeed);
-    console.log(this.projectId);
-    console.log(this.selectedNeed);
+    this.projectService.updateNeed(this.selectedNeed, this.projectId, this.needId);
+    this.clickSender.emit();
   }
 
 

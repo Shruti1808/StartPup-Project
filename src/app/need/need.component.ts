@@ -25,7 +25,7 @@ export class NeedComponent implements OnInit {
   }
 
   finishEditing() {
-    this.editArea = true;
+    this.editArea = false;
   }
 
   setSelection(){

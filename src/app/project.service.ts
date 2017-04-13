@@ -62,7 +62,7 @@ export class ProjectService {
     needToDelete.remove();
   }
 
-  editNeed(localNeed, projectId, needId) {
+  updateNeed(localNeed, projectId, needId) {
     let needToEdit = this.getNeedById(projectId, needId);
     needToEdit.update({
       description: localNeed.description,

@@ -6,4 +6,4 @@
   <button type="button" (click)="setSelection()">Edit</button>
 </div>
 
-<app-edit-need *ngIf="editArea" [selectedNeed]="need" [projectId]="selectedProjectKey" (clickSender)="finishEditing()"></app-edit-need>
+<app-edit-need *ngIf="editArea" [selectedNeed]="need" [projectId]="selectedProjectKey" [needId]="needId" (clickSender)="finishEditing()"></app-edit-need>
