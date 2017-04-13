@@ -1,0 +1,21 @@
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.flex-object {
+  min-width: 200px;
+  width: 25%;
+  margin-top: 15px;
+  display: inline-block;
+  margin-left: 1%;
+  img {
+    width: 100%;
+  }
+  margin: 2.5%;
+}
+
+.panel-body {
+  min-height: 250px;
+}
