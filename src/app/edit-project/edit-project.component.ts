@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProjectService } from '../project.service';
 import { SocialMedia } from '../social-media.model';
+import { Contact } from '../contact.model';
 
 @Component({
   selector: 'app-edit-project',
@@ -11,11 +12,9 @@ import { SocialMedia } from '../social-media.model';
 export class EditProjectComponent implements OnInit {
   @Input() projectToEdit;
   @Input() projectId;
-  currentEditMedia: SocialMedia;
-  projectSocialMedia: SocialMedia[] = [];
 
-  showProjectEditForm: boolean = false;
-  editSocialMediaForm: boolean = false;
+  projectSocialMedia: SocialMedia[] = [];
+  contacts: Contact[] = [];
 
   constructor(private projectService: ProjectService) { }
 
@@ -23,40 +22,42 @@ export class EditProjectComponent implements OnInit {
   }
 
   submitEdit(projectToEdit) {
-    this.projectService.editProject(this.projectToEdit, this.projectSocialMedia, this.projectId);
+    this.projectService.editProject(this.projectToEdit, this.projectSocialMedia, this.contacts, this.projectId);
   }
 
   reload(){
     window.location.reload();
   }
 
-  editSocialMedia(mediaToEdit){
-    this.editSocialMediaForm = true;
-    this.currentEditMedia = mediaToEdit;
-  }
 
-  confirmEditSocialMedia(){
-    for (let socialAccount of this.projectSocialMedia){
-      if (socialAccount.mediaType == this.currentEditMedia.mediaType){
-        socialAccount.mediaAccount = this.currentEditMedia.mediaAccount;
-      }
-    }
-    this.editSocialMediaForm = !this.editSocialMediaForm;
-  }
+
 
   getSocialMedia(){
-    for (let socialAccount of this.projectToEdit.socialMedia){
-      var newSocialMediaLocal = new SocialMedia(socialAccount.mediaType, socialAccount.mediaAccount)
-      this.projectSocialMedia.push(newSocialMediaLocal);
-    }
-  }
-
-  deleteSocialMedia(mediaToDelete) {
-    for (let index in this.projectSocialMedia){
-      if (this.projectSocialMedia[parseInt(index)].mediaType == mediaToDelete.mediaType){
-        this.projectSocialMedia.splice(parseInt(index),1);
+    this.projectSocialMedia = [];
+    if (this.projectToEdit.socialMedia){
+      for (let socialAccount of this.projectToEdit.socialMedia){
+        var newSocialMediaLocal = new SocialMedia(socialAccount.mediaType, socialAccount.mediaAccount);
+        this.projectSocialMedia.push(newSocialMediaLocal);
       }
     }
   }
 
+  setSocialMedia(mediaArray){
+    this.projectSocialMedia = mediaArray;
+  }
+
+  getContacts(){
+    this.contacts = [];
+    if (this.projectToEdit.contactInformation){
+      for (let contact of this.projectToEdit.contactInformation){
+        var newContactLocal = new Contact(contact.contactType, contact.contactDetail)
+        this.contacts.push(newContactLocal);
+      }
+    }
+  }
+
+  setContacts(contactsArray){
+    this.contacts = contactsArray;
+    console.log(this.contacts);
+  }
 }

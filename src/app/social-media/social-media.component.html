@@ -1,0 +1,33 @@
+<div class="form-group">
+  <h3>Social Media</h3>
+  <div *ngIf="!editSocialMediaForm">
+      <div *ngFor = 'let socialmedia of socialMedia'>
+        <div *ngIf="socialmedia.mediaType">
+        <h4>{{socialmedia.mediaType}}: {{socialmedia.mediaAccount}} <i class="fa fa-pencil" aria-hidden="true" (click)="editSocialMedia(socialmedia)"></i><i class="fa fa-times" aria-hidden="true" (click)="deleteSocialMedia(socialmedia)"></i>
+        </h4>
+      </div>
+    </div>
+  </div>
+  <div *ngIf = "editSocialMediaForm">
+    <h4>{{currentEditMedia.mediaType}}: </h4>
+    <label *ngIf="currentEditMedia.mediaType=='Facebook' || currentEditMedia.mediaType=='Twitter' || currentEditMedia.mediaType=='Instagram'">Input username</label>
+    <label *ngIf="currentEditMedia.mediaType=='LinkedIn' ">Input url</label>
+    <input *ngIf="currentEditMedia.mediaType != ''" type="text" name="name" [(ngModel)]="currentEditMedia.mediaAccount">
+    <button type="button" name="button" (click)="confirmEditSocialMedia()">Confirm</button>
+  </div>
+  <label>Add New social media</label>
+  <select (change)="onChange($event.target.value)">
+    <option value="">Select social media</option>
+    <option value="Facebook">Facebook</option>
+    <option value="LinkedIn">LinkedIn</option>
+    <option value="Twitter">Twitter</option>
+    <option value="Instagram">Instagram</option>
+  </select>
+  <label *ngIf="socialMediaString=='Facebook' || socialMediaString=='Twitter' || socialMediaString=='Instagram'">Input username</label>
+
+  <label *ngIf="socialMediaString=='LinkedIn' ">Input url</label>
+  <input *ngIf="socialMediaString != ''" type="text" name="name" [(ngModel)]="newAccount">
+  <span *ngIf="newAccount" (click)="addSocialMedia()">
+    <i class="fa fa-plus-square fa-lg" aria-hidden="true"></i>
+  </span>
+</div>

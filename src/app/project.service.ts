@@ -26,7 +26,7 @@ export class ProjectService {
     return this.projects.push(newProject).key;
   }
 
-  editProject(localUpdatedProject, socialMediaArray, localUpdatedProjectKey) {
+  editProject(localUpdatedProject, socialMediaArray, contactArray, localUpdatedProjectKey) {
     //$key is undefined
     console.log(localUpdatedProjectKey)
     let projectEntryInFirebase = this.getProjectById(localUpdatedProjectKey);
@@ -37,7 +37,7 @@ export class ProjectService {
       image: localUpdatedProject.image,
       description: localUpdatedProject.description,
       socialMedia: socialMediaArray,
-      // contactInformation: localUpdatedProject.contactInformation,
+      contactInformation: contactArray,
       website: localUpdatedProject.website
     })
   }
@@ -71,6 +71,8 @@ export class ProjectService {
       type: localNeed.type
     })
   }
+
+  //Project authentication method
 
   authenticateProject(projectKey) {
     let project;

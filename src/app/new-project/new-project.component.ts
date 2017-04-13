@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SocialMedia } from '../social-media.model';
 import { Project } from '../project.model';
+import { Contact } from '../contact.model';
 import { ProjectService } from '../project.service';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
@@ -13,15 +14,15 @@ import { AF } from '../providers/af';
   providers:[ ProjectService, UserService ]
 })
 export class NewProjectComponent implements OnInit {
-  newDescription: string = "";
-  socialMediaString: string = "";
-  newAccount: string="";
-  socialMedia : SocialMedia[] = [];
+  public socialMedia : SocialMedia[] = [];
+  public newDescription: string = "";
+  public contacts: Contact[]=[];
   public options: Object = {
     height:400
   }
   public currentUser;
-  public userProjects;
+  public socialMediaString;
+  public newAccount;
 
   constructor(
     private projectService: ProjectService,
@@ -38,18 +39,24 @@ export class NewProjectComponent implements OnInit {
     let newProject = new Project(this.currentUser, [], newTitle, newImage, newDescription, this.socialMedia, [], newWebsite);
     let key = this.projectService.addNewProject(newProject);
     this.userService.addProjectToUser(this.currentUser, key);
-    this.router.navigate([""]);
+    this.projectService.addNewProject(newProject);
+    this.router.navigate(['projects', key]);
   }
 
-  onChange(socialMediaOption) {
-    this.socialMediaString = socialMediaOption;
+  setSocialMedia(mediaArray){
+    this.socialMedia = mediaArray;
   }
+
 
   addNewSocialMedia(){
     let newSocialMedia = new SocialMedia(this.socialMediaString, this.newAccount);
     this.socialMedia.push(newSocialMedia);
     this.socialMediaString = '';
     this.newAccount = '';
+  }
+
+  setContact(contactArray){
+    this.contacts = contactArray;
   }
 
 }
